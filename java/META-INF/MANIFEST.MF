@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Specification-Title: N.A.
+Created-By: Jürgen Reuter
+Implementation-Title: Tipping Points
+Specification-Vendor: Juergen Reuter
+Implementation-Vendor: Juergen Reuter
+Main-Class: org.soundpaint.tipping_points.Main
