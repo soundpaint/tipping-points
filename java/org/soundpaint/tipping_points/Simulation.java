@@ -55,6 +55,16 @@ public class Simulation implements Runnable, ChangeListener
 
   private static final double MAX_SPEED = 0.04;
 
+  public void skipToStart()
+  {
+    hysteresis.valueChanged(null, hysteresis.getMinValue());
+  }
+
+  public void skipToEnd()
+  {
+    hysteresis.valueChanged(null, hysteresis.getMaxValue());
+  }
+
   public synchronized boolean requestStart()
   {
     if (status == Status.SLEEPING) {

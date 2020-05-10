@@ -52,7 +52,7 @@ $(JAR_OBJ): $(JAR_DIR) $(JAVA_OBJ)
 	#jar -0cvfm $(JAR_DIR)/TippingPoints.jar $(JAVA_DIR)/META-INF/MANIFEST.MF .
 
 $(IMAGES_OBJ_DIR)/%.png: $(IMAGES_SRC_DIR)/%.png
-	cp -ip $< $@
+	cp -pf $< $@
 
 depend:
 

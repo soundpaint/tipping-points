@@ -63,7 +63,18 @@ public class TransportControl
     return listeners.remove(listener);
   }
 
-  public synchronized void stop() {
+  public void skipToStart()
+  {
+    simulation.skipToStart();
+  }
+
+  public void skipToEnd()
+  {
+    simulation.skipToEnd();
+  }
+
+  public synchronized void stop()
+  {
     if (status != Status.RUNNING) {
       throw new IllegalStateException("not running");
     }
@@ -72,7 +83,8 @@ public class TransportControl
     }
   }
 
-  public synchronized void start() {
+  public synchronized void start()
+  {
     if (status != Status.STOPPED) {
       throw new IllegalStateException("already running");
     }

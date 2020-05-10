@@ -31,8 +31,10 @@ public class ToolBar extends JToolBar
   private static final long serialVersionUID = -4063899286688416971L;
 
   private final TransportControl transportControl;
+  private JButton skipToStart;
   private JButton start;
   private JButton stop;
+  private JButton skipToEnd;
 
   private ToolBar()
   {
@@ -49,6 +51,14 @@ public class ToolBar extends JToolBar
 
   private void addButtons()
   {
+    skipToStart = createToolButton("skiptostart32x32.png", "Skip to Start");
+    skipToStart.setToolTipText("Skip to Start");
+    skipToStart.addActionListener((final ActionEvent event) -> {
+        transportControl.skipToStart();
+      });
+    skipToStart.setEnabled(true);
+    add(skipToStart);
+
     start = createToolButton("play32x32.png", "Start simulation");
     start.setToolTipText("Start simulation");
     start.addActionListener((final ActionEvent event) -> {
@@ -64,6 +74,14 @@ public class ToolBar extends JToolBar
       });
     stop.setEnabled(false);
     add(stop);
+
+    skipToEnd = createToolButton("skiptoend32x32.png", "Skip to End");
+    skipToEnd.setToolTipText("Skip to End");
+    skipToEnd.addActionListener((final ActionEvent event) -> {
+        transportControl.skipToEnd();
+      });
+    skipToEnd.setEnabled(true);
+    add(skipToEnd);
   }
 
   private static JButton createToolButton(final String imageFileName,
