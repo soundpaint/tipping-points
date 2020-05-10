@@ -39,7 +39,10 @@ public class SimulationPane extends Box
   {
     super(SwingConstants.VERTICAL);
     simulation = new Simulation(hysteresis);
-    add(new ToolBar(new TransportControl(simulation)));
+    final Box toolBarPane = new Box(SwingConstants.HORIZONTAL);
+    add(toolBarPane);
+    toolBarPane.add(new ToolBar(new TransportControl(simulation)));
+    toolBarPane.add(Box.createGlue());
     add(new SimulationControlPane(simulation, hysteresis));
 
     final Border loweredEtched =
