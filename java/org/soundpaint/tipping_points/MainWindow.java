@@ -21,9 +21,7 @@ package org.soundpaint.tipping_points;
 import java.awt.BorderLayout;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JSlider;
 import javax.swing.JSplitPane;
-import javax.swing.SwingConstants;
 
 public class MainWindow extends JFrame
 {
@@ -32,8 +30,7 @@ public class MainWindow extends JFrame
   private final HysteresisModel hysteresis;
   private final HysteresisLoop hysteresisLoop;
   private final SeeSaw seeSaw;
-  private final Slider progressSlider;
-  private final SpringControl progressControl;
+  private final SimulationPane simulationPane;
 
   private MainWindow()
   {
@@ -44,20 +41,14 @@ public class MainWindow extends JFrame
   {
     super("Tipping Points");
     hysteresis = new HysteresisModel();
-    final Simulation simulation = new Simulation(hysteresis);
     hysteresisLoop = new HysteresisLoop(hysteresis);
     seeSaw = new SeeSaw("See Saw", hysteresis);
-    progressSlider =
-      new Slider(hysteresis, SwingConstants.HORIZONTAL, 0, 100, 0);
-    progressControl = new SpringControl(100);
-    progressControl.addChangeListener(simulation);
-
+    simulationPane = new SimulationPane(hysteresis);
     setJMenuBar(new MenuBar(appControl));
     setLayout(new BorderLayout());
-    add(progressSlider, BorderLayout.NORTH);
+    add(simulationPane, BorderLayout.NORTH);
     add(createSplitPane(hysteresis), BorderLayout.CENTER);
-    add(progressControl, BorderLayout.SOUTH);
-    new Thread(simulation).start();
+    pack();
   }
 
   private JComponent createSplitPane(final HysteresisModel hysteresis)

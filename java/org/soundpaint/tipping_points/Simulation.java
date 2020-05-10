@@ -21,8 +21,9 @@ package org.soundpaint.tipping_points;
 import java.util.Objects;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class Simulation implements Runnable, SimulationControl
+public class Simulation implements Runnable, ChangeListener
 {
   private enum Status {
     START_REQUESTED,
@@ -35,6 +36,7 @@ public class Simulation implements Runnable, SimulationControl
   private Status status;
   private double speed;
   private double acceleration;
+  private Thread thread;
 
   public Simulation(final HysteresisModel hysteresis)
   {
@@ -43,14 +45,45 @@ public class Simulation implements Runnable, SimulationControl
     status = Status.SLEEPING;
     speed = 0.002;
     acceleration = 0.0;
+    thread = new Thread(this);
+  }
+
+  public void startThread()
+  {
+    thread.start();
   }
 
   private static final double MAX_SPEED = 0.04;
 
-  public void run()
+  public synchronized boolean requestStart()
   {
+    if (status == Status.SLEEPING) {
+      status = Status.START_REQUESTED;
+      return true;
+    }
+    return false;
+  }
+
+  public synchronized boolean requestStop()
+  {
+    if (status == Status.RUNNING) {
+      status = Status.STOP_REQUESTED;
+      return true;
+    }
+    return false;
+  }
+
+  private void doContinue()
+  {
+    while (status != Status.START_REQUESTED) {
+      try {
+        Thread.sleep(100);
+      } catch (final InterruptedException e) {
+        // ignore
+      }
+    }
     status = Status.RUNNING;
-    while (status != Status.STOP_REQUESTED) {
+    while (status == Status.RUNNING) {
       try {
         Thread.sleep(100);
       } catch (final InterruptedException e) {
@@ -63,7 +96,35 @@ public class Simulation implements Runnable, SimulationControl
           invokeLater(() -> hysteresis.valueChanged(null, value));
       }
     }
+  }
+
+  private void doPause()
+  {
+    while (status != Status.STOP_REQUESTED) {
+      try {
+        Thread.sleep(100);
+      } catch (final InterruptedException e) {
+        // ignore
+      }
+    }
     status = Status.SLEEPING;
+    while (status == Status.SLEEPING) {
+      try {
+        Thread.sleep(100);
+      } catch (final InterruptedException e) {
+        // ignore
+      }
+      speed = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, speed + acceleration));
+    }
+  }
+
+  public void run()
+  {
+    status = Status.SLEEPING;
+    while (true) {
+      doContinue();
+      doPause();
+    }
   }
 
   @Override
@@ -71,8 +132,8 @@ public class Simulation implements Runnable, SimulationControl
   {
     final Object source = e.getSource();
     if (source instanceof SpringControl) {
-      final SpringControl springControl = (SpringControl)source;
-      final double normalizedValue = springControl.getNormalizedValue();
+      final SpringControl accelerationControl = (SpringControl)source;
+      final double normalizedValue = accelerationControl.getNormalizedValue();
       final double symmetricValue = 2.0 * normalizedValue - 1.0;
       final double exponentialValue =
         1.0 / Math.E * symmetricValue *

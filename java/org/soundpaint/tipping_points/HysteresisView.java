@@ -39,8 +39,6 @@ public abstract class HysteresisView
   private double leftLimbUpperValue;
   private double rightLimbLowerValue;
   private double rightLimbUpperValue;
-  //private double value;
-  //private HysteresisModel.State state;
 
   private HysteresisView()
   {

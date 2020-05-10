@@ -24,13 +24,22 @@ RUN_CLASSPATH=.
 JAVA_SRC=$(wildcard $(JAVA_DIR)/org/soundpaint/tipping_points/*.java)
 JAVA_OBJ=$(patsubst $(JAVA_DIR)/%.java,$(BUILD_DIR)/%.class,$(JAVA_SRC))
 
+IMAGES_SRC_DIR=$(JAVA_DIR)/images
+IMAGES_OBJ_DIR=$(BUILD_DIR)/images
+IMAGES_SRC=$(wildcard $(IMAGES_SRC_DIR)/*.png)
+IMAGES_OBJ=$(patsubst $(IMAGES_SRC_DIR)/%,$(IMAGES_OBJ_DIR)/%,$(IMAGES_SRC))
+
 JAR_OBJ=$(JAR_DIR)/TippingPoints.jar
 
 all: obj jar
 
-obj: $(BUILD_DIR) $(JAVA_OBJ)
+obj: $(BUILD_DIR) $(JAVA_OBJ) $(IMAGES_OBJ_DIR) $(IMAGES_OBJ)
 
 $(BUILD_DIR):
+	mkdir -p $@
+
+$(IMAGES_OBJ_DIR):
+	echo BUILD_IMAGES_DIR=$(IMAGES_OBJ_DIR)
 	mkdir -p $@
 
 $(JAR_DIR):
@@ -41,6 +50,9 @@ jar: $(JAR_OBJ)
 $(JAR_OBJ): $(JAR_DIR) $(JAVA_OBJ)
 	cd $(BUILD_DIR); \
 	#jar -0cvfm $(JAR_DIR)/TippingPoints.jar $(JAVA_DIR)/META-INF/MANIFEST.MF .
+
+$(IMAGES_OBJ_DIR)/%.png: $(IMAGES_SRC_DIR)/%.png
+	cp -ip $< $@
 
 depend:
 
