@@ -18,7 +18,7 @@
 ROOT_DIR=..
 include ../defs.mak
 
-COMPILE_CLASSPATH=$(JAVA_DIR):$(BUILD_DIR):/usr/share/java/javax.json.jar
+COMPILE_CLASSPATH=$(JAVA_DIR):$(BUILD_DIR)
 RUN_CLASSPATH=.
 
 JAVA_SRC=$(wildcard $(JAVA_DIR)/org/soundpaint/tipping_points/*.java)
