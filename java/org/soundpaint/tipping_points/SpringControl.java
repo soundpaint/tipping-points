@@ -81,13 +81,16 @@ public class SpringControl extends JPanel
     this.maxValue = maxValue;
     if ((orientation != SwingConstants.HORIZONTAL) &&
         (orientation != SwingConstants.VERTICAL)) {
-      throw new IllegalArgumentException("orientation must be one of SwingConstants.HORIZONTAL or SwingConstants.VERTICAL");
+      throw new IllegalArgumentException("orientation must be one of " +
+                                         "SwingConstants.HORIZONTAL or " +
+                                         "SwingConstants.VERTICAL");
     }
     horizontal = orientation == SwingConstants.HORIZONTAL;
     setPreferredSize(new Dimension(10, 30));
     final MouseAdapter mouseAdapter = new MouseAdapter() {
         @Override
-        public void mousePressed(final MouseEvent e) {
+        public void mousePressed(final MouseEvent e)
+        {
           mouseHoldActive = true;
           if (SwingUtilities.isLeftMouseButton(e) &&
               cursorChanged(e.getX(), e.getY())) {
@@ -97,12 +100,14 @@ public class SpringControl extends JPanel
         }
 
         @Override
-        public void mouseReleased(final MouseEvent e) {
+        public void mouseReleased(final MouseEvent e)
+        {
           mouseHoldActive = false;
         }
 
         @Override
-        public void mouseDragged(final MouseEvent e) {
+        public void mouseDragged(final MouseEvent e)
+        {
           if (SwingUtilities.isLeftMouseButton(e) &&
               cursorChanged(e.getX(), e.getY())) {
             SwingUtilities.getRoot(SpringControl.this).repaint();
@@ -114,7 +119,8 @@ public class SpringControl extends JPanel
     addMouseListener(mouseAdapter);
 
     final ActionListener equilibrator = new ActionListener() {
-        public void actionPerformed(final ActionEvent e) {
+        public void actionPerformed(final ActionEvent e)
+        {
           if (!mouseHoldActive) {
             if (value != 0) {
               value /= 2;
@@ -129,20 +135,22 @@ public class SpringControl extends JPanel
 
   private boolean cursorChanged(final int mouseX, final int mouseY)
   {
-    final int halfWidth = getWidth() >> 1;
-    final int halfHeight = getHeight() >> 1;
-    final int maxDisplayValue =
-      horizontal ?
-      halfWidth - SLIT_PADDING :
-      halfHeight - SLIT_PADDING;
-    final int unboundedDisplayValue =
-      horizontal ?
-      mouseX - halfWidth :
-      -mouseY + halfHeight;
-    final int displayValue =
-      Math.max(Math.min(unboundedDisplayValue, maxDisplayValue),
-               -maxDisplayValue);
-    value = maxValue * displayValue / maxDisplayValue;
+    if (isEnabled()) {
+      final int halfWidth = getWidth() >> 1;
+      final int halfHeight = getHeight() >> 1;
+      final int maxDisplayValue =
+        horizontal ?
+        halfWidth - SLIT_PADDING :
+        halfHeight - SLIT_PADDING;
+      final int unboundedDisplayValue =
+        horizontal ?
+        mouseX - halfWidth :
+        -mouseY + halfHeight;
+      final int displayValue =
+        Math.max(Math.min(unboundedDisplayValue, maxDisplayValue),
+                 -maxDisplayValue);
+      value = maxValue * displayValue / maxDisplayValue;
+    }
     return true;
   }
 
@@ -160,6 +168,51 @@ public class SpringControl extends JPanel
     }
   }
 
+  private enum Colors
+  {
+    SLIT_BASE(Color.WHITE),
+    SLIT_MARK(Color.LIGHT_GRAY),
+    PIVOT_FOREGROUND(Color.GRAY),
+    PIVOT_BACKGROUND(Color.LIGHT_GRAY),
+    THUMB(Color.BLACK),
+    LABELS(Color.BLACK);
+
+    private final Color enabledColor;
+    private final Color disabledColor;
+
+    private static final double DIM_FACTOR = 0.9;
+
+    private static Color littleDarker(final Color color)
+    {
+      return new Color(Math.max((int)(color.getRed()   * DIM_FACTOR), 0),
+                       Math.max((int)(color.getGreen() * DIM_FACTOR), 0),
+                       Math.max((int)(color.getBlue()  * DIM_FACTOR), 0),
+                       color.getAlpha());
+    }
+
+    private Colors(final Color color)
+    {
+      enabledColor = color;
+      final int red = color.getRed();
+      final int green = color.getGreen();
+      final int blue = color.getBlue();
+      final float[] hsb = Color.RGBtoHSB(red, green, blue, null);
+      disabledColor =
+        littleDarker(Color.getHSBColor(1.0f * hsb[0],
+                                       1.0f * hsb[1],
+                                       1.0f - 0.5f * (1.0f - hsb[2])));
+    }
+
+    public Color getColor(final SpringControl springControl)
+    {
+      return springControl.isEnabled() ? enabledColor : disabledColor;
+    }
+  }
+
+  private Color getColor(final Colors colors)
+  {
+    return colors.getColor(this);
+  }
 
   @Override
   protected void paintComponent(final Graphics g)
@@ -175,7 +228,7 @@ public class SpringControl extends JPanel
                          RenderingHints.VALUE_ANTIALIAS_ON);
 
     // slit base
-    g2d.setColor(Color.WHITE);
+    g2d.setColor(getColor(Colors.SLIT_BASE));
     if (horizontal) {
       g2d.fill3DRect(SLIT_PADDING, centerY - (SLIT_WIDTH >> 1),
                      width - (SLIT_PADDING << 1), SLIT_WIDTH, true);
@@ -194,7 +247,7 @@ public class SpringControl extends JPanel
     final int displayValueY = horizontal ? 0 : -displayValue;
 
     // slit highlighted
-    g2d.setColor(Color.LIGHT_GRAY);
+    g2d.setColor(getColor(Colors.SLIT_MARK));
     if (horizontal) {
       fill3DRect(g2d, centerX, centerY - (SLIT_WIDTH >> 1),
                  displayValueX, SLIT_WIDTH, true);
@@ -204,19 +257,19 @@ public class SpringControl extends JPanel
     }
 
     // pivot background
-    g2d.setColor(Color.LIGHT_GRAY);
+    g2d.setColor(getColor(Colors.PIVOT_BACKGROUND));
     g2d.fillOval(centerX - PIVOT_BG_RADIUS,
                  centerY - PIVOT_BG_RADIUS,
                  PIVOT_BG_DIAMETER, PIVOT_BG_DIAMETER);
 
     // thumb
-    g2d.setColor(Color.BLACK);
+    g2d.setColor(getColor(Colors.THUMB));
     g2d.fillOval(centerX - KNOB_RADIUS + displayValueX,
                  centerY - KNOB_RADIUS + displayValueY,
                  KNOB_DIAMETER, KNOB_DIAMETER);
 
     // pivot foreground
-    g2d.setColor(Color.GRAY);
+    g2d.setColor(getColor(Colors.PIVOT_FOREGROUND));
     g2d.fillOval(centerX - PIVOT_FG_RADIUS,
                  centerY - PIVOT_FG_RADIUS,
                  PIVOT_FG_DIAMETER, PIVOT_FG_DIAMETER);
@@ -226,7 +279,7 @@ public class SpringControl extends JPanel
     final int fontHeight = fontMetrics.getHeight();
     final int incWidth = fontMetrics.stringWidth(LABEL_INCREMENT);
     final int decWidth = fontMetrics.stringWidth(LABEL_DECREMENT);
-    g2d.setColor(Color.BLACK);
+    g2d.setColor(getColor(Colors.LABELS));
     if (horizontal) {
       g2d.drawString(LABEL_DECREMENT,
                      SLIT_PADDING / 2 - KNOB_RADIUS / 2,
