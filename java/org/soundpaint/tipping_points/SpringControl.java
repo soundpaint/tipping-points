@@ -23,13 +23,11 @@ import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
@@ -75,6 +73,12 @@ public class SpringControl extends JPanel
 
   public SpringControl(final int maxValue, final int orientation)
   {
+    this(maxValue, SwingConstants.HORIZONTAL, true);
+  }
+
+  public SpringControl(final int maxValue, final int orientation,
+                       final boolean activeSpring)
+  {
     if (maxValue < 0) {
       throw new IllegalArgumentException("maxValue must be non-negative");
     }
@@ -118,19 +122,21 @@ public class SpringControl extends JPanel
     addMouseMotionListener(mouseAdapter);
     addMouseListener(mouseAdapter);
 
-    final ActionListener equilibrator = new ActionListener() {
-        public void actionPerformed(final ActionEvent e)
-        {
-          if (!mouseHoldActive) {
-            if (value != 0) {
-              value /= 2;
-              fireStateChanged();
-              repaint();
+    if (activeSpring) {
+      final ActionListener equilibrator = new ActionListener() {
+          public void actionPerformed(final ActionEvent e)
+          {
+            if (!mouseHoldActive) {
+              if (value != 0) {
+                value /= 2;
+                fireStateChanged();
+                repaint();
+              }
             }
           }
-        }
-      };
-    new Timer(50, equilibrator).start();
+        };
+      new Timer(50, equilibrator).start();
+    }
   }
 
   private boolean cursorChanged(final int mouseX, final int mouseY)
