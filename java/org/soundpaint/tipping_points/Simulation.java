@@ -48,12 +48,22 @@ public class Simulation implements Runnable, ChangeListener
     thread = new Thread(this);
   }
 
+  private static final double MAX_SPEED = 0.04;
+
+  public double getSpeed()
+  {
+    return speed / MAX_SPEED;
+  }
+
+  public double getAcceleration()
+  {
+    return acceleration;
+  }
+
   public void startThread()
   {
     thread.start();
   }
-
-  private static final double MAX_SPEED = 0.04;
 
   public void skipToStart()
   {
