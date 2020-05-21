@@ -19,6 +19,9 @@
 package org.soundpaint.tipping_points;
 
 import java.awt.BorderLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Objects;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JSplitPane;
@@ -40,6 +43,7 @@ public class MainWindow extends JFrame
   public MainWindow(final AppControl appControl)
   {
     super("Tipping Points");
+    Objects.requireNonNull(appControl);
     hysteresis = new HysteresisModel();
     hysteresisLoop = new HysteresisLoop(hysteresis);
     seeSaw = new SeeSaw("See Saw", hysteresis);
@@ -49,10 +53,18 @@ public class MainWindow extends JFrame
     add(simulationPane, BorderLayout.NORTH);
     add(createSplitPane(hysteresis), BorderLayout.CENTER);
     pack();
+    addWindowListener(new WindowAdapter() {
+        @Override
+        public void windowClosing(final WindowEvent e)
+        {
+          appControl.quit();
+        }
+      });
   }
 
   private JComponent createSplitPane(final HysteresisModel hysteresis)
   {
+    Objects.requireNonNull(hysteresis);
     final JSplitPane splitPane =
       new JSplitPane(JSplitPane.VERTICAL_SPLIT, true, hysteresisLoop, seeSaw);
     splitPane.setOneTouchExpandable(true);
