@@ -130,10 +130,10 @@ public class Simulation implements Runnable, ChangeListener
 
   public void run()
   {
-    status = Status.SLEEPING;
+    status = Status.STOP_REQUESTED;
     while (true) {
-      doContinue();
       doPause();
+      doContinue();
     }
   }
 
