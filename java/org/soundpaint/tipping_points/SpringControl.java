@@ -329,9 +329,37 @@ public class SpringControl extends JPanel
     return value;
   }
 
+  public void setValue(final int value)
+  {
+    if (value < -maxValue) {
+      throw new IllegalArgumentException("value < -maxValue: " + value);
+    }
+    if (value > maxValue) {
+      throw new IllegalArgumentException("value < maxValue: " + value);
+    }
+    final boolean needRepaint = value != this.value;
+    this.value = value;
+    if (needRepaint) {
+      SwingUtilities.invokeLater(() -> repaint());
+    }
+  }
+
   public double getNormalizedValue()
   {
     return 0.5 * (value + maxValue) / maxValue;
+  }
+
+  public void setNormalizedValue(final double normalizedValue)
+  {
+    if (normalizedValue < 0.0) {
+      throw new IllegalArgumentException("normalizedValue < 0.0: " +
+                                         normalizedValue);
+    }
+    if (normalizedValue > 1.0) {
+      throw new IllegalArgumentException("normalizedValue > 1.0: " +
+                                         normalizedValue);
+    }
+    setValue((int)Math.round(2.0 * normalizedValue * maxValue) - maxValue);
   }
 }
 
