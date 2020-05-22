@@ -18,6 +18,8 @@
  */
 package org.soundpaint.tipping_points;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
@@ -32,11 +34,13 @@ public class Simulation implements Runnable, ChangeListener
     SLEEPING
   };
 
+  private final ChangeEvent CHANGE_EVENT = new ChangeEvent(this);
   private HysteresisModel hysteresis;
   private Status status;
   private double speed;
   private double acceleration;
   private Thread thread;
+  private List<ChangeListener> speedChangeListeners;
 
   public Simulation(final HysteresisModel hysteresis)
   {
@@ -46,6 +50,7 @@ public class Simulation implements Runnable, ChangeListener
     speed = 0.002;
     acceleration = 0.0;
     thread = new Thread(this);
+    speedChangeListeners = new ArrayList<ChangeListener>();
   }
 
   private static final double MAX_SPEED = 0.04;
@@ -93,6 +98,14 @@ public class Simulation implements Runnable, ChangeListener
     return false;
   }
 
+  private void updateSpeed()
+  {
+    speed = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, speed + acceleration));
+    for (final ChangeListener listener : speedChangeListeners) {
+      listener.stateChanged(CHANGE_EVENT);
+    }
+  }
+
   private void doContinue()
   {
     while (status != Status.START_REQUESTED) {
@@ -109,7 +122,7 @@ public class Simulation implements Runnable, ChangeListener
       } catch (final InterruptedException e) {
         // ignore
       }
-      speed = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, speed + acceleration));
+      updateSpeed();
       if (speed != 0.0) {
         final double value = hysteresis.getValue() + speed;
         SwingUtilities.
@@ -134,7 +147,7 @@ public class Simulation implements Runnable, ChangeListener
       } catch (final InterruptedException e) {
         // ignore
       }
-      speed = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, speed + acceleration));
+      updateSpeed();
     }
   }
 
@@ -147,10 +160,25 @@ public class Simulation implements Runnable, ChangeListener
     }
   }
 
+  public void addSpeedChangeListener(final ChangeListener listener)
+  {
+    Objects.requireNonNull(listener);
+    speedChangeListeners.add(listener);
+    listener.stateChanged(CHANGE_EVENT);
+  }
+
+  public void removeSpeedChangeListener(final ChangeListener listener)
+  {
+    speedChangeListeners.remove(listener);
+  }
+
   @Override
   public void stateChanged(final ChangeEvent e)
   {
     final Object source = e.getSource();
+    if (source == this) {
+      return; // avoid endless loops
+    }
     if (source instanceof SpringControl) {
       final SpringControl accelerationControl = (SpringControl)source;
       final double normalizedValue = accelerationControl.getNormalizedValue();
