@@ -18,6 +18,7 @@
  */
 package org.soundpaint.tipping_points;
 
+import java.awt.BorderLayout;
 import java.util.Hashtable;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -27,56 +28,79 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class Slider extends HysteresisView implements ChangeListener
+public class Slider extends JPanel implements ChangeListener
 {
   private static final long serialVersionUID = 5824895163027170151L;
 
   private final JSlider slider;
 
-  public Slider(final HysteresisModel hysteresis)
+  public Slider()
   {
-    this(hysteresis, SwingConstants.HORIZONTAL);
+    this(SwingConstants.HORIZONTAL);
   }
 
-  public Slider(final HysteresisModel hysteresis,
-                final int orientation)
+  public Slider(final int orientation)
   {
-    this(hysteresis, orientation, 0, 100, 50);
+    this(orientation, 0, 100, 50);
   }
 
-  public Slider(final HysteresisModel hysteresis,
-                final int min,
+  public Slider(final int min,
                 final int max)
   {
-    this(hysteresis, min, max, (min + max) / 2);
+    this(min, max, (min + max) / 2);
   }
 
-  public Slider(final HysteresisModel hysteresis,
+  public Slider(final int min,
+                final int max,
+                final int value)
+  {
+    this(SwingConstants.HORIZONTAL, min, max, value);
+  }
+
+  public Slider(final int orientation,
                 final int min,
                 final int max,
                 final int value)
   {
-    this(hysteresis, SwingConstants.HORIZONTAL, min, max, value);
-  }
-
-  public Slider(final HysteresisModel hysteresis,
-                final int orientation,
-                final int min,
-                final int max,
-                final int value)
-  {
-    super(hysteresis);
+    super(new BorderLayout());
     slider = new JSlider(orientation, min, max, value);
     var labels = new Hashtable<Integer, JComponent>();
-    final int ticks = max - min + 1;
-    final double deltaValue = (max - min) / (ticks - 1.0);
-    for (int i = 0; i < ticks; i++) {
-      final double labelValue = min + deltaValue * i;
-      labels.put(i, new JLabel(Float.toString((float)labelValue)));
-    }
+    labels.put(0, new JLabel("min"));
+    labels.put(100, new JLabel("max"));
     slider.setLabelTable(labels);
+    slider.setPaintLabels(true);
     slider.addChangeListener(this);
     add(slider);
+  }
+
+  public void addChangeListener(final ChangeListener listener)
+  {
+    listenerList.add(ChangeListener.class, listener);
+  }
+
+  public void removeChangeListener(final ChangeListener listener)
+  {
+    listenerList.remove(ChangeListener.class, listener);
+  }
+
+  public int getMinimum()
+  {
+    return slider.getMinimum();
+  }
+
+  public int getMaximum()
+  {
+    return slider.getMaximum();
+  }
+
+  public int getValue()
+  {
+    return slider.getValue();
+  }
+
+  public void setValue(final int value)
+  {
+    slider.setValue(value);
   }
 
   /**
@@ -87,39 +111,13 @@ public class Slider extends HysteresisView implements ChangeListener
   @Override
   public void stateChanged(final ChangeEvent e)
   {
-    final int sliderMinValue = slider.getMinimum();
-    final int sliderMaxValue = slider.getMaximum();
-    final int sliderExtent = sliderMaxValue - sliderMinValue;
-    final int sliderValue = slider.getValue();
-    final double minValue = getMinValue();
-    final double maxValue = getMaxValue();
-    final double normalizedValue =
-      sliderExtent != 0 ?
-      ((double)(sliderValue - sliderMinValue)) / sliderExtent : 0.0;
-    domainValueChanged(minValue + normalizedValue * (maxValue - minValue));
-  }
-
-  /**
-   * This method is called when the underlying JSlider's value needs
-   * to be updated by an external event, such as from the simulation
-   * control.
-   */
-  @Override
-  public void stateChanged(final HysteresisView source,
-                           final double value,
-                           final HysteresisModel.State state)
-  {
-    if (slider == null) {
-      return; // not yet initialized
+    final ChangeEvent event = new ChangeEvent(this);
+    final Object[] listeners = listenerList.getListenerList();
+    for (int i = listeners.length - 2; i >= 0; i -= 2) {
+      if (listeners[i] == ChangeListener.class) {
+        ((ChangeListener)listeners[i + 1]).stateChanged(e);
+      }
     }
-    final int sliderMinValue = slider.getMinimum();
-    final int sliderMaxValue = slider.getMaximum();
-    final int sliderExtent = sliderMaxValue - sliderMinValue;
-    final double minValue = getMinValue();
-    final double maxValue = getMaxValue();
-    slider.setValue(sliderMinValue +
-                    (int)Math.round(sliderExtent *
-                                    (value - minValue) / (maxValue - minValue)));
   }
 }
 

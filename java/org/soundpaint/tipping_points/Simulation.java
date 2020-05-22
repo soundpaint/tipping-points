@@ -179,8 +179,9 @@ public class Simulation implements Runnable, ChangeListener
     if (source == this) {
       return; // avoid endless loops
     }
-    if (source instanceof SpringControl) {
-      final SpringControl accelerationControl = (SpringControl)source;
+    if (source instanceof AccelerationControl) {
+      final AccelerationControl accelerationControl =
+        (AccelerationControl)source;
       final double normalizedValue = accelerationControl.getNormalizedValue();
       final double symmetricValue = 2.0 * normalizedValue - 1.0;
       final double exponentialValue =

@@ -27,9 +27,9 @@ public class SimulationControlPane extends JPanel
 {
   private static final long serialVersionUID = -4328669704695312462L;
 
-  private final Slider progressControl;
-  private final JPanel speedControl;
-  private final SpringControl accelerationControl;
+  private final HysteresisSlider progressControl;
+  private final SpeedControl speedControl;
+  private final AccelerationControl accelerationControl;
 
   private SimulationControlPane()
   {
@@ -40,9 +40,11 @@ public class SimulationControlPane extends JPanel
                                final HysteresisModel hysteresis)
   {
     progressControl =
-      new Slider(hysteresis, SwingConstants.HORIZONTAL, 0, 100, 0);
-    speedControl = new JPanel(); // TODO
-    accelerationControl = new SpringControl(100);
+      new HysteresisSlider(hysteresis, SwingConstants.HORIZONTAL, 0, 100, 0);
+    speedControl = new SpeedControl();
+    speedControl.setEnabled(false);
+    simulation.addSpeedChangeListener(speedControl);
+    accelerationControl = new AccelerationControl();
     accelerationControl.addChangeListener(simulation);
 
     final JLabel lblProgress = new JLabel("Progress");
