@@ -22,7 +22,6 @@ import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Objects;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JSplitPane;
 
@@ -62,7 +61,7 @@ public class MainWindow extends JFrame
       });
   }
 
-  private JComponent createSplitPane(final HysteresisModel hysteresis)
+  private JSplitPane createSplitPane(final HysteresisModel hysteresis)
   {
     Objects.requireNonNull(hysteresis);
     final JSplitPane splitPane =
