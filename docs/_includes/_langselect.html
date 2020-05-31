@@ -1,0 +1,23 @@
+{% assign lang = page.url | slice: 1, 2 %}
+{% if page_base == '/' %}
+  {% assign norm_lang_base = 'index.html' %}
+{% else %}
+  {% assign norm_lang_base = page_base %}
+{% endif %}
+            <nav class="lang-nav">
+{% if lang == 'en' %}
+              <span class="inactive-lang">🇬🇧 English</span>
+{% else %}
+              <span class="active-lang">
+                <a href="../en/{{ norm_lang_base }}">🇬🇧 English</a>
+              </span>
+{% endif %}
+              <br />
+{% if lang == 'de' %}
+              <span class="inactive-lang">🇩🇪 Deutsch</span>
+{% else %}
+              <span class="active-lang">
+                <a href="../de/{{ norm_lang_base }}">🇩🇪 Deutsch</a>
+              </span>
+{% endif %}
+            </nav>

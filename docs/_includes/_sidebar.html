@@ -1,0 +1,47 @@
+
+        <!-- TODO: Bread Crumb Navigation
+             <a href="/">{{ page.title | default: site.title }}</a>
+        -->
+        <div class="left-sidebar">
+          <div class="branding-area">
+            <img style="border:0;width:62px;height:62px"
+                 src="../images/logo.png"
+                 alt="logo" />
+          </div>
+          <div class="branding-area" style="padding-top:10px">
+            <span style="padding-left:85px">Tipping</span><br />
+            <span style="padding-left:65px">Points</span>
+          </div>
+{% if page_base != '/' %}
+          <nav class="page-nav">
+{% for nav_item in site.data.navigator.entries %}
+{% if nav_item.url == norm_page_base %}
+            <div class="active-nav">
+              <span>{{ nav_item.title[lang] }}</span>
+            </div>
+{% else %}
+            <div class="inactive-nav">
+              <a href="{{ nav_item.url }}">{{ nav_item.title[lang] }}</a>
+            </div>
+{% endif %}
+{% endfor %}
+          </nav>
+{% endif %}
+          <div id="sidebar-footer">
+{% include _langselect.html %}
+            <p>
+              <a href="https://validator.w3.org/check?uri=referer">
+                Nu HTML Check
+              </a>
+              <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                     src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                     alt="Valid CSS!" />
+              </a>
+            </p>
+            <p>
+              Site last updated:<br />
+              {{ site.time }}
+            </p>
+          </div>
+        </div>

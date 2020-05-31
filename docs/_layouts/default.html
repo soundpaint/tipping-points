@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+{% include _init_page_variables.html %}
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="{{ page.description }}" />
+    <meta name="keywords" content="{{ page.categories }}" />
+    <meta name="hasstyle" content="{{ page.style }}" />
+    <link rel="stylesheet" href="../assets/css/styles.css" type="text/css" />
+{% if page.style %}
+{% assign page_base = page.url |
+   remove_first: '/en/' |
+   remove_first: '/de/'
+%}
+{% assign page_css_url = page_base | remove: '.html' | append: '.css' %}
+    <link rel="stylesheet"
+          href="../assets/css/{{ page_css_url }}"
+          type="text/css" />
+{% endif %}
+    <link rel="icon" href="{{ site.iconurl }}" />
+    <title>{{ page.title | default: site.title }}</title>
+  </head>
+  <body>
+    <div id="frame">
+      {% include _sidebar.html %}
+      <div id="main">
+        <div id="content">
+          {{ content }}
+        </div>
+        <div id="footer">
+          {% include _footer.html %}
+        </div>
+      </div>
+      {% include _header.html %}
+    </div>
+  </body>
+</html>
+<!--
+    Local Variables:
+    coding:utf-8
+    mode:sgml
+    mode:nXML
+    End:
+-->

@@ -1,0 +1,42 @@
+navigator_title: Contents
+entries:
+- title:
+    "en": "Welcome"
+    "de": "Begrüßung"
+  url: index.html
+- title:
+    "de": "Hysterese"
+    "en": "Hysteresis"
+  url: hysteresis.html
+- title:
+    "de": "Emulation"
+    "en": "Emulation"
+  url: emulator.html
+- title:
+    "de": "Veranstaltungen"
+    "en": "Events"
+  url: events.html
+- title:
+    "de": "Critical Zones"
+    "en": "Critical Zones"
+  url: critical-zones.html
+- title:
+    "de": "Netzwerkinitiativen"
+    "en": "Network Initiatives"
+  url: network.html
+- title:
+    "de": "Artists4Future"
+    "en": "Artists4Future"
+  url: artists4future.html
+- title:
+    "de": "Neuigkeiten"
+    "en": "News"
+  url: news.html
+- title:
+    "de": "Downloads"
+    "en": "Downloads"
+  url: downloads.html
+- title:
+    "de": "Impressum"
+    "en": "Imprint"
+  url: imprint.html

@@ -1,0 +1,10 @@
+{% assign lang = page.url | slice: 1, 2 %}
+{% assign page_base = page.url |
+   remove_first: '/en/' |
+   remove_first: '/de/'
+%}
+{% if page_base == '' %}
+  {% assign norm_page_base = 'index.html' %}
+{% else %}
+  {% assign norm_page_base = page_base %}
+{% endif %}
