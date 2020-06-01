@@ -23,27 +23,26 @@ get into the changed state.  Technically, the hysteresis effect is
 achieved with a free rolling ball integrated into the inner parts of
 the seesaw, thus serving as additional, feeding back mass.
 
-<!-- TODO: Translate -->
+Translated to climate change, the hysteresis means that after having
+emitted some specific amount of carbon dioxid (CO₂) into our
+environment, it will not at all be sufficient to revert the effect by
+removing the overshoot amount of CO₂.  Instead, a multiple of that
+amount would have to be removed from the air, which is an obviously
+non-feasible scenario, given the way, our current economic system
+works, as illustrated by the fact that we fail to fulfill even the
+weakest climate goals.
 
-<!--
-Auf das Klima übertragen bedeutet das, dass nach Überschreiten einer
-bestimmten Menge eingebrachten Kohlendioxids (CO₂) in die Luft es eben
-bei weitem nicht ausreicht, die zuviel eingebrachte Menge wieder zu
-eliminieren.  Um zurück zum ursprünglichen Zustand zu kommen, müsste
-stattdessen ein Vielfaches dieser Menge CO₂ aus der Luft entzogen
-werden, was mit der heutigen Wirtschaftsweise offensichtlich
-undurchführbar ist, wenn nicht einmal die schwachen Klimaziele
-erreicht werden.
+Following and evaluating incountable discssions in social media, I
+have come to the conclusion that obviously only few people, mostly
+technical experts, have an idea about the hysteresis effect and its
+impact on how to deal with climate change, thus resulting in invalid
+assumptions in most discussions.  Even most decision-makers in
+politics and economy do not at all seem to grasp what a hysteresis is
+and what impacts it has, thus leading to invalid assumptions for
+decision memos and finally resulting in fatal decisions that will
+entail irreversible destruction of our environment referring to the
+era of our human civilzation and culture.
 
-Zahlreichen Diskussionen im Netz ist zu entnehmen, dass das Wissen um
-den Hystereseeffekt offenbar nur wenigen Menschen, überwiegend
-technischen Experten, bekannt ist und somit zu falschen Annahmen in
-vielen Diskussionen führt.  Offenbar ist auch vielen
-Entscheidungsträgern in Politik und Wirtschaft der Hystereseeffekt
-nicht geläufig, so dass falsche Annahmen bei Entscheidungsvorlagen zu
-fatalen Missentscheidungen führen, die eine in der zeitlichen Ära
-menschlicher Kultur unumkehrbare Zerstörung der Umwelt nach sich
-ziehen.  Das Projekt „Kipppunkte“ setzt hier mit einer
-veranschaulichenden Aufklärung über die technischen Aspekte an, um
-dieser drohenden unwiderruflichen Zerstörung entgegen zu wirken.
--->
+This is where the “Tipping Points” project comes in with illustrative
+elucidation on technical aspects, in order to counteract the
+threatening irreversible destruction.

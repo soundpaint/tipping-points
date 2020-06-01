@@ -10,7 +10,7 @@ description: Einstiegsseite Kipppunkte
 
 herzlich willkommen auf dieser Website über Kipppunkte!
 
-Das Projekt „Kipppunkte“ will im Rahmen des begleitprogramms zur
+Das Projekt „Kipppunkte“ will im Rahmen des Begleitprogramms zur
 Ausstellung „Critical Zones“ des ZKM einen Beitrag zum Verständnis
 eines wesentlichen Aspekts der Klimaproblematik leisten, indem es
 verdeutlicht, warum eine Rückkehr nach Überschreiten eines kritischen

@@ -1,7 +1,7 @@
 # Tipping Points
 
 <script>
-  document.ready(window.location.href = '/en/');
+  document.ready(window.location.href = 'en/');
 </script>
 
 Please select a language on the left side bar to enter the tipping
