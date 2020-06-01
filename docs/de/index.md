@@ -3,10 +3,16 @@ categories: "Index, Hauptseite, einstiegsseite"
 description: Einstiegsseite Kipppunkte
 ---
 
+{% include _init_page_variables.html %}
+{% assign fig-count = 0 %}
+
 # Lieber Besucher,
 
-<img src="../images/screenshot_v0_1.png"
-    style="float:right;width:282px;padding:10px" />
+{% include _figure.html
+   link="../images/seesaw.png"
+   caption="Wippe aus Spielbausteinen"
+   figstyle="float:right"
+%}
 
 herzlich willkommen auf dieser Website über Kipppunkte!
 
@@ -23,6 +29,12 @@ ursprünglichen Zustand wieder herzustellen, um ein Vielfaches größer
 als der für das Kippen eingebrachte Aufwand.  Technisch realisiert
 wird der Hystereseeffekt durch eine in die Wippe integrierte, frei
 rollende Kugel als zusätzliches, rückkoppelndes Gewicht.
+
+{% include _figure.html
+   link="../images/screenshot_v0_1.png"
+   caption="Bildschirmfoto „TippingPoints App v0.1“"
+   figstyle="float:left"
+%}
 
 Auf das Klima übertragen bedeutet das, dass nach Überschreiten einer
 bestimmten Menge eingebrachten Kohlendioxids (CO₂) in die Luft es eben
@@ -41,6 +53,8 @@ Entscheidungsträgern in Politik und Wirtschaft der Hystereseeffekt
 nicht geläufig, so dass falsche Annahmen bei Entscheidungsvorlagen zu
 fatalen Missentscheidungen führen, die eine in der zeitlichen Ära
 menschlicher Kultur unumkehrbare Zerstörung der Umwelt nach sich
-ziehen.  Das Projekt „Kipppunkte“ setzt hier mit einer
+ziehen.
+
+Das Projekt „Kipppunkte“ setzt hier mit einer
 veranschaulichenden Aufklärung über die technischen Aspekte an, um
 dieser drohenden unwiderruflichen Zerstörung entgegen zu wirken.

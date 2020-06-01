@@ -3,10 +3,16 @@ categories: "index, main page, landing page"
 description: landing page of tipping points
 ---
 
+{% include _init_page_variables.html %}
+{% assign fig-count = 0 %}
+
 # Dear visitor,
 
-<img src="../images/screenshot_v0_1.png"
-    style="float:right;width:282px;padding:10px" />
+{% include _figure.html
+   link="../images/seesaw.png"
+   caption="Seesaw Built With Toy Bricks"
+   figstyle="float:right"
+%}
 
 welcome to this website on tipping points!
 
@@ -24,6 +30,12 @@ multiple times hight than the effort that was carried out to get into
 the changed state.  Technically, the hysteresis effect is achieved
 with a free rolling ball integrated into the inner parts of the
 seesaw, thus serving as additional, feeding back mass.
+
+{% include _figure.html
+   link="../images/screenshot_v0_1.png"
+   caption="Screenshot of TippingPoints App v0.1"
+   figstyle="float:left"
+%}
 
 Translated to climate change, the hysteresis means that after having
 emitted some specific amount of carbon dioxid (CO₂) into our
