@@ -1,2 +1,5 @@
 build
+jar
+docs/Gemfile.lock
+docs/_site
 *~

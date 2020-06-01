@@ -49,7 +49,7 @@ jar: $(JAR_OBJ)
 
 $(JAR_OBJ): $(JAR_DIR) $(JAVA_OBJ)
 	cd $(BUILD_DIR); \
-	#jar -0cvfm $(JAR_DIR)/TippingPoints.jar $(JAVA_DIR)/META-INF/MANIFEST.MF .
+	jar -0cvfm $(JAR_DIR)/TippingPoints.jar $(JAVA_DIR)/META-INF/MANIFEST.MF .
 
 $(IMAGES_OBJ_DIR)/%.png: $(IMAGES_SRC_DIR)/%.png
 	cp -pf $< $@
@@ -60,8 +60,8 @@ tags:
 	etags *.java
 
 run: all
-	#cd $(JAR_DIR) ; java -jar $(JAR_OBJ)
-	cd $(BUILD_DIR) ; java -ea -cp $(RUN_CLASSPATH) org.soundpaint.tipping_points.Main
+	cd $(JAR_DIR) ; java -jar $(JAR_OBJ)
+	#cd $(BUILD_DIR) ; java -ea -cp $(RUN_CLASSPATH) org.soundpaint.tipping_points.Main
 
 objclean:
 	- rm -rf $(BUILD_DIR)
