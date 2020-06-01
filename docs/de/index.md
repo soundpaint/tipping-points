@@ -6,7 +6,7 @@ description: Einstiegsseite Kipppunkte
 {% include _init_page_variables.html %}
 {% assign fig-count = 0 %}
 
-# Lieber Besucher,
+# Liebe/r Besucher/in,
 
 {% include _figure.html
    link="../images/seesaw.png"
