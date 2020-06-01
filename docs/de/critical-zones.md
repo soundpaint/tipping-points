@@ -1,6 +1,6 @@
 ---
-categories: ""
-description:
+categories: "Ausstellung, Critical Zones, ZKM"
+description: Ausstellung „Critical Zones“ des ZKM, Karlsruhe
 ---
 
 # Critical Zones

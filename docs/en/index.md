@@ -11,17 +11,19 @@ description: landing page of tipping points
 welcome to this website on tipping points!
 
 The “Tipping Points” project is a contribution to the supporting
-programme of the ZKM exhibition “Critical Zones.”  It aims at
-depicting and clarifying one of the most essential aspects of climate
-change, namely demonstrating why returning back to previous state
-after passing a critical point is extremely hard.  Using an extra
-primed seesaw as illustrative example, it demonstrates the effect of
-so-called “hysteresis”: After having passed the point when the seesaw
-tips over onto the other side, the effort for restoring the original
-state is multiple times hight than the effort that was carried out to
-get into the changed state.  Technically, the hysteresis effect is
-achieved with a free rolling ball integrated into the inner parts of
-the seesaw, thus serving as additional, feeding back mass.
+programme of the ZKM [exhibition “Critical
+Zones”](critical-zones.html) via the [Artists4Future network
+initiative](artists4future.html).  It aims at depicting and clarifying
+one of the most essential aspects of climate change, namely
+demonstrating why returning back to previous state after passing a
+critical point is extremely hard.  Using an extra primed seesaw as
+illustrative example, it demonstrates the effect of so-called
+“hysteresis”: After having passed the point when the seesaw tips over
+onto the other side, the effort for restoring the original state is
+multiple times hight than the effort that was carried out to get into
+the changed state.  Technically, the hysteresis effect is achieved
+with a free rolling ball integrated into the inner parts of the
+seesaw, thus serving as additional, feeding back mass.
 
 Translated to climate change, the hysteresis means that after having
 emitted some specific amount of carbon dioxid (CO₂) into our

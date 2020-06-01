@@ -10,18 +10,19 @@ description: Einstiegsseite Kipppunkte
 
 herzlich willkommen auf dieser Website über Kipppunkte!
 
-Das Projekt „Kipppunkte“ will im Rahmen des Begleitprogramms zur
-Ausstellung „Critical Zones“ des ZKM einen Beitrag zum Verständnis
-eines wesentlichen Aspekts der Klimaproblematik leisten, indem es
-verdeutlicht, warum eine Rückkehr nach Überschreiten eines kritischen
-Punktes so schwer ist.  Am Beispiel einer Wippe wird der Effekt der
-sogenannten Hysterese anschaulich demonstriert: Nach Überschreiten des
-Punktes, an dem die Wippe sich zur anderen Seite neigt, ist der
-notwendige Aufwand, den ursprünglichen Zustand wieder herzustellen, um
-ein Vielfaches größer als der für das Kippen eingebrachte Aufwand.
-Technisch realisiert wird der Hystereseeffekt durch eine in die Wippe
-integrierte, frei rollende Kugel als zusätzliches, rückkoppelndes
-Gewicht.
+Das Projekt „Kipppunkte“ will über die [Netzwerkinitiative
+Artists4Future](artists4future.html) im Rahmen des Begleitprogramms
+zur [Ausstellung „Critical Zones“](critical-zones.html) des ZKM einen
+Beitrag zum Verständnis eines wesentlichen Aspekts der
+Klimaproblematik leisten, indem es verdeutlicht, warum eine Rückkehr
+nach Überschreiten eines kritischen Punktes so schwer ist.  Am
+Beispiel einer Wippe wird der Effekt der sogenannten Hysterese
+anschaulich demonstriert: Nach Überschreiten des Punktes, an dem die
+Wippe sich zur anderen Seite neigt, ist der notwendige Aufwand, den
+ursprünglichen Zustand wieder herzustellen, um ein Vielfaches größer
+als der für das Kippen eingebrachte Aufwand.  Technisch realisiert
+wird der Hystereseeffekt durch eine in die Wippe integrierte, frei
+rollende Kugel als zusätzliches, rückkoppelndes Gewicht.
 
 Auf das Klima übertragen bedeutet das, dass nach Überschreiten einer
 bestimmten Menge eingebrachten Kohlendioxids (CO₂) in die Luft es eben
