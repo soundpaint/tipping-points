@@ -1,10 +1,12 @@
 {% assign fig-count = fig-count | plus:1 %}
   <figure style="{{ include.figstyle }}">
-    <a href="{{ include.link }}">
+    <a href="{{ include.link }}" class="figlink">
       <img
         src="{{ include.link }}"
         alt="{{ include.caption }}"
         class="figure" />
     </a>
-    <figcaption>{{ site.data.i18n.entries["fig"][lang] }} {{ fig-count }}: {{ include.caption }}</figcaption>
+    <figcaption>
+      <a href="{{ include.link }}">{{ site.data.i18n.entries["fig"][lang] }} {{ fig-count }}: {{ include.caption }}</a>
+    </figcaption>
   </figure>

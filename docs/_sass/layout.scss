@@ -21,12 +21,21 @@ a {
   color: #000;
 }
 
+#content a::before {
+  color: #8899a6;
+  content: "🔗";
+}
+
+#content a.figlink::before {
+  content: "";
+}
+
 #content a[href^="http:"]:before, #content a[href^="https:"]:before {
   content: " ";
-  padding-right: 24px;
+  padding-right: 18px;
   background-image: url('../../images/external-link.svg');
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: 1px 1px;
 }
 
 .left-sidebar {

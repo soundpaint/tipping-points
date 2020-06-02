@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="24px"
-   height="24px"
-   viewBox="0 0 24 24"
+   width="18px"
+   height="18px"
+   viewBox="1 1 18 18"
    version="1.1"
    id="svg7"
    sodipodi:docname="external-link.svg"
@@ -42,25 +42,25 @@
      id="namedview9"
      showgrid="false"
      inkscape:zoom="9.8333333"
-     inkscape:cx="12"
-     inkscape:cy="12"
+     inkscape:cx="18"
+     inkscape:cy="18"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg7" />
   <g
      id="external-link"
-     stroke="#888"
+     stroke="#8899a6"
      stroke-width="2.0"
      stroke-linejoin="round"
      stroke-linecap="round"
      fill="none"
      fill-rule="evenodd">
     <path
-       d="M11,13.5 L20,4.5 L14,4.5 M20,4.5 L20,10.5"
+       d="M8.25,10.075 L15,3.375 L10.5,3.375 M15,3.375 L15,7.825"
        id="path4" />
     <polyline
-       points="11 7.5 5 7.5 5 19.5 17 19.5 17 13.5"
+       points="8.25 5.625 3.75 5.625 3.75 14.625 12.75 14.625 12.75 10.125"
        id="polyline2" />
   </g>
 </svg>
