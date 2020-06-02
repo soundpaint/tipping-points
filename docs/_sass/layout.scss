@@ -26,11 +26,14 @@ a {
   content: "🔗";
 }
 
-#content a.figlink::before {
+#content figure a.figlink::before {
   content: "";
+  padding-right: 0;
+  background-image: none;
 }
 
-#content a[href^="http:"]:before, #content a[href^="https:"]:before {
+#content a[href^="http:"]:before,
+#content a[href^="https:"]:before {
   content: " ";
   padding-right: 18px;
   background-image: url('../../images/external-link.svg');
