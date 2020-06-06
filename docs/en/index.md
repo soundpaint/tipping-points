@@ -1,5 +1,5 @@
 ---
-categories: "index, main page, landing page"
+keywords: "index, main page, landing page"
 description: landing page of tipping points
 ---
 

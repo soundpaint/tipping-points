@@ -1,5 +1,5 @@
 ---
-categories: "Index, Hauptseite, einstiegsseite"
+keywords: "Index, Hauptseite, Einstiegsseite"
 description: Einstiegsseite Kipppunkte
 ---
 

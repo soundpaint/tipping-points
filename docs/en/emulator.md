@@ -1,6 +1,6 @@
 ---
-categories: ""
-description:
+keywords: "Emulator, Emulation, Hardware, Simulation"
+description: Emulator Software
 ---
 
 # Emulator Software

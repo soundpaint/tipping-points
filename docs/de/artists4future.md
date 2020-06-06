@@ -1,5 +1,5 @@
 ---
-categories: "Artists4Future Karlsruhe, Netzwerkinitiative"
+keywords: "Artists4Future Karlsruhe, Netzwerkinitiative"
 description: Die Karlsruher Sektion von Artists4Future
 ---
 

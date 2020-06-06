@@ -136,10 +136,44 @@ div.branding-area {
   padding-right: 5px;
 }
 
+figure {
+  float: right;
+  width: 30%;
+  text-align: center;
+  text-indent: 0;
+  border: thin silver solid;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
 figcaption {
   font-weight: bold;
 }
 
-img.figure {
-  width: 280px;
+figure img {
+  max-width:100%;
+}
+
+#main span.name {
+  font-variant: small-caps;
+}
+
+#main blockquote.light {
+  font-style: italic;
+  text-align: right;
+  padding-left: 20px;
+}
+
+#main blockquote.light p {
+  font-size: large;
+  color: #844;
+}
+
+#main blockquote.light footer {
+  font-size: small;
+  color: #888;
+}
+
+#main blockquote.light footer cite {
+  font-variant: small-caps;
 }

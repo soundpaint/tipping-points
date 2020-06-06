@@ -1,5 +1,5 @@
 ---
-categories: "Downloads, Binaries, Binary Files, JAR Files, Releases"
+keywords: "Downloads, Binaries, Binary Files, JAR Files, Releases"
 description: Download Pre-Compiled JAR Files
 ---
 

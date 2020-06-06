@@ -1,3 +1,8 @@
+---
+keywords: "Impressum, Kontakt"
+description: Impressum
+---
+
 # Impressum
 
 Mit dieser Website dokumentiere ich mein künstlerisches Projekt

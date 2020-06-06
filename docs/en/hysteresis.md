@@ -1,6 +1,6 @@
 ---
-categories: ""
-description:
+keywords: "Hysteresis"
+description: Hysteresis
 ---
 
 # Hysteresis

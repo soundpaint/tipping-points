@@ -1,5 +1,5 @@
 ---
-categories: "Downloads, Binaries, Binärdateien, JAR-Dateien, Releases"
+keywords: "Downloads, Binaries, Binärdateien, JAR-Dateien, Releases"
 description: Download vorkompilierter JAR-Dateien
 ---
 

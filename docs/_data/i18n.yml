@@ -1,7 +1,10 @@
 entries:
+  "siteLastUpdate":
+    "en": "Site last updated:"
+    "de": "Letzte Aktualisierung:"
   "maintainedBy":
-    "de": "Diese Website wird gepflegt von [maintainer]."
     "en": "This website is maintained by [maintainer]."
+    "de": "Diese Website wird gepflegt von [maintainer]."
   "fig":
-    "de": "Abb."
     "en": "Fig."
+    "de": "Abb."

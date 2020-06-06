@@ -1,5 +1,5 @@
 ---
-categories: "Artists4Future Karlsruhe, Network Initiative"
+keywords: "Artists4Future Karlsruhe, Network Initiative"
 description: The Karlsruhe Group of Artists4Future
 ---
 

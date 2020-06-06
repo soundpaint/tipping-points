@@ -1,6 +1,6 @@
 ---
-categories: ""
-description:
+keywords: "Veranstaltungen"
+description: Veranstaltungen
 ---
 
 # Veranstaltungen

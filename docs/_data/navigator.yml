@@ -1,38 +1,40 @@
-navigator_title: Contents
+navigator_title:
+  "en": Contents
+  "de": Inhalt
 entries:
-- title:
+- url: index.html
+  title:
     "en": "Welcome"
     "de": "Begrüßung"
-  url: index.html
-- title:
-    "de": "Hysterese"
+- url: hysteresis.html
+  title:
     "en": "Hysteresis"
-  url: hysteresis.html
-- title:
-    "de": "Emulation"
+    "de": "Hysterese"
+- url: emulator.html
+  title:
     "en": "Emulation"
-  url: emulator.html
-- title:
-    "de": "Veranstaltungen"
+    "de": "Emulation"
+- url: events.html
+  title:
     "en": "Events"
-  url: events.html
-- title:
-    "de": "Critical Zones"
+    "de": "Veranstaltungen"
+- url: critical-zones.html
+  title:
     "en": "Critical Zones"
-  url: critical-zones.html
-- title:
-    "de": "Artists4Future"
+    "de": "Critical Zones"
+- url: artists4future.html
+  title:
     "en": "Artists4Future"
-  url: artists4future.html
-- title:
-    "de": "Neuigkeiten"
+    "de": "Artists4Future"
+- url: news.html
+  title:
     "en": "News"
-  url: news.html
-- title:
-    "de": "Downloads"
+    "de": "Neuigkeiten"
+- url: downloads.html
+  title:
     "en": "Downloads"
-  url: downloads.html
-- title:
-    "de": "Impressum"
+    "de": "Downloads"
+- url: imprint.html
+  title:
     "en": "Imprint"
-  url: imprint.html
+    "de": "Impressum"
