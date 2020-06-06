@@ -1,9 +1,8 @@
 ---
 keywords: "Impressum, Kontakt"
 description: Impressum
+title: Impressum
 ---
-
-# Impressum
 
 Mit dieser Website dokumentiere ich mein künstlerisches Projekt
 „Kipppunkte“, das ich in meiner Freizeit und ohne Gewinnabsicht

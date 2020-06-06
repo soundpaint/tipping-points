@@ -1,9 +1,8 @@
 ---
 keywords: "Artists4Future Karlsruhe, Network Initiative"
 description: The Karlsruhe Group of Artists4Future
+title: Network Initiative “Artists4Future Karlsruhe”
 ---
-
-# Network Initiative “Artists4Future Karlsruhe”
 
 (To be added.)
 

@@ -1,9 +1,8 @@
 ---
 keywords: "Hysteresis"
 description: Hysteresis
+title: Hysteresis
 ---
-
-# Hysteresis
 
 (To be added.)
 

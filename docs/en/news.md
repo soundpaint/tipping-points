@@ -1,8 +1,7 @@
 ---
 keywords: "News, ChangeLog"
 description: News
+title: News
 ---
-
-# News
 
 2020-05-31 Launched new website.

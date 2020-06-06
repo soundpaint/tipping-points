@@ -1,12 +1,11 @@
 ---
 keywords: "Index, Hauptseite, Einstiegsseite"
 description: Einstiegsseite Kipppunkte
+title: Liebe/r Besucher/in,
 ---
 
 {% include _init_page_variables.html %}
 {% assign fig-count = 0 %}
-
-# Liebe/r Besucher/in,
 
 {% include _figure.html
    link="../images/seesaw.png"

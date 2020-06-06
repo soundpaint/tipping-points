@@ -1,8 +1,7 @@
 ---
 keywords: "Events"
 description: Events
+title: Events
 ---
-
-# Events
 
 (To be added.)

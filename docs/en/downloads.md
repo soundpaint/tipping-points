@@ -1,9 +1,8 @@
 ---
 keywords: "Downloads, Binaries, Binary Files, JAR Files, Releases"
 description: Download Pre-Compiled JAR Files
+title: Downloads
 ---
-
-# Downloads
 
 For executing the pre-compiled JAR file of the Tipping Point App, you
 need to have installed a Java Runtime Environment (JRE), version 8 or

@@ -1,9 +1,8 @@
 ---
 keywords: "Downloads, Binaries, Binärdateien, JAR-Dateien, Releases"
 description: Download vorkompilierter JAR-Dateien
+title: Downloads
 ---
-
-# Downloads
 
 Zum Ausführen der vorkompilierten JAR-Datei der Kipppunkte-Anwendung
 ist es erforderlich, dass auf dem Zielrechner eine

@@ -1,12 +1,11 @@
 ---
 keywords: "index, main page, landing page"
 description: landing page of tipping points
+title: Dear visitor,
 ---
 
 {% include _init_page_variables.html %}
 {% assign fig-count = 0 %}
-
-# Dear visitor,
 
 {% include _figure.html
    link="../images/seesaw.png"

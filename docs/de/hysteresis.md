@@ -1,9 +1,8 @@
 ---
 keywords: "Hysterese"
 description: Hysterese
+title: Hysterese
 ---
-
-# Hysterese
 
 (Folgt.)
 

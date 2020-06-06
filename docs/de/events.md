@@ -1,8 +1,7 @@
 ---
 keywords: "Veranstaltungen"
 description: Veranstaltungen
+title: Veranstaltungen
 ---
-
-# Veranstaltungen
 
 (Folgt.)
