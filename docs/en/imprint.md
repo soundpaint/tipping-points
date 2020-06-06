@@ -17,6 +17,18 @@ that I am pursuing in my spare time and without any intent of profit.
     Phone +49 721 75 29 61
     eMail: reuter_j [at] web [dot] de
 
+## Picture Credits
+
+The copyright of all internally linked pictures, i.e. those served
+directly from this website (marked with the symbol 🔗), is owned by me
+unless explicitly otherwise stated, or owned by an immediate relative
+of my family.  Links to external pictures are marked with the symbol
+<img src="../images/external-link.svg" />.  However, icons may neither
+be marked as internal or external link due to constraints in the
+layout of the website; in such cases, the picture source can be
+extracted from the HTML/CSS code or shown in prevailing browsers with
+the built-in picture information function.
+
 ## Disclaimer
 
 I try to keep the information contained herein as correct, complete
