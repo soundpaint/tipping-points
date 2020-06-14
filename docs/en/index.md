@@ -17,9 +17,9 @@ welcome to this website on tipping points!
 
 The “Tipping Points” project is a contribution to the supporting
 programme of the ZKM [exhibition “Critical
-Zones”](critical-zones.html) via the [Artists4Future network
-initiative](artists4future.html).  It aims at depicting and clarifying
-one of the most essential aspects of climate change, namely
+Zones”](critical-zones.html) via the [“Artists4Future Karlsruhe”
+network initiative](artists4future.html).  It aims at depicting and
+clarifying one of the most essential aspects of climate change, namely
 demonstrating why returning back to previous state after passing a
 critical point is extremely hard.  Using an extra primed seesaw as
 illustrative example, it demonstrates the effect of so-called
