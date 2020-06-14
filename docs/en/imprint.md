@@ -16,6 +16,16 @@ that I am pursuing in my spare time and without any intent of profit.
     Phone +49 721 75 29 61
     eMail: reuter_j [at] web [dot] de
 
+## Privacy Statement
+
+This website consists of solely static content.  Therefore, no
+processing of user data occurs other than, if at all, the usual
+temporary storage and logging of connection data by the web hoster.
+This website is hosted by Github Inc., 88 Colin P Kelly Jr St, San
+Francisco, CA 94107, USA.  Therefore, please note the [GitHub Privacy
+Statement](https://help.github.com/en/github/site-policy/github-privacy-statement),
+as far as it concerns delivery of static web pages.
+
 ## Picture Credits
 
 The copyright of all internally linked pictures, i.e. those served

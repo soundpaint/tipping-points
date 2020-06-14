@@ -17,6 +17,17 @@ verfolge.
     Phone +49 721 75 29 61
     eMail: reuter_j [at] web [dot] de
 
+## Datenschutzerklärung
+
+Diese Website besteht ausschließlich aus statischem Inhalt.  Daher
+erfolgt keine Weiterverarbeitung von Daten außer ggf. der allgemein
+üblichen Zwischenspeicherung und Protokollierung von Verbindungsdaten,
+die durch den Betreiber der Server erfolgt.  Betreiber der Server ist
+die Github Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA.
+Beachten Sie daher auch die [GitHub Privacy
+Statement](https://help.github.com/en/github/site-policy/github-privacy-statement),
+insoweit sie sich auf die Auslieferung statischer Webseiten bezieht.
+
 ## Bildnachweis
 
 Das Urheberrecht aller intern verlinkten Bilder, also solche, die als
