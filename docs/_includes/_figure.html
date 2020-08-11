@@ -1,6 +1,12 @@
 {% assign fig-count = fig-count | plus:1 %}
   <figure style="{{ include.figstyle }}">
-    <a href="{{ include.link }}" class="figlink">
+    <a
+{% if include.ext_link %}
+      href="{{ include.ext_link }}"
+{% else %}
+      href="{{ include.link }}"
+{% endif %}
+      class="figlink">
       <img
         src="{{ include.link }}"
         alt="{{ include.caption }}"
