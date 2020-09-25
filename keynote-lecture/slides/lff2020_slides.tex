@@ -35,12 +35,12 @@
 
 \frame{\titlepage}
 
-\begin{frame}
-  \frametitle{Überblick}
-  \tableofcontents
-\end{frame}
+%\begin{frame}
+%  \frametitle{Überblick}
+%  \tableofcontents
+%\end{frame}
 
-\section{Einleitung}
+% \section{Kipp{\em punkt} vs. Kipp{\em bereich}}
 
 \begin{frame}
   \frametitle{Kipp{\em punkt}?}
@@ -216,6 +216,8 @@
   \end{itemize}
 \end{frame}
 
+% \section{Beispiele}
+
 \begin{frame}
   \frametitle{Beispiel Wippe}
   \tikz[remember picture, overlay] {
@@ -389,13 +391,51 @@
 
 \begin{frame}
   \frametitle{Beispiel Schneeflächen}
-  Wie bei Wippe zwei Zustände
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \fill<1->(0.5, 0.5) -- (10.5, 0.5) -- (0.5, 3.0) -- (0.5, 0.5);
+        node[anchor=north west] {\scriptsize Boden};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->(0.5, 0.5) -- (10.5, 0.5) -- (10.5, 2.0) -- (0.5, 2.0) -- (0.5, 0.5);
+        node[anchor=north west] {\scriptsize Schnee};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t3) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[thick,->](5.0, 2.0) -- (5.0, 3.0);
+        \draw<1->[thick,->](6.0, 2.0) -- (6.0, 3.0);
+        \draw<1->[thick,->](7.0, 2.0) -- (7.0, 3.0);
+        \draw<1->[thick,->](8.0, 2.0) -- (8.0, 3.0);
+        \draw<1->[thick,->](9.0, 2.0) -- (9.0, 3.0);
+        \draw<1->[thick,->](10.0, 2.0) -- (10.0, 3.0);
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t4) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[thick,<-,white](1.0, 1.0) -- (1.0, 3.0);
+        \draw<1->[thick,<-,white](2.0, 1.0) -- (2.0, 3.0);
+        \draw<1->[thick,<-,white](3.0, 1.0) -- (3.0, 3.0);
+        \draw<1->[thick,<-,white](4.0, 1.0) -- (4.0, 3.0);
+      \end{tikzpicture}
+    }
+  }
+  \vspace{-3.0cm}\\
   \begin{itemize}
-    \item<2-> \color<2>{blue} Zustand 1: Schneedecke vorhanden
+    \item<2-> \color<2>{blue} Zustand 1: Schneedecke alles bedeckend
     \item<3-> \color<3>{blue} \imply{} Schnee reflektiert Licht
     \item<4-> \color<4>{blue} \imply{} Geringe Erwärmung
     \item<5-> \color<5>{blue} \imply{} Neuschnee bleibt liegen
-    \item<6-> \color<6>{blue} Zustand 2: Schneedecke geschmolzen
+    \item<6-> \color<6>{blue} Zustand 2: Schneedecke komplett geschmolzen
     \item<7-> \color<7>{blue} \imply{} Dunkler Boden absorbiert Licht
     \item<8-> \color<8>{blue} \imply{} Starke Erwärmung
     \item<9-> \color<9>{blue} \imply{} Neuschnee schmilzt weg
@@ -404,9 +444,9 @@
 
 \begin{frame}
   \frametitle{Forschungsfragen}
-  Z.B. zur Hysterese bei der Schneeflächen
+  zur Hysterese
   \begin{itemize}
-    \item<2-> \color<2>{blue} Wie groß ist die Hysterese?
+    \item<2-> \color<2>{blue} Z.B. Schneeflächen: Wie groß ist die Hysterese?
       \begin{itemize}
         \item<3-> \color<3>{blue} Jahre?
         \item<4-> \color<4>{blue} Jahrzehnte?
@@ -421,6 +461,11 @@
       \begin{itemize}
         \item<10-> \color<10>{blue} Beispiel Wippe: beschleunigte Kugel
         \item<11-> \color<11>{blue} Einfluss Luftfeuchtigkeit auf Niederschlag?
+      \end{itemize}
+    \item<12-> \color<12>{blue} innere Variablen in Hysterese-Modell berücksichtigen
+      \begin{itemize}
+        \item<13-> \color<13>{blue} z.B. Kugelposition bei der Wippe
+        \item<14-> \color<14>{blue} und Kugelgeschwindigkeit
       \end{itemize}
   \end{itemize}
 \end{frame}
