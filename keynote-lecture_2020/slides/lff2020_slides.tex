@@ -6,7 +6,6 @@
 \usepackage[ngerman]{babel}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,positioning}
-\usepackage{yfonts}
 \usepackage{pifont}
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\qmark}{\ding{51} / \ding{55}}%
@@ -395,7 +394,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
         \fill<1->(0.5, 0.5) -- (10.5, 0.5) -- (0.5, 3.0) -- (0.5, 0.5);
-        node[anchor=north west] {\scriptsize Boden};
+        \node[anchor=north west,shift={(+2cm,+0.5cm)}] {\scriptsize Boden};
       \end{tikzpicture}
     }
   }
@@ -403,7 +402,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->(0.5, 0.5) -- (10.5, 0.5) -- (10.5, 2.0) -- (0.5, 2.0) -- (0.5, 0.5);
-        node[anchor=north west] {\scriptsize Schnee};
+        \node[anchor=north west,shift={(+8cm,+0.5cm)}] {\scriptsize Schnee};
       \end{tikzpicture}
     }
   }
