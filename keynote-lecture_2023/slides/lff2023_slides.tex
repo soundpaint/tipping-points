@@ -41,6 +41,94 @@
 
 % \section{Kipp{\em punkt} vs. Kipp{\em bereich}}
 
+\begin{frame}[fragile]
+  \frametitle{Rückkopplung}
+  \tikz[remember picture, overlay] {
+    \node[shift={(4cm, 2.5cm)}] at (current page.south west) (t1) {
+      \tikzset{
+        block/.style = {draw, rectangle, minimum height=1cm, minimum width=1cm},
+        input/.style = {coordinate, node distance=2cm},
+        output/.style = {coordinate, node distance=2cm},
+        arrow/.style = {draw, -latex, node distance=2cm},
+        pinstyle/.style = {pin edge={latex-, black, node distance=2cm}},
+        sum/.style = {draw, circle, node distance=2cm}
+      }
+      \begin{tikzpicture}[auto, node distance=2.0cm,
+          >=latex', every node/.style={scale=0.7}]
+        \node<2-> [input, name=input] {};
+        \node<2-> [sum, right of=input] (sum) {$+$};
+        \node<2-> [block, right of=sum] (function) {$f(t)$};
+        \node<2-> [output, right of=function] (output) {};
+        \node<2-> [block, below of=function] (feedback) {$\beta$};
+        \draw<2-> [draw,->] (input) -- node[label={[label distance=0.6cm]178:$Input$}] {} (sum);
+        \draw<2-> [->] (sum) -- node {} (function);
+        \draw<2-> [->] (function) -- node [name=y,label={[label distance=0.6cm]2:$Output$}] {}(output);
+        \draw<2-> [->] (y) |- node [above,pos=0.79] {} (feedback) ;
+        \draw<2-> [->] (feedback) -| node[pos=0.99] {$+$} node [near end] {} (sum);
+      \end{tikzpicture}
+    }
+  }
+  \vspace{-3.0cm}\\
+  \begin{itemize}
+  \item<2-> \color<2>{blue} {\em Mitkopplung} oder {\em positive} Rückkopplung
+    \begin{itemize}
+    \item<3-> \color<3>{blue} Verstärkende Wirkung
+    \item<4-> \color<4>{blue} Beispiele:
+      \begin{itemize}
+      \item<5-> \color<5>{blue} „Pfeifendes“ Mikro
+      \item<6-> \color<6>{blue} Explosion
+      \item<7-> \color<7>{blue} Lawine
+      \item<8-> \color<8>{blue} Laser
+      \item<9-> \color<9>{blue} Zinseszinsen
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rückkopplung}
+  \tikz[remember picture, overlay] {
+    \node[shift={(4cm, 2.5cm)}] at (current page.south west) (t1) {
+      \tikzset{
+        block/.style = {draw, rectangle, minimum height=1cm, minimum width=1cm},
+        input/.style = {coordinate, node distance=2cm},
+        output/.style = {coordinate, node distance=2cm},
+        arrow/.style = {draw, -latex, node distance=2cm},
+        pinstyle/.style = {pin edge={latex-, black, node distance=2cm}},
+        sum/.style = {draw, circle, node distance=2cm}
+      }
+      \begin{tikzpicture}[auto, node distance=2.0cm,
+          >=latex', every node/.style={scale=0.7}]
+        \node<2-> [input, name=input] {};
+        \node<2-> [sum, right of=input] (sum) {$+$};
+        \node<2-> [block, right of=sum] (function) {$f(t)$};
+        \node<2-> [output, right of=function] (output) {};
+        \node<2-> [block, below of=function] (feedback) {$\beta$};
+        \draw<2-> [draw,->] (input) -- node[label={[label distance=0.6cm]178:$Input$}] {} (sum);
+        \draw<2-> [->] (sum) -- node {} (function);
+        \draw<2-> [->] (function) -- node [name=y,label={[label distance=0.6cm]2:$Output$}] {}(output);
+        \draw<2-> [->] (y) |- node [above,pos=0.79] {} (feedback) ;
+        \draw<2-> [->] (feedback) -| node[pos=0.99] {$-$} node [near end] {} (sum);
+      \end{tikzpicture}
+    }
+  }
+  \vspace{-3.0cm}\\
+  \begin{itemize}
+  \item<2-> \color<2>{blue} {\em Gegenkopplung} oder {\em negative} Rückkopplung
+    \begin{itemize}
+    \item<3-> \color<3>{blue} Abschwächende Wirkung
+    \item<4-> \color<4>{blue} Beispiele:
+      \begin{itemize}
+      \item<5-> \color<5>{blue} Fliehkraftregler
+      \item<6-> \color<6>{blue} Noise Cancelling
+      \item<7-> \color<7>{blue} Schilddrüsenfunktion
+      \item<8-> \color<8>{blue} Angebot und Nachfrage
+      \item<9-> \color<9>{blue} Sonstige Regelkreise
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Kipp{\em punkt}?}
   \tikz[remember picture, overlay] {
@@ -208,10 +296,10 @@
     \item<3-> \color<3>{blue} Prellfreier Schwellwertschalter (Schmitt-Trigger)
     \item<4-> \color<4>{blue} Bistabile Kippschaltungen (z.B. Flipflop)
     \item<5-> \color<5>{blue} Ferromagnetische Magnetisierung
-    \item<5-> \color<5>{blue} KI / Neuronen: Sigmoid-Aktivierung + Rückkopplung
-    \item<6-> \color<6>{blue} Diverse ökonomische / soziale Prozesse
-    \item<7-> \color<7>{blue} Schmelze weiß reflektierender Schneeflächen
-    \item<8-> \color<8>{blue} Permafrostende: Freiwerdendes gebundenes Methangas
+    \item<6-> \color<6>{blue} KI / Neuronen: Sigmoid-Aktivierung + Rückkopplung
+    \item<7-> \color<7>{blue} Diverse ökonomische / soziale Prozesse
+    \item<8-> \color<8>{blue} Schmelze weiß reflektierender Schneeflächen
+    \item<9-> \color<9>{blue} Permafrostende: Freiwerdendes gebundenes Methangas
   \end{itemize}
 \end{frame}
 
