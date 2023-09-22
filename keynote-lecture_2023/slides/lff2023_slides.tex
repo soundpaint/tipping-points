@@ -39,7 +39,27 @@
 %  \tableofcontents
 %\end{frame}
 
-% \section{Kipp{\em punkt} vs. Kipp{\em bereich}}
+% \section{Kipp{\em punkt} vs. Kipp{\em element}}
+
+\begin{frame}
+  \frametitle{Motivation \& Ziele}
+  \begin{itemize}
+  \item<2-> \color<2>{blue} Was ist ein {\em Kipppunkt}?
+  \item<3-> \color<3>{blue} Welche Beispiele gibt es?
+  \item<4-> \color<4>{blue} Was sind die grundsätzlichen Eigenschaften?
+  \item<5-> \color<5>{blue} Was ist eine {\em Hysterese}?
+  \item<6-> \color<6>{blue} Warum gelten manche Kipppunkte als {\em irreversibel}?
+  \item<7-> \color<7>{blue} Welche weiteren Besonderheiten können auftreten?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kipppunkt}
+  \begin{itemize}
+  \item<2-> \color<2>{blue} Schwellwert in System mit zwei (oder mehr) Zuständen
+  \item<3-> \color<3>{blue} rascher Zustandswechsel bei Erreichen des Schwellwerts
+  \end{itemize}
+\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Rückkopplung}
@@ -72,7 +92,7 @@
   \begin{itemize}
   \item<2-> \color<2>{blue} {\em Mitkopplung} oder {\em positive} Rückkopplung
     \begin{itemize}
-    \item<3-> \color<3>{blue} Verstärkende Wirkung
+    \item<3-> \color<3>{blue} Ggf. aufschaukelnd verstärkende Wirkung
     \item<4-> \color<4>{blue} Beispiele:
       \begin{itemize}
       \item<5-> \color<5>{blue} „Pfeifendes“ Mikro
@@ -116,14 +136,16 @@
   \begin{itemize}
   \item<2-> \color<2>{blue} {\em Gegenkopplung} oder {\em negative} Rückkopplung
     \begin{itemize}
-    \item<3-> \color<3>{blue} Abschwächende Wirkung
+    \item<3-> \color<3>{blue} Abschwächende, dämpfende Wirkung
     \item<4-> \color<4>{blue} Beispiele:
       \begin{itemize}
-      \item<5-> \color<5>{blue} Fliehkraftregler
+      \item<5-> \color<5>{blue} Temperaturregler, Spannungsregler, Fliehkraftregler
       \item<6-> \color<6>{blue} Noise Cancelling
       \item<7-> \color<7>{blue} Schilddrüsenfunktion
       \item<8-> \color<8>{blue} Angebot und Nachfrage
-      \item<9-> \color<9>{blue} Sonstige Regelkreise
+      \item<9-> \color<9>{blue} Temperaturkompensation, Frequenzkompensation
+      \item<10-> \color<10>{blue} Autofokus (Flankendiskriminator)
+      \item<11-> \color<11>{blue} Sonstige Regelkreise
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -142,7 +164,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
         {\color<2>{blue}
-          \draw<2->[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north west] {\scriptsize \COO};
+          \draw<2->[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north west] {\hspace{-2cm}\scriptsize Eingangsgröße};
         }
       \end{tikzpicture}
     }
@@ -151,7 +173,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
       {\color<3>{blue}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<3->[thick,->](0.5, 0.0) -- (0.5, 4.0) node[anchor=south west] {\scriptsize Effekt};
+          \draw<3->[thick,->](0.5, 0.0) -- (0.5, 4.0) node[anchor=south west] {\hspace{-0.2cm}\scriptsize Ausgangsgröße};
         \end{tikzpicture}
       }
     }
@@ -184,18 +206,18 @@
     }
   }
   \vspace{-3.5cm}\\
-  Naive Vorstellung: Punktförmige Schwelle
+  Naive Vorstellung: Einzelne abrupte Schwelle
   \begin{itemize}
-    \item<2-> \color<2>{blue} Reellwertige Größe (z.B. \COO-Gehalt der Luft)
-    \item<3-> \color<3>{blue} bewirkter Zustand (\glqq{}Effekt\grqq)
-    \item<4-> \color<4>{blue} Zustand 1 (\glqq{}jetziges Klima\grqq)
-    \item<5-> \color<5>{blue} Zustand 2 (\glqq{}zukünftiges Klima\grqq)
-    \item<6-> \color<6>{blue} Abrupter Wechsel (\glqq{}Kipppunkt\grqq)
+    \item<2-> \color<2>{blue} Eingehende Größe (z.B. Last auf Wippe, \COO-Gehalt der Luft)
+    \item<3-> \color<3>{blue} Ausgehende Größe (Neigung der Wippe, Erderwärmung)
+    \item<4-> \color<4>{blue} Zustand 1 (Neigung zu einer Seite, jetziges Klima)
+    \item<5-> \color<5>{blue} Zustand 2 (Neigung zur anderen Seite, zukünftiges Klima)
+    \item<6-> \color<6>{blue} Abrupter Zustandswechsel ({\em Kipppunkt})
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Kipp{\em bereich}!}
+  \frametitle{Kipp{\em element}!}
   \tikz[remember picture, overlay] {
     \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -207,7 +229,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->[thick,->](0.0, 0.5) -- (10.5, 0.5)
-        node[anchor=north west] {\scriptsize \COO};
+        node[anchor=north west] {\hspace{-2cm}\scriptsize Eingangsgröße};
       \end{tikzpicture}
     }
   }
@@ -215,7 +237,7 @@
     \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t3) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->[thick,->](0.5, 0.0) -- (0.5, 4.0)
-        node[anchor=south west] {\scriptsize Effekt};
+        node[anchor=south west] {\hspace{-0.2cm}\scriptsize Ausgangsgröße};
       \end{tikzpicture}
     }
   }
@@ -270,11 +292,12 @@
   \vspace{-3.5cm}\\
   Hysterese
   \begin{itemize}
-    \item<2-> \color<2>{blue} Zustand 1 (\glqq{}jetziges Klima\grqq)
-    \item<3-> \color<3>{blue} Zustand 2 (\glqq{}zukünftiges Klima\grqq)
-    \item<4-> \color<4>{blue} Wechselbereich Zustand 1 {\imply} 2
-    \item<5-> \color<5>{blue} Wechselbereich Zustand 2 {\imply} 3
-    \item<6-> \color<6>{blue} \glqq{}Hysterese\grqq
+    \item<2-> \color<2>{blue} Zustand 1 (Neigung zu einer Seite, jetziges Klima)
+    \item<3-> \color<3>{blue} Zustand 2 (Neigung zur anderen Seite, zukünftiges Klima)
+    \item<4-> \color<4>{blue} Wechsel{\em bereich} Zustand 1 {\imply} 2
+    \item<5-> \color<5>{blue} Wechsel{\em bereich} Zustand 2 {\imply} 1
+    \item<6-> \color<6>{blue} $\leadsto$ besser {\em Kippelement} mit
+      {\em Hysterese} statt {\em Kipppunkt}
   \end{itemize}
 \end{frame}
 
@@ -477,7 +500,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Beispiel Schneeflächen}
+  \frametitle{Beispiel: Albedo von Schneeflächen}
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -517,6 +540,7 @@
     }
   }
   \vspace{-3.0cm}\\
+  {\small Albedo: Rückstrahlvermögen diffus reflektierender Oberflächen}
   \begin{itemize}
     \item<2-> \color<2>{blue} Zustand 1: Schneedecke alles bedeckend
     \item<3-> \color<3>{blue} \imply{} Schnee reflektiert Licht
@@ -526,6 +550,30 @@
     \item<7-> \color<7>{blue} \imply{} Dunkler Boden absorbiert Licht
     \item<8-> \color<8>{blue} \imply{} Starke Erwärmung
     \item<9-> \color<9>{blue} \imply{} Neuschnee schmilzt weg
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ergebnisse}
+  \begin{itemize}
+    \item<2-> \color<2>{blue} (Kleine) Hysterese praktisch immer
+      vorhanden
+      \begin{itemize}
+      \item<3-> \color<3>{blue} Wegen \glqq{}Kosten\grqq{} (Energie,
+        Aufwand) für Zustandswechsel
+      \item<4-> \color<4>{blue} Durch Reibung, Wegstrecke,
+        Abschmelzen, etc.
+      \end{itemize}
+    \item<5-> \color<5>{blue} Größe der Hysterese abhängig von Mitkopplung
+      \begin{itemize}
+      \item<6-> \color<6>{blue} Entscheidend für Irreversibilität
+      \item<7-> \color<7>{blue} Ggf. schwer zu bestimmen / abzuschätzen
+      \end{itemize}
+    \item<8-> \color<8>{blue} Hysterese ggf. schon bei Zustandsübergang voll wirksam
+    \item<9-> \color<9>{blue} veschiedene Hystereseformen und -dynamiken möglich
+    \item<10-> \color<10>{blue} Modelle stets Vereinfachung der Realität
+    \item<11-> \color<11>{blue} Genauigkeit / Aussagekraft abhängig von Detaillierungsgrad
+    \item<12-> \color<12>{blue} Ggf. unerwartete Effekte als Fingerzeig für weitere Untersuchungen
   \end{itemize}
 \end{frame}
 
