@@ -3,10 +3,13 @@
 \usecolortheme{beaver}
 \usepackage[utf8]{inputenc}
 \usefonttheme{professionalfonts}
+\usepackage{csquotes}
 \usepackage[ngerman]{babel}
+\usepackage[backend=biber,style=numeric,sorting=nyvt]{biblatex}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,positioning}
 \usepackage{pifont}
+
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\qmark}{\ding{51} / \ding{55}}%
 \newcommand{\xmark}{\ding{55}}%
@@ -26,6 +29,10 @@
     \tableofcontents[currentsection]
   \end{frame}
 }
+
+\addbibresource{../../bib/lff2023.bib}
+
+%\listfiles % DEBUG: show package versions in log
 
 \begin{document}
 
@@ -614,11 +621,12 @@
 % backup slides
 
 \begin{frame}
-  \nocite{Reuter20}
+  %\fullcite{Maeder08}
+  \nocite{Maeder08}
   \nocite{Wikipedia20a}
+  \nocite{Reuter20}
+  \printbibliography
   \frametitle{Literaturverweise}
-  \bibliographystyle{acl}
-  \bibliography{lff2023}
 \end{frame}
 
 \end{document}

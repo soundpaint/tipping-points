@@ -7,7 +7,7 @@ LATEX_OBJ=$(patsubst %.tex,$(BUILD_LATEX_DIR)/%.pdf,$(LATEX_SRC))
 INCLUDED_OBJ_FILES=\
 	$(wildcard $(BUILD)/images/*.png) \
 	$(wildcard $(BUILD)/images/*.eps)
-BIB_SRC=acl.bst lff2023.bib
+BIB_SRC=lff2023.bib
 BIB_COPIED=$(patsubst %,$(BUILD_LATEX_DIR)/%,$(BIB_SRC))
 all: $(BUILD_LATEX_DIR) $(LATEX_OBJ)
 
@@ -25,7 +25,7 @@ $(BUILD_LATEX_DIR)/%.tex: %.tex
 
 $(BUILD_LATEX_DIR)/%.pdf: $(BUILD_LATEX_DIR)/%.tex $(INCLUDED_OBJ_FILES) $(BIB_COPIED)
 	(cd $(BUILD_LATEX_DIR); pdflatex $(LATEX_OPTS) $(<F)) # create .aux
-	(cd $(BUILD_LATEX_DIR); bibtex `basename "$(<F)" .tex`) # use .aux for bibliography
+	(cd $(BUILD_LATEX_DIR); biber `basename "$(<F)" .tex`) # use .aux for bibliography
 	(cd $(BUILD_LATEX_DIR); pdflatex $(LATEX_OPTS) $(<F)) # recompile with bib
 	(cd $(BUILD_LATEX_DIR); pdflatex $(LATEX_OPTS) $(<F)) # recompile for changed refs
 	(cd $(BUILD_LATEX_DIR); pdflatex $(LATEX_OPTS) $(<F)) # recompile for changed refs
