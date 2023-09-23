@@ -9,6 +9,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,positioning}
 \usepackage{pifont}
+\usepackage{epigraph}
 
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\qmark}{\ding{51} / \ding{55}}%
@@ -24,7 +25,7 @@
 \date[LFF2023]{Letters for Future, 30. September 2023}
 
 \AtBeginSection[] {
-  \begin{frame}
+  \begin{frame}[t]
     \frametitle{Überblick}
     \tableofcontents[currentsection]
   \end{frame}
@@ -41,7 +42,7 @@
 
 \frame{\titlepage}
 
-%\begin{frame}
+%\begin{frame}[t]
 %  \frametitle{Überblick}
 %  \tableofcontents
 %\end{frame}
@@ -50,17 +51,38 @@
 
 \begin{frame}
   \frametitle{Motivation \& Ziele}
+  \setlength{\epigraphwidth}{0.9\textwidth}
+  \begin{epigraphs}
+    \qitem{The likelihood and impacts of abrupt and/or irreversible
+      changes in the climate system, including changes triggered when
+      tipping points are reached, increase with further global warming
+      {\em (high confidence)}.\vspace{1em}\\Die Wahrscheinlichkeit und
+      die Auswirkungen abrupter und/oder unumkehrbarer Änderungen im
+      Klimasystem, einschließlich solcher Änderungen, die ausgelöst
+      werden, wenn Kipppunkte erreicht werden, nehmen mit der weiteren
+      globalen Erwärmung zu {\em (hohe
+        Sicherheit)}.}{\tiny\textit{IPCC Climate Change 2023 Synthesis
+        Report (Summary for Policymakers), B3.2, Seite
+        18\cite{IPCC23}}}
+  \end{epigraphs}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Motivation \& Ziele}
   \begin{itemize}
-  \item<2-> \color<2>{blue} Was ist ein {\em Kipppunkt}?
+  \item<2-> \color<2>{blue} Was ist ein {\em Kipppunkt} (engl. {\em
+    tipping point})?
   \item<3-> \color<3>{blue} Welche Beispiele gibt es?
   \item<4-> \color<4>{blue} Was sind die grundsätzlichen Eigenschaften?
-  \item<5-> \color<5>{blue} Was ist eine {\em Hysterese}?
-  \item<6-> \color<6>{blue} Warum gelten manche Kipppunkte als {\em irreversibel}?
-  \item<7-> \color<7>{blue} Welche weiteren Besonderheiten können auftreten?
+  \item<5-> \color<5>{blue} Warum können die Auswirkungen {\em abrupt} sein?
+  \item<6-> \color<6>{blue} Warum können die Auswirkungen {\em
+    irreversibel} sein?
+  \item<7-> \color<7>{blue} Welche weiteren Besonderheiten können
+    auftreten?
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{Kipppunkt}
   \begin{itemize}
   \item<2-> \color<2>{blue} Schwellwert in System mit zwei (oder mehr) Zuständen
@@ -146,13 +168,12 @@
     \item<3-> \color<3>{blue} Abschwächende, dämpfende Wirkung
     \item<4-> \color<4>{blue} Beispiele:
       \begin{itemize}
-      \item<5-> \color<5>{blue} Temperaturregler, Spannungsregler, Fliehkraftregler
+      \item<5-> \color<5>{blue} Temperaturregler, Spannungsregler, Fliehkraftregler, …
       \item<6-> \color<6>{blue} Noise Cancelling
       \item<7-> \color<7>{blue} Schilddrüsenfunktion
       \item<8-> \color<8>{blue} Angebot und Nachfrage
       \item<9-> \color<9>{blue} Temperaturkompensation, Frequenzkompensation
       \item<10-> \color<10>{blue} Autofokus (Flankendiskriminator)
-      \item<11-> \color<11>{blue} Sonstige Regelkreise
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -170,9 +191,9 @@
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
-        {\color<2>{blue}
-          \draw<2->[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north west] {\hspace{-2cm}\scriptsize Eingangsgröße};
-        }
+        {\color<2>{blue} \draw<2->[thick,->](0.0, 0.5) -- (10.5, 0.5)
+          node[anchor=north west] {\hspace{-3.3cm}\scriptsize
+            Eingangsgröße (Ursache)}; }
       \end{tikzpicture}
     }
   }
@@ -180,7 +201,9 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
       {\color<3>{blue}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<3->[thick,->](0.5, 0.0) -- (0.5, 4.0) node[anchor=south west] {\hspace{-0.2cm}\scriptsize Ausgangsgröße};
+          \draw<3->[thick,->](0.5, 0.0) -- (0.5, 4.0)
+          node[anchor=south west] {\hspace{-0.2cm}\scriptsize
+            Ausgangsgröße (Wirkung)};
         \end{tikzpicture}
       }
     }
@@ -215,11 +238,16 @@
   \vspace{-3.5cm}\\
   Naive Vorstellung: Einzelne abrupte Schwelle
   \begin{itemize}
-    \item<2-> \color<2>{blue} Eingehende Größe (z.B. Last auf Wippe, \COO-Gehalt der Luft)
-    \item<3-> \color<3>{blue} Ausgehende Größe (Neigung der Wippe, Erderwärmung)
-    \item<4-> \color<4>{blue} Zustand 1 (Neigung zu einer Seite, jetziges Klima)
-    \item<5-> \color<5>{blue} Zustand 2 (Neigung zur anderen Seite, zukünftiges Klima)
-    \item<6-> \color<6>{blue} Abrupter Zustandswechsel ({\em Kipppunkt})
+    \item<2-> \color<2>{blue} Eingehende Größe (z.B. Last auf Wippe,
+      \COO-Gehalt der Luft)
+    \item<3-> \color<3>{blue} Ausgehende Größe (Neigung der Wippe,
+      Erderwärmung)
+    \item<4-> \color<4>{blue} Zustand 1 (Neigung zu einer Seite,
+      kälteres Klima)
+    \item<5-> \color<5>{blue} Zustand 2 (Neigung zur anderen Seite,
+      wärmeres Klima)
+    \item<6-> \color<6>{blue} Abrupter Zustandswechsel ({\em
+      Kipppunkt})
   \end{itemize}
 \end{frame}
 
@@ -235,16 +263,16 @@
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[thick,->](0.0, 0.5) -- (10.5, 0.5)
-        node[anchor=north west] {\hspace{-2cm}\scriptsize Eingangsgröße};
+        \draw<1->[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north
+          west] {\hspace{-3.3cm}\scriptsize Eingangsgröße (Ursache)};
       \end{tikzpicture}
     }
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t3) {
       \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[thick,->](0.5, 0.0) -- (0.5, 4.0)
-        node[anchor=south west] {\hspace{-0.2cm}\scriptsize Ausgangsgröße};
+        \draw<1->[thick,->](0.5, 0.0) -- (0.5, 4.0) node[anchor=south
+          west] {\hspace{-0.2cm}\scriptsize Ausgangsgröße (Wirkung)};
       \end{tikzpicture}
     }
   }
@@ -253,7 +281,7 @@
       {\color<2>{blue}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<2->(1.0, 1.0) -- (6.0, 1.0)
-          node[anchor=north]{Zustand 1};
+          node[anchor=north]{\hspace{-5.0cm}\scriptsize Zustand 1};
         \end{tikzpicture}
       }
     }
@@ -263,7 +291,7 @@
       {\color<3>{blue}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<3->(5.0, 3.5) -- (10.0, 3.5)
-          node[anchor=south]{Zustand 2};
+          node[anchor=south]{\hspace{-5.0cm}\scriptsize Zustand 2};
         \end{tikzpicture}
       }
     }
@@ -291,7 +319,8 @@
       {\color<6>{blue}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<6->[thick,<->](4.25, 2.25) -- (6.75, 2.25)
-          node[anchor=south east]{Hysterese};
+          node[anchor=south east]{\hspace{-2.0cm}\scriptsize
+            Hysterese};
         \end{tikzpicture}
       }
     }
@@ -299,16 +328,20 @@
   \vspace{-3.5cm}\\
   Hysterese
   \begin{itemize}
-    \item<2-> \color<2>{blue} Zustand 1 (Neigung zu einer Seite, jetziges Klima)
-    \item<3-> \color<3>{blue} Zustand 2 (Neigung zur anderen Seite, zukünftiges Klima)
-    \item<4-> \color<4>{blue} Wechsel{\em bereich} Zustand 1 {\imply} 2
-    \item<5-> \color<5>{blue} Wechsel{\em bereich} Zustand 2 {\imply} 1
+    \item<2-> \color<2>{blue} Zustand 1 (Neigung zu einer Seite,
+      kälteres Klima)
+    \item<3-> \color<3>{blue} Zustand 2 (Neigung zur anderen Seite,
+      wärmeres Klima)
+    \item<4-> \color<4>{blue} Wechsel{\em bereich} Zustand 1 {\imply}
+      2
+    \item<5-> \color<5>{blue} Wechsel{\em bereich} Zustand 2 {\imply}
+      1
     \item<6-> \color<6>{blue} $\leadsto$ besser {\em Kippelement} mit
       {\em Hysterese} statt {\em Kipppunkt}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{Alternative Hystereseformen}
   \begin{itemize}
     \item<1-> \color<1>{blue} Bisher: Form eines Parallelogramm
@@ -318,7 +351,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{Beispiele aus Physik, Technik und Natur, Wirtschaft}
   Hysterese-Effekte gibt es sehr häufig:
   \begin{itemize}
@@ -406,7 +439,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->[thick,->](0.0, 0.5) -- (10.5, 0.5)
-        node[anchor=north west] {\scriptsize \COO};
+        node[anchor=north west] {\hspace{-0.8cm}\scriptsize \COO};
       \end{tikzpicture}
     }
   }
@@ -414,7 +447,7 @@
     \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t3) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->[thick,->](0.5, 0.0) -- (0.5, 4.0)
-        node[anchor=south west] {\scriptsize Effekt};
+        node[anchor=south west] {\hspace{-0.3cm}\scriptsize Effekt};
       \end{tikzpicture}
     }
   }
@@ -560,7 +593,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{Ergebnisse}
   \begin{itemize}
     \item<2-> \color<2>{blue} (Kleine) Hysterese praktisch immer
@@ -584,7 +617,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{Forschungsfragen}
   zur Hysterese
   \begin{itemize}
@@ -612,7 +645,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \begin{center}
     \Huge{Diskussion eröffnet!}
   \end{center}
@@ -620,13 +653,12 @@
 
 % backup slides
 
-\begin{frame}
-  %\fullcite{Maeder08}
+\begin{frame}[t,allowframebreaks]
+  \frametitle{Literaturverweise}
   \nocite{Maeder08}
   \nocite{Wikipedia20a}
   \nocite{Reuter20}
   \printbibliography
-  \frametitle{Literaturverweise}
 \end{frame}
 
 \end{document}
