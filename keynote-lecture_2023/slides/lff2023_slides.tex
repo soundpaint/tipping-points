@@ -170,12 +170,15 @@
     \item<3-> \color<3>{\clr} Abschwächende, dämpfende Wirkung
     \item<4-> \color<4>{\clr} Beispiele:
       \begin{itemize}
-      \item<5-> \color<5>{\clr} Temperaturregler, Spannungsregler, Fliehkraftregler, …
-      \item<6-> \color<6>{\clr} Noise Cancelling
-      \item<7-> \color<7>{\clr} Schilddrüsenfunktion
-      \item<8-> \color<8>{\clr} Angebot und Nachfrage
-      \item<9-> \color<9>{\clr} Temperaturkompensation, Frequenzkompensation
-      \item<10-> \color<10>{\clr} Autofokus (Flankendiskriminator)
+      \item<5-> \color<5>{\clr} Regelkreis / Thermostat:
+      \item<6->[] \color<6>{\clr} Temperaturregler (Kühlschrank, Heizung)
+      \item<7->[] \color<7>{\clr} Spannungsregler / Netzteil
+      \item<8->[] \color<8>{\clr} Fliehkraftregler
+      \item<9-> \color<9>{\clr} Noise Cancelling
+      \item<10-> \color<10>{\clr} Schilddrüsenfunktion
+      \item<11-> \color<11>{\clr} Angebot und Nachfrage
+      \item<12-> \color<12>{\clr} Temperaturkompensation, Frequenzkompensation
+      \item<13-> \color<13>{\clr} Autofokus (Flankendiskriminator)
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -187,7 +190,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
       {\color<4>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<4->(5.0, 1.0) -- (6.0, 3.5);
+          \draw<4->(5.0, 1.0) -- (6.0, 2.5);
         \end{tikzpicture}
       }
     }
@@ -196,7 +199,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
       {\color<7>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<7->(6.0, 3.5) -- (10.0, 3.5);
+          \draw<7->(6.0, 2.5) -- (10.0, 2.5);
         \end{tikzpicture}
       }
     }
@@ -221,12 +224,15 @@
     \begin{itemize}
     \item<6-> \color<6>{\clr} Beispiel: Reflexion (Albedo) von Schnee
       auf dunklem Untergrund
-    \item<7-> \color<7>{\clr} maximal bei 100\% Schneebedeckung
-    \item<8-> \color<8>{\clr} minimal bei 0\% Schneebedeckung
+      \begin{itemize}
+      \item<7-> \color<7>{\clr} maximal bei 100\% Schneebedeckung
+      \item<8-> \color<8>{\clr} minimal bei 0\% Schneebedeckung
+      \end{itemize}
+    \item<9-> \color<9>{\clr} Beispiel Wippe: Begrenzte Wegstrecke
     \end{itemize}
-    \item[]<9->{\color<9>{\clr} {\imply} Schwellwert in System mit
+    \item[]<10->{\color<10>{\clr} {\imply} Schwellwert in System mit
       zwei (oder mehr) Zuständen}
-    \item[]<10->{\color<10>{\clr} {\imply} rascher Zustandswechsel bei
+    \item[]<11->{\color<11>{\clr} {\imply} rascher Zustandswechsel bei
       Überschreiten eines Schwellwerts ({\em Kipppunkt})}
   \end{itemize}
 \end{frame}
@@ -288,7 +294,7 @@
     }
   }
   \vspace{-3.5cm}\\
-  Naive Vorstellung: Einzelne abrupte Schwelle
+  Erstes, naives Modell: Einzelne abrupte Schwelle
   \begin{itemize}
     \item<2-> \color<2>{\clr} Eingehende Größe (z.B. Last auf Wippe,
       \COO-Gehalt der Luft)
@@ -378,7 +384,7 @@
     }
   }
   \vspace{-3.5cm}\\
-  Hysterese
+  Verfeinertes Modell: Hysterese
   \begin{itemize}
     \item<2-> \color<2>{\clr} Zustand 1 (Neigung zu einer Seite,
       kälteres Klima)
@@ -473,7 +479,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Computermodell der Wippe}
+  \frametitle{Computersimulation der Wippe}
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -507,6 +513,81 @@
         \item<14-> \color<14>{\clr} Äußere Einflüsse (Wind,
           Temperatur, Erschütterungen, $\dots$)
       \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Computersimulation der Wippe: Ergebnisse}
+  \begin{itemize}
+  \item<2-> \color<2>{\clr} Didaktisches, interaktives Spielzeug mit
+    netter Grafik
+  \item<3-> \color<3>{\clr} Für „ersten Kontakt“ mit Thematik nützlich
+  \item<4-> \color<4>{\clr} Als reine Softwarelösung ohne spezielle
+    Hardwarevoraussetzungen unkompliziert einsetzbar
+  \item<4-> \color<4>{\clr} Nicht wirklich realitätsnah; primitives
+    Modell mit sehr starken Vereinfachungen
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elektronisches Modell: Visualisierung}
+  \begin{itemize}
+    \item<2-> \color<2>{\clr} Oszilloskop zur Darstellung
+    \item<3-> \color<3>{\clr} Betrieb im X-Y-Modus als {\em
+      Kennlinienschreiber}
+    \item<4-> \color<4>{\clr} Bildwiederholung für stehendes Bild notwendig
+    \item<5-> \color<5>{\clr} hierfür mit Oszillator Kipppelement
+      periodisch durchwandern
+    \item<6-> \color<6>{\clr} {\imply} Dreieckschwingung erzeugen für
+      Durchlaufen der X-Achse
+    \item<7-> \color<7>{\clr} {\em Schmit-Trigger} als eigentliches Kippelement
+    \item<8-> \color<8>{\clr} Dreieck auf Eingang des Schmit-Triggers legen
+    \item<9-> \color<9>{\clr} Ausgang des Schmit-Triggers: Y-Achse
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elektronisches Modell: Erzeugung Dreieckschwingung}
+  \begin{itemize}
+  \item<2-> \color<2>{\clr} Standard-Oszillatorschaltung
+  \item<3-> \color<3>{\clr} Frequenz ca. 1,7kHz
+  \item<4-> \color<4>{\clr} Signalaufbereitung
+    \begin{itemize}
+    \item<5-> \color<5>{\clr} Oszillation {\imply} nicht-lineare
+      Ladekurve am Kondensator
+    \item<6-> \color<6>{\clr} Schwellwertschalter {\imply}
+      symmetrische Rechteckspannung
+    \item<7-> \color<7>{\clr} Integrator {\imply} symmetrische
+      Dreieckspannung
+    \end{itemize}
+  \item<8-> \color<8>{\clr} Frequenz der Oszillation im hörbaren
+    Bereich
+  \item<9-> \color<9>{\clr} Kalibrierung der Linearität (Reduktion
+    Klirrfaktor) ggf. auch akustisch möglich
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elektronisches Modell: Ergebnisse}
+  \begin{itemize}
+    \item<2-> \color<2>{\clr} Anders als die einfache
+      Computersimulation „echtes“ Kippelement
+    \item<3-> \color<3>{\clr} Daher Potenzial, Effekte realer
+      Kipppunkte besser herauszuarbeiten und abzubilden
+    \item<4-> \color<4>{\clr} Parallelogramm-förmige Hysterese sehr
+      gut visualisierbar
+    \item<5-> \color<5>{\clr} Übergang zwischen Kippelement und
+      Linearverstärker sehr gut visualisierbar
+      \begin{itemize}
+      \item<6-> \color<6>{\clr} Hohe Mitkopplung: Kippelement mit
+        Hysterese
+      \item<7-> \color<7>{\clr} Hohe Gegenkopplung: Lineare
+        Verstärkung
+      \end{itemize}
+    \item<8-> \color<8>{\clr} Hysterese schlägt ggf. bereits bei
+      Eintritt in Hysteresebereich voll durch
+    \item<9-> \color<9>{\clr} Bei plötzlicher Kehrtwende im
+      Hysteresebereich können ggf. starke Oszillationen auftreten
   \end{itemize}
 \end{frame}
 
@@ -683,7 +764,7 @@
 \end{frame}
 
 \begin{frame}[t]
-  \frametitle{Ergebnisse}
+  \frametitle{Ergebnisse I}
   \begin{itemize}
     \item<2-> \color<2>{\clr} (Kleine) Hysterese praktisch immer
       vorhanden
@@ -691,34 +772,56 @@
       \item<3-> \color<3>{\clr} Wegen \glqq{}Kosten\grqq{} (Energie,
         Aufwand) für Zustandswechsel
       \item<4-> \color<4>{\clr} Durch Reibung, Wegstrecke,
-        Abschmelzen, etc.
+        Abschmelzen, Einbringung, Entfernung, etc.
       \end{itemize}
-    \item<5-> \color<5>{\clr} Größe der Hysterese abhängig von Mitkopplung
+    \item<5-> \color<5>{\clr} Größe der Hysterese abhängig von
+      Mitkopplung \& Gegenkopplung
       \begin{itemize}
       \item<6-> \color<6>{\clr} Entscheidend für Irreversibilität
-      \item<7-> \color<7>{\clr} Ggf. schwer zu bestimmen / abzuschätzen
+      \item<7-> \color<7>{\clr} Ggf. schwer zu bestimmen /
+        abzuschätzen
       \end{itemize}
-    \item<8-> \color<8>{\clr} Hysterese ggf. schon bei Zustandsübergang voll wirksam
-    \item<9-> \color<9>{\clr} veschiedene Hystereseformen und -dynamiken möglich
-    \item<10-> \color<10>{\clr} Modelle stets Vereinfachung der Realität
-    \item<11-> \color<11>{\clr} Genauigkeit / Aussagekraft abhängig von Detaillierungsgrad
-    \item<12-> \color<12>{\clr} Ggf. unerwartete Effekte als Fingerzeig für weitere Untersuchungen
+    \item<8-> \color<8>{\clr} Hysterese ggf. schon im Zustandsübergang
+      voll wirksam
+    \item<9-> \color<9>{\clr} veschiedene Hystereseformen und
+      -dynamiken möglich
   \end{itemize}
 \end{frame}
 
 \begin{frame}[t]
-  \frametitle{Forschungsfragen}
-  zur Hysterese
+  \frametitle{Ergebnisse II}
   \begin{itemize}
-    \item<2-> \color<2>{\clr} Z.B. Schneeflächen: Wie groß ist die Hysterese?
+    \item<2-> \color<2>{\clr} Modelle stets Vereinfachung der Realität
+    \item<3-> \color<3>{\clr} Verschiedene Modelle betonen
+      verschiedene Hysterese-Eigenschaften
+      \begin{itemize}
+      \item<4-> \color<4>{\clr} Wippe: ggf. Reibung, Hebelgesetz
+      \item<5-> \color<5>{\clr} elektron. Modell: Oszillationen
+      \end{itemize}
+    \item<6-> \color<6>{\clr} Genauigkeit / Aussagekraft je Modell
+      abhängig von Detaillierungsgrad
+    \item<7-> \color<7>{\clr} Modell mit unerwartetem / überraschende Effekt
+    \item<8-> \color<8>{\clr} Vielleicht nur „Problem“ des Modells
+    \item<9-> \color<9>{\clr} Vielleicht aber Fingerzeig für bislang
+      übersehene Eigenschaft
+    \item<10-> \color<10>{\clr} Ggf. zum Anlass nehmen für weitere
+      Untersuchungen
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Hysterese: Offene Fragen I}
+  Für konkretes reales Kippelement
+  \begin{itemize}
+    \item<2-> \color<2>{\clr} Wie groß ist die Hysterese (z.B. Schneeflächen)?
       \begin{itemize}
         \item<3-> \color<3>{\clr} Jahre?
         \item<4-> \color<4>{\clr} Jahrzehnte?
       \end{itemize}
     \item<5-> \color<5>{\clr} Form der Hysterese?
       \begin{itemize}
-        \item<6-> \color<6>{\clr} Parallelogramm?
-        \item<7-> \color<7>{\clr} Schleife?
+        \item<6-> \color<6>{\clr} Z.B. Parallelogramm?
+        \item<7-> \color<7>{\clr} Z.B. Schleife?
       \end{itemize}
     \item<8-> \color<8>{\clr} Wo ist der PNR?
     \item<9-> \color<9>{\clr} Gibt es weitere Einflüsse auf den PNR?
@@ -735,8 +838,20 @@
 \end{frame}
 
 \begin{frame}[t]
+  \frametitle{Hysterese: Offene Fragen II}
+  Für konkretes reales Kippelement
+  \begin{itemize}
+  \item<2-> \color<2>{\clr} Welches Modell kommt Realität am nächsten?
+  \item<3-> \color<3>{\clr} In welchen Eigenschaften ist es realistisch?
+  \item<4-> \color<4>{\clr} Worin unterscheidet es sich von Realität?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
   \begin{center}
-    \Huge{Diskussion eröffnet!}
+    \Huge{Diskussion eröffnet!}\\
+    \vspace{1cm}
+    \large{Gerne auch mit den Modellen „spielen“!}
   \end{center}
 \end{frame}
 
