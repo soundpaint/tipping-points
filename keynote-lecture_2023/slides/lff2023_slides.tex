@@ -1,21 +1,26 @@
 \documentclass{beamer}
+
 \usetheme{Madrid}
-\usecolortheme{beaver}
-\usepackage[utf8]{inputenc}
+\usecolortheme{spruce}
+\setbeamercolor*{normal text}{fg=green!30!black,bg=green!5!white}
 \usefonttheme{professionalfonts}
+
+\usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[ngerman]{babel}
 \usepackage[backend=biber,style=numeric,sorting=nyvt]{biblatex}
 \usepackage{tikz}
-\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{arrows,shapes,shapes.geometric,positioning}
 \usepackage{pifont}
 \usepackage{epigraph}
 
+\newcommand{\clr}{olive}%
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\qmark}{\ding{51} / \ding{55}}%
 \newcommand{\xmark}{\ding{55}}%
 \newcommand{\COO}{$\mathrm{CO}_2$}%
 \newcommand{\imply}{$\Rightarrow$}
+\newcommand{\impliedBy}{$\Leftarrow$}
 \title[Kipppunkte]{
   Visualisierung der Hysterese\\
   von Kipppunkten}
@@ -40,7 +45,9 @@
 \tikzstyle{every picture}+=[remember picture]
 \everymath{\displaystyle}
 
-\frame{\titlepage}
+{\usebackgroundtemplate
+  {\includegraphics[width=\paperwidth,height=\paperheight]
+    {../images/title-image\_ultra-light.png}} \frame{\titlepage}}
 
 %\begin{frame}[t]
 %  \frametitle{Überblick}
@@ -70,23 +77,16 @@
 \begin{frame}[t]
   \frametitle{Motivation \& Ziele II}
   \begin{itemize}
-  \item<2-> \color<2>{blue} Was ist ein {\em Kipppunkt} (engl. {\em
+  \item<2-> \color<2>{\clr} Was ist eine {\em Rückkopplung?}
+  \item<3-> \color<3>{\clr} Was ist ein {\em Kipppunkt} (engl. {\em
     tipping point})?
-  \item<3-> \color<3>{blue} Welche Beispiele gibt es?
-  \item<4-> \color<4>{blue} Was sind die grundsätzlichen Eigenschaften?
-  \item<5-> \color<5>{blue} Warum können die Auswirkungen {\em abrupt} sein?
-  \item<6-> \color<6>{blue} Warum können die Auswirkungen {\em
+  \item<4-> \color<4>{\clr} Welche Beispiele gibt es?
+  \item<5-> \color<5>{\clr} Was sind die grundsätzlichen Eigenschaften?
+  \item<6-> \color<6>{\clr} Warum können die Auswirkungen {\em abrupt} sein?
+  \item<7-> \color<7>{\clr} Warum können die Auswirkungen {\em
     irreversibel} sein?
-  \item<7-> \color<7>{blue} Welche weiteren Besonderheiten können
+  \item<8-> \color<8>{\clr} Welche weiteren Besonderheiten können
     auftreten?
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[t]
-  \frametitle{Kipppunkt}
-  \begin{itemize}
-  \item<2-> \color<2>{blue} Schwellwert in System mit zwei (oder mehr) Zuständen
-  \item<3-> \color<3>{blue} rascher Zustandswechsel bei Erreichen des Schwellwerts
   \end{itemize}
 \end{frame}
 
@@ -106,29 +106,30 @@
           >=latex', every node/.style={scale=0.7}]
         \node<2-> [input, name=input] {};
         \node<2-> [sum, right of=input] (sum) {$+$};
-        \node<2-> [block, right of=sum] (function) {$f(t)$};
-        \node<2-> [output, right of=function] (output) {};
+        \node<2-> [isosceles triangle, draw, fill=yellow!20, minimum size=1cm, right of=sum] (function) {$f(t)$};
+        \node<2-> [output, right=1.5cm of function] (output) {};
         \node<2-> [block, below of=function] (feedback) {$\beta$};
         \draw<2-> [draw,->] (input) -- node[label={[label distance=0.6cm]178:$Input$}] {} (sum);
         \draw<2-> [->] (sum) -- node {} (function);
-        \draw<2-> [->] (function) -- node [name=y,label={[label distance=0.6cm]2:$Output$}] {}(output);
+        \draw<2-> [->] (function) -- node [name=y,label={[label distance=0.8cm]2:$Output$}] {}(output);
+        \fill<2-> (y) [shift=(down:3pt)]circle (2pt);
         \draw<2-> [->] (y) |- node [above,pos=0.79] {} (feedback) ;
-        \draw<2-> [->] (feedback) -| node[pos=0.99] {$+$} node [near end] {} (sum);
+        \draw<2-> [->] (feedback) -| node[pos=0.99,shift=(down:10pt)] {$+$} node [near end] {} (sum);
       \end{tikzpicture}
     }
   }
   \vspace{-3.0cm}\\
   \begin{itemize}
-  \item<2-> \color<2>{blue} {\em Mitkopplung} oder {\em positive} Rückkopplung
+  \item<2-> \color<2>{\clr} {\em Mitkopplung} oder {\em positive} Rückkopplung
     \begin{itemize}
-    \item<3-> \color<3>{blue} Ggf. aufschaukelnd verstärkende Wirkung
-    \item<4-> \color<4>{blue} Beispiele:
+    \item<3-> \color<3>{\clr} Ggf. aufschaukelnd verstärkende Wirkung
+    \item<4-> \color<4>{\clr} Beispiele:
       \begin{itemize}
-      \item<5-> \color<5>{blue} „Pfeifendes“ Mikro
-      \item<6-> \color<6>{blue} Explosion
-      \item<7-> \color<7>{blue} Lawine
-      \item<8-> \color<8>{blue} Laser
-      \item<9-> \color<9>{blue} Zinseszinsen
+      \item<5-> \color<5>{\clr} „Pfeifendes“ Mikro
+      \item<6-> \color<6>{\clr} Explosion
+      \item<7-> \color<7>{\clr} Lawine
+      \item<8-> \color<8>{\clr} Laser
+      \item<9-> \color<9>{\clr} Zinseszinsen
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -150,32 +151,83 @@
           >=latex', every node/.style={scale=0.7}]
         \node<2-> [input, name=input] {};
         \node<2-> [sum, right of=input] (sum) {$+$};
-        \node<2-> [block, right of=sum] (function) {$f(t)$};
-        \node<2-> [output, right of=function] (output) {};
+        \node<2-> [isosceles triangle, draw, fill=yellow!20, minimum size=1cm, right of=sum] (function) {$f(t)$};
+        \node<2-> [output, right=1.5cm of function] (output) {};
         \node<2-> [block, below of=function] (feedback) {$\beta$};
         \draw<2-> [draw,->] (input) -- node[label={[label distance=0.6cm]178:$Input$}] {} (sum);
         \draw<2-> [->] (sum) -- node {} (function);
-        \draw<2-> [->] (function) -- node [name=y,label={[label distance=0.6cm]2:$Output$}] {}(output);
+        \draw<2-> [->] (function) -- node [name=y,label={[label distance=0.8cm]2:$Output$}] {}(output);
+        \fill<2-> (y) [shift=(down:3pt)]circle (2pt);
         \draw<2-> [->] (y) |- node [above,pos=0.79] {} (feedback) ;
-        \draw<2-> [->] (feedback) -| node[pos=0.99] {$-$} node [near end] {} (sum);
+        \draw<2-> [->] (feedback) -| node[pos=0.99,shift=(down:10pt)] {$-$} node [near end] {} (sum);
       \end{tikzpicture}
     }
   }
   \vspace{-3.0cm}\\
   \begin{itemize}
-  \item<2-> \color<2>{blue} {\em Gegenkopplung} oder {\em negative} Rückkopplung
+  \item<2-> \color<2>{\clr} {\em Gegenkopplung} oder {\em negative} Rückkopplung
     \begin{itemize}
-    \item<3-> \color<3>{blue} Abschwächende, dämpfende Wirkung
-    \item<4-> \color<4>{blue} Beispiele:
+    \item<3-> \color<3>{\clr} Abschwächende, dämpfende Wirkung
+    \item<4-> \color<4>{\clr} Beispiele:
       \begin{itemize}
-      \item<5-> \color<5>{blue} Temperaturregler, Spannungsregler, Fliehkraftregler, …
-      \item<6-> \color<6>{blue} Noise Cancelling
-      \item<7-> \color<7>{blue} Schilddrüsenfunktion
-      \item<8-> \color<8>{blue} Angebot und Nachfrage
-      \item<9-> \color<9>{blue} Temperaturkompensation, Frequenzkompensation
-      \item<10-> \color<10>{blue} Autofokus (Flankendiskriminator)
+      \item<5-> \color<5>{\clr} Temperaturregler, Spannungsregler, Fliehkraftregler, …
+      \item<6-> \color<6>{\clr} Noise Cancelling
+      \item<7-> \color<7>{\clr} Schilddrüsenfunktion
+      \item<8-> \color<8>{\clr} Angebot und Nachfrage
+      \item<9-> \color<9>{\clr} Temperaturkompensation, Frequenzkompensation
+      \item<10-> \color<10>{\clr} Autofokus (Flankendiskriminator)
       \end{itemize}
     \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Kipppunkt}
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
+      {\color<4>{\clr}
+        \begin{tikzpicture}[remember picture, overlay]
+          \draw<4->(5.0, 1.0) -- (6.0, 3.5);
+        \end{tikzpicture}
+      }
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
+      {\color<7>{\clr}
+        \begin{tikzpicture}[remember picture, overlay]
+          \draw<7->(6.0, 3.5) -- (10.0, 3.5);
+        \end{tikzpicture}
+      }
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
+      {\color<8>{\clr}
+        \begin{tikzpicture}[remember picture, overlay]
+          \draw<8->(1.0, 1.0) -- (5.0, 1.0);
+        \end{tikzpicture}
+      }
+    }
+  }
+  \vspace{-0.8cm}\\
+  \begin{itemize}
+  \item<2-> \color<2>{\clr} Mitkopplung
+    \begin{itemize}
+    \item[]<3-> \color<3>{\clr} {\imply} hohe Verstärkung
+    \item[]<4-> \color<4>{\clr} {\imply} steile Flanke
+    \end{itemize}
+  \item<5-> \color<5>{\clr} Sättigung: Begrenzung der Ausgangsgröße
+    \begin{itemize}
+    \item<6-> \color<6>{\clr} Beispiel: Reflexion (Albedo) von Schnee
+      auf dunklem Untergrund
+    \item<7-> \color<7>{\clr} maximal bei 100\% Schneebedeckung
+    \item<8-> \color<8>{\clr} minimal bei 0\% Schneebedeckung
+    \end{itemize}
+    \item[]<9->{\color<9>{\clr} {\imply} Schwellwert in System mit
+      zwei (oder mehr) Zuständen}
+    \item[]<10->{\color<10>{\clr} {\imply} rascher Zustandswechsel bei
+      Überschreiten eines Schwellwerts ({\em Kipppunkt})}
   \end{itemize}
 \end{frame}
 
@@ -191,7 +243,7 @@
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
-        {\color<2>{blue} \draw<2->[thick,->](0.0, 0.5) -- (10.5, 0.5)
+        {\color<2>{\clr} \draw<2->[thick,->](0.0, 0.5) -- (10.5, 0.5)
           node[anchor=north west] {\hspace{-3.3cm}\scriptsize
             Eingangsgröße (Ursache)}; }
       \end{tikzpicture}
@@ -199,7 +251,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
-      {\color<3>{blue}
+      {\color<3>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<3->[thick,->](0.5, 0.0) -- (0.5, 4.0)
           node[anchor=south west] {\hspace{-0.2cm}\scriptsize
@@ -210,7 +262,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
-      {\color<4>{blue}
+      {\color<4>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<4->(1.0, 1.0) -- (5.5, 1.0);
         \end{tikzpicture}
@@ -219,7 +271,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
-      {\color<5>{blue}
+      {\color<5>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<5->(5.5, 3.5) -- (10.0, 3.5);
         \end{tikzpicture}
@@ -228,7 +280,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
-      {\color<6>{blue}
+      {\color<6>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<6->[dashed](5.5, 1.0) -- (5.5, 3.5);
         \end{tikzpicture}
@@ -238,15 +290,15 @@
   \vspace{-3.5cm}\\
   Naive Vorstellung: Einzelne abrupte Schwelle
   \begin{itemize}
-    \item<2-> \color<2>{blue} Eingehende Größe (z.B. Last auf Wippe,
+    \item<2-> \color<2>{\clr} Eingehende Größe (z.B. Last auf Wippe,
       \COO-Gehalt der Luft)
-    \item<3-> \color<3>{blue} Ausgehende Größe (Neigung der Wippe,
+    \item<3-> \color<3>{\clr} Ausgehende Größe (Neigung der Wippe,
       Erderwärmung)
-    \item<4-> \color<4>{blue} Zustand 1 (Neigung zu einer Seite,
+    \item<4-> \color<4>{\clr} Zustand 1 (Neigung zu einer Seite,
       kälteres Klima)
-    \item<5-> \color<5>{blue} Zustand 2 (Neigung zur anderen Seite,
+    \item<5-> \color<5>{\clr} Zustand 2 (Neigung zur anderen Seite,
       wärmeres Klima)
-    \item<6-> \color<6>{blue} Abrupter Zustandswechsel ({\em
+    \item<6-> \color<6>{\clr} Abrupter Zustandswechsel ({\em
       Kipppunkt})
   \end{itemize}
 \end{frame}
@@ -278,7 +330,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
-      {\color<2>{blue}
+      {\color<2>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<2->(1.0, 1.0) -- (6.0, 1.0)
           node[anchor=north]{\hspace{-5.0cm}\scriptsize Zustand 1};
@@ -288,7 +340,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
-      {\color<3>{blue}
+      {\color<3>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<3->(5.0, 3.5) -- (10.0, 3.5)
           node[anchor=south]{\hspace{-5.0cm}\scriptsize Zustand 2};
@@ -298,7 +350,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
-      {\color<4>{blue}
+      {\color<4>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<4->[thick,->] (6.0, 1.0) -- (7.5, 3.5);
         \end{tikzpicture}
@@ -307,7 +359,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t7) {
-      {\color<5>{blue}
+      {\color<5>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<5->[thick,<-](3.5, 1.0) -- (5.0, 3.5);
         \end{tikzpicture}
@@ -316,7 +368,7 @@
   }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t8) {
-      {\color<6>{blue}
+      {\color<6>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
           \draw<6->[thick,<->](4.25, 2.25) -- (6.75, 2.25)
           node[anchor=south east]{\hspace{-2.0cm}\scriptsize
@@ -328,71 +380,71 @@
   \vspace{-3.5cm}\\
   Hysterese
   \begin{itemize}
-    \item<2-> \color<2>{blue} Zustand 1 (Neigung zu einer Seite,
+    \item<2-> \color<2>{\clr} Zustand 1 (Neigung zu einer Seite,
       kälteres Klima)
-    \item<3-> \color<3>{blue} Zustand 2 (Neigung zur anderen Seite,
+    \item<3-> \color<3>{\clr} Zustand 2 (Neigung zur anderen Seite,
       wärmeres Klima)
-    \item<4-> \color<4>{blue} Wechsel{\em bereich} Zustand 1 {\imply}
+    \item<4-> \color<4>{\clr} Wechsel{\em bereich} Zustand 1 {\imply}
       2
-    \item<5-> \color<5>{blue} Wechsel{\em bereich} Zustand 2 {\imply}
+    \item<5-> \color<5>{\clr} Wechsel{\em bereich} Zustand 2 {\imply}
       1
-    \item<6-> \color<6>{blue} $\leadsto$ besser {\em Kippelement} mit
+    \item<6-> \color<6>{\clr} $\leadsto$ besser {\em Kippelement} mit
       {\em Hysterese} statt {\em Kipppunkt}
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Alternative Hystereseformen}
-  \begin{itemize}
-    \item<1-> \color<1>{blue} Bisher: Form eines Parallelogramm
-    \item<2-> \color<2>{blue} Realität: Keine Ecken
-    \item<3-> \color<3>{blue} Sondern kurvige Form
-    \item<4-> \color<4>{blue} Schleifenartige Form
-  \end{itemize}
-\end{frame}
+%\begin{frame}[t]
+%  \frametitle{Alternative Hystereseformen}
+%  \begin{itemize}
+%    \item<1-> \color<1>{\clr} Bisher: Form eines Parallelogramm
+%    \item<2-> \color<2>{\clr} Realität: Keine Ecken
+%    \item<3-> \color<3>{\clr} Sondern kurvige Form
+%    \item<4-> \color<4>{\clr} Schleifenartige Form
+%  \end{itemize}
+%\end{frame}
 
-\begin{frame}[t]
-  \frametitle{Beispiele aus Physik, Technik und Natur, Wirtschaft}
-  Hysterese-Effekte gibt es sehr häufig:
-  \begin{itemize}
-    \item<2-> \color<2>{blue} Wippe
-    \item<3-> \color<3>{blue} Prellfreier Schwellwertschalter (Schmitt-Trigger)
-    \item<4-> \color<4>{blue} Bistabile Kippschaltungen (z.B. Flipflop)
-    \item<5-> \color<5>{blue} Ferromagnetische Magnetisierung
-    \item<6-> \color<6>{blue} KI / Neuronen: Sigmoid-Aktivierung + Rückkopplung
-    \item<7-> \color<7>{blue} Diverse ökonomische / soziale Prozesse
-    \item<8-> \color<8>{blue} Schmelze weiß reflektierender Schneeflächen
-    \item<9-> \color<9>{blue} Permafrostende: Freiwerdendes gebundenes Methangas
-  \end{itemize}
-\end{frame}
+%\begin{frame}[t]
+%  \frametitle{Beispiele aus Physik, Technik und Natur, Wirtschaft}
+%  Hysterese-Effekte gibt es sehr häufig:
+%  \begin{itemize}
+%    \item<2-> \color<2>{\clr} Wippe
+%    \item<3-> \color<3>{\clr} Prellfreier Schwellwertschalter (Schmitt-Trigger)
+%    \item<4-> \color<4>{\clr} Bistabile Kippschaltungen (z.B. Flipflop)
+%    \item<5-> \color<5>{\clr} Ferromagnetische Magnetisierung
+%    \item<6-> \color<6>{\clr} KI / Neuronen: Sigmoid-Aktivierung + Rückkopplung
+%    \item<7-> \color<7>{\clr} Diverse ökonomische / soziale Prozesse
+%    \item<8-> \color<8>{\clr} Schmelze weiß reflektierender Schneeflächen
+%    \item<9-> \color<9>{\clr} Permafrostende: Freiwerdendes gebundenes Methangas
+%  \end{itemize}
+%\end{frame}
 
 \begin{frame}[t]
   \frametitle{Beispiel Klimakipppunkte} (nach Schellnhuber, Stand 2008)
   \supercite{Wikipedia20a,Maeder08}
   \begin{itemize}
-    \item<2-> \color<2>{blue} Abschmelzen des sommerlichen arktischen
+    \item<2-> \color<2>{\clr} Abschmelzen des sommerlichen arktischen
       Meereises
-    \item<3-> \color<3>{blue} Abschmelzen des Grönländischen
+    \item<3-> \color<3>{\clr} Abschmelzen des Grönländischen
       Eisschildes
-    \item<4-> \color<4>{blue} Abschmelzen des Westantarktischen
+    \item<4-> \color<4>{\clr} Abschmelzen des Westantarktischen
       Eisschildes
-    \item<5-> \color<5>{blue} Erlahmen der atlantischen thermohalinen
+    \item<5-> \color<5>{\clr} Erlahmen der atlantischen thermohalinen
       Zirkulation
-    \item<6-> \color<6>{blue} Veränderung der El Niño-Southern
+    \item<6-> \color<6>{\clr} Veränderung der El Niño-Southern
       Oscillation (ENSO)
-    \item<7-> \color<7>{blue} Zusammenbruch des indischen
+    \item<7-> \color<7>{\clr} Zusammenbruch des indischen
       Sommermonsuns
-    \item<8-> \color<8>{blue} Veränderungen im Westafrikanischen
+    \item<8-> \color<8>{\clr} Veränderungen im Westafrikanischen
       Monsunsystem mit Auswirkungen auf Sahara und Sahelzone
-    \item<9-> \color<9>{blue} Entwaldung des tropischen Regenwaldes
-    \item<10-> \color<10>{blue} Rückgang borealer Wälder
+    \item<9-> \color<9>{\clr} Entwaldung des tropischen Regenwaldes
+    \item<10-> \color<10>{\clr} Rückgang borealer Wälder
   \end{itemize}
 \end{frame}
 
 % \section{Beispiele}
 
 \begin{frame}
-  \frametitle{Beispiel Wippe}
+  \frametitle{Beispiel mechanisches Modell: Wippe}
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -413,10 +465,10 @@
   \vspace{-3.5cm}\\
   Präparierung mit Kugel
   \begin{itemize}
-    \item<2-> \color<2>{blue} Gewöhnliche Wippe: Hysterese vernachlässigbar
-    \item<3-> \color<3>{blue} Präparierte Wippe: Rollendes Gewicht im Balken
-    \item<4-> \color<4>{blue} Kugel rollt zum unteren Ende
-    \item<5-> \color<5>{blue} Hysterese durch Position der Kugel
+    \item<2-> \color<2>{\clr} Gewöhnliche Wippe: Hysterese vernachlässigbar
+    \item<3-> \color<3>{\clr} Präparierte Wippe: Rollendes Gewicht im Balken
+    \item<4-> \color<4>{\clr} Kugel rollt zum unteren Ende
+    \item<5-> \color<5>{\clr} Hysterese durch Position der Kugel
   \end{itemize}
 \end{frame}
 
@@ -430,21 +482,30 @@
       \end{tikzpicture}
     }
   }
-  \vspace{-2.5cm}\\
+  \vspace{-1.5cm}\\
   Ein Modell ist ein {\em vereinfachtes} Abbild der Wirklichkeit.
   \begin{itemize}
-    \item<2-> \color<2>{blue} Nachbildung Wippe, rollende Kugel
-    \item<3-> \color<3>{blue} Vereinfachungen
+    \item<2-> \color<2>{\clr} Nachbildung Wippe, rollende Kugel
+    \item<3-> \color<3>{\clr} Vereinfachungen
       \begin{itemize}
-        \item<4-> \color<4>{blue} Konstant schnelles Rollen
-        \item<5-> \color<5>{blue} Simulationsumkehr vor Wendepunkt\\
-          \imply{} Aufwärtsrollen
+        \item<4-> \color<4>{\clr} Konstant schnelles Rollen
+        \item<5-> \color<5>{\clr} Simulationsumkehr vor Wendepunkt\\
+        \item<6->[] \color<6>{\clr} \imply{} Aufwärtsrollen
       \end{itemize}
-    \item<6-> \color<6>{blue} Wirklichkeit deutlich komplexer
+    \item<7-> \color<7>{\clr} Wirklichkeit deutlich komplexer
       \begin{itemize}
-        \item<7-> \color<7>{blue} Linear wachsende Geschwindigkeit der Kugel
-        \item<8-> \color<8>{blue} Richtungsumkehr: Kugel muss erst Abbremsen
-        \item<9-> \color<9>{blue} \imply{} Umkehr zusätzlich erschwert
+        \item<8-> \color<8>{\clr} Linear wachsende Geschwindigkeit der
+          Kugel
+        \item<9-> \color<9>{\clr} Richtungsumkehr: Kugel muss erst
+          Abbremsen
+        \item<10->[] \color<10>{\clr} \imply{} Umkehr zusätzlich
+          erschwert
+        \item<11-> \color<11>{\clr} Reibungskräfte am Drehpunkt
+        \item<12-> \color<12>{\clr} Eigengewicht der Wippe
+        \item<13-> \color<13>{\clr} Horizontale Position der Gewichte:
+          Hebelgesetz!
+        \item<14-> \color<14>{\clr} Äußere Einflüsse (Wind,
+          Temperatur, Erschütterungen, $\dots$)
       \end{itemize}
   \end{itemize}
 \end{frame}
@@ -547,17 +608,18 @@
   \vspace{-3.5cm}\\
   Ab wann geht es realistischerweise nicht mehr zurück?
   \begin{itemize}
-    \item<2-> \color<2>{blue} Im Modell
+    \item<2-> \color<2>{\clr} Im Modell
       \begin{itemize}
-        \item<3-> \color<3>{blue} Am Zweigpunkt der Hysteresekurve
+        \item<3-> \color<3>{\clr} Am Zweigpunkt der Hysteresekurve
       \end{itemize}
-    \item<4-> \color<4>{blue} In Realität, Beispiel Wippe
+    \item<4-> \color<4>{\clr} In Realität, Beispiel Wippe
       \begin{itemize}
-        \item<5-> \color<5>{blue} Deutlich früher
-        \item<6-> \color<6>{blue} Zusatzherausforderung beschleunigte Kugel
-        \item<7-> \color<7>{blue} Rollrichtung der Kugel umkehren
-        \item<8-> \color<8>{blue} Ist-Geschwindigkeit der Kugel einrechnen\\
-          \imply{} Gleichgewicht reicht nicht zum Stoppen
+        \item<5-> \color<5>{\clr} Deutlich früher
+        \item<6-> \color<6>{\clr} Zusatzherausforderung beschleunigte Kugel
+        \item<7-> \color<7>{\clr} Rollrichtung der Kugel umkehren
+        \item<8-> \color<8>{\clr} Ist-Geschwindigkeit der Kugel einrechnen\\
+        \item[]<9-> \color<9>{\clr} \imply{} Gleichgewicht reicht
+          nicht zum Stoppen
       \end{itemize}
   \end{itemize}
 \end{frame}
@@ -605,38 +667,42 @@
   \vspace{-3.0cm}\\
   {\small Albedo: Rückstrahlvermögen diffus reflektierender Oberflächen}
   \begin{itemize}
-    \item<2-> \color<2>{blue} Zustand 1: Schneedecke alles bedeckend
-    \item<3-> \color<3>{blue} \imply{} Schnee reflektiert Licht
-    \item<4-> \color<4>{blue} \imply{} Geringe Erwärmung
-    \item<5-> \color<5>{blue} \imply{} Neuschnee bleibt liegen
-    \item<6-> \color<6>{blue} Zustand 2: Schneedecke komplett geschmolzen
-    \item<7-> \color<7>{blue} \imply{} Dunkler Boden absorbiert Licht
-    \item<8-> \color<8>{blue} \imply{} Starke Erwärmung
-    \item<9-> \color<9>{blue} \imply{} Neuschnee schmilzt weg
+    \item<2-> \color<2>{\clr} Zustand 1: Schneedecke alles bedeckend
+    \item<3->[] \color<3>{\clr} \imply{} Schnee reflektiert Licht
+    \item<4->[] \color<4>{\clr} \imply{} Geringe Erwärmung
+    \item<5->[] \color<5>{\clr} \imply{} Neuschnee bleibt liegen
+      {\impliedBy} Mitkopplung!
+    \item<6-> \color<6>{\clr} Zustand 2: Schneedecke komplett
+      geschmolzen
+    \item<7->[] \color<7>{\clr} \imply{} Dunkler Boden absorbiert
+      Licht
+    \item<8->[] \color<8>{\clr} \imply{} Starke Erwärmung
+    \item<9->[] \color<9>{\clr} \imply{} Neuschnee schmilzt weg
+      {\impliedBy} Mitkopplung!
   \end{itemize}
 \end{frame}
 
 \begin{frame}[t]
   \frametitle{Ergebnisse}
   \begin{itemize}
-    \item<2-> \color<2>{blue} (Kleine) Hysterese praktisch immer
+    \item<2-> \color<2>{\clr} (Kleine) Hysterese praktisch immer
       vorhanden
       \begin{itemize}
-      \item<3-> \color<3>{blue} Wegen \glqq{}Kosten\grqq{} (Energie,
+      \item<3-> \color<3>{\clr} Wegen \glqq{}Kosten\grqq{} (Energie,
         Aufwand) für Zustandswechsel
-      \item<4-> \color<4>{blue} Durch Reibung, Wegstrecke,
+      \item<4-> \color<4>{\clr} Durch Reibung, Wegstrecke,
         Abschmelzen, etc.
       \end{itemize}
-    \item<5-> \color<5>{blue} Größe der Hysterese abhängig von Mitkopplung
+    \item<5-> \color<5>{\clr} Größe der Hysterese abhängig von Mitkopplung
       \begin{itemize}
-      \item<6-> \color<6>{blue} Entscheidend für Irreversibilität
-      \item<7-> \color<7>{blue} Ggf. schwer zu bestimmen / abzuschätzen
+      \item<6-> \color<6>{\clr} Entscheidend für Irreversibilität
+      \item<7-> \color<7>{\clr} Ggf. schwer zu bestimmen / abzuschätzen
       \end{itemize}
-    \item<8-> \color<8>{blue} Hysterese ggf. schon bei Zustandsübergang voll wirksam
-    \item<9-> \color<9>{blue} veschiedene Hystereseformen und -dynamiken möglich
-    \item<10-> \color<10>{blue} Modelle stets Vereinfachung der Realität
-    \item<11-> \color<11>{blue} Genauigkeit / Aussagekraft abhängig von Detaillierungsgrad
-    \item<12-> \color<12>{blue} Ggf. unerwartete Effekte als Fingerzeig für weitere Untersuchungen
+    \item<8-> \color<8>{\clr} Hysterese ggf. schon bei Zustandsübergang voll wirksam
+    \item<9-> \color<9>{\clr} veschiedene Hystereseformen und -dynamiken möglich
+    \item<10-> \color<10>{\clr} Modelle stets Vereinfachung der Realität
+    \item<11-> \color<11>{\clr} Genauigkeit / Aussagekraft abhängig von Detaillierungsgrad
+    \item<12-> \color<12>{\clr} Ggf. unerwartete Effekte als Fingerzeig für weitere Untersuchungen
   \end{itemize}
 \end{frame}
 
@@ -644,26 +710,26 @@
   \frametitle{Forschungsfragen}
   zur Hysterese
   \begin{itemize}
-    \item<2-> \color<2>{blue} Z.B. Schneeflächen: Wie groß ist die Hysterese?
+    \item<2-> \color<2>{\clr} Z.B. Schneeflächen: Wie groß ist die Hysterese?
       \begin{itemize}
-        \item<3-> \color<3>{blue} Jahre?
-        \item<4-> \color<4>{blue} Jahrzehnte?
+        \item<3-> \color<3>{\clr} Jahre?
+        \item<4-> \color<4>{\clr} Jahrzehnte?
       \end{itemize}
-    \item<5-> \color<5>{blue} Form der Hysterese?
+    \item<5-> \color<5>{\clr} Form der Hysterese?
       \begin{itemize}
-        \item<6-> \color<6>{blue} Parallelogramm?
-        \item<7-> \color<7>{blue} Schleife?
+        \item<6-> \color<6>{\clr} Parallelogramm?
+        \item<7-> \color<7>{\clr} Schleife?
       \end{itemize}
-    \item<8-> \color<8>{blue} Wo ist der PNR?
-    \item<9-> \color<9>{blue} Gibt es weitere Einflüsse auf den PNR?
+    \item<8-> \color<8>{\clr} Wo ist der PNR?
+    \item<9-> \color<9>{\clr} Gibt es weitere Einflüsse auf den PNR?
       \begin{itemize}
-        \item<10-> \color<10>{blue} Beispiel Wippe: beschleunigte Kugel
-        \item<11-> \color<11>{blue} Einfluss Luftfeuchtigkeit auf Niederschlag?
+        \item<10-> \color<10>{\clr} Beispiel Wippe: beschleunigte Kugel
+        \item<11-> \color<11>{\clr} Einfluss Luftfeuchtigkeit auf Niederschlag?
       \end{itemize}
-    \item<12-> \color<12>{blue} innere Variablen in Hysterese-Modell berücksichtigen
+    \item<12-> \color<12>{\clr} innere Variablen in Hysterese-Modell berücksichtigen
       \begin{itemize}
-        \item<13-> \color<13>{blue} z.B. Kugelposition bei der Wippe
-        \item<14-> \color<14>{blue} und Kugelgeschwindigkeit
+        \item<13-> \color<13>{\clr} z.B. Kugelposition bei der Wippe
+        \item<14-> \color<14>{\clr} und Kugelgeschwindigkeit
       \end{itemize}
   \end{itemize}
 \end{frame}
