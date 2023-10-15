@@ -11,6 +11,7 @@
 \usepackage[backend=biber,style=numeric,sorting=nyvt]{biblatex}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,shapes.geometric,positioning}
+\usepackage[export]{adjustbox}
 \usepackage{pifont}
 \usepackage{epigraph}
 
@@ -47,7 +48,7 @@
 
 {\usebackgroundtemplate
   {\includegraphics[width=\paperwidth,height=\paperheight]
-    {../images/title-image\_ultra-light.png}} \frame{\titlepage}}
+    {../images/title-image\_ultra-light.jpg}} \frame{\titlepage}}
 
 %\begin{frame}[t]
 %  \frametitle{Überblick}
@@ -455,7 +456,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
         \node<2-> (seesaw) at (100.0pt, 55.0pt)
-                  {\includegraphics[width=200pt]{../images/seesaw.png}};
+                  {\includegraphics[width=200pt]{../images/seesaw.jpg}};
       \end{tikzpicture}
     }
   }
@@ -484,7 +485,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
         \node<2-> (seesaw) at (290.0pt, 145.0pt)
-                  {\includegraphics[width=100pt]{../images/screenshot_v0_1.png}};
+                  {\includegraphics[width=100pt]{../images/simulation_v01.png}};
       \end{tikzpicture}
     }
   }
@@ -530,19 +531,48 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Elektronisches Modell}
+  \vspace{1.5cm} \tikz[remember picture, overlay] {
+    \vspace{2.5cm} {\includegraphics[width=0.9\paperwidth,center]
+      {../images/electronics-setup.jpg}} }\\
+  \begin{itemize}
+  \item<2-> \color<2>{\clr} Oszilloskop zur Visualisierung
+  \item<3-> \color<3>{\clr} elektronisches Modell auf Breadboard
+  \item<4-> \color<4>{\clr} Labornetzgerät, Spannunsversorgung 12V
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Elektronisches Modell: Visualisierung}
   \begin{itemize}
     \item<2-> \color<2>{\clr} Oszilloskop zur Darstellung
     \item<3-> \color<3>{\clr} Betrieb im X-Y-Modus als {\em
       Kennlinienschreiber}
-    \item<4-> \color<4>{\clr} Bildwiederholung für stehendes Bild notwendig
+    \item<4-> \color<4>{\clr} Bildwiederholung für stehendes Bild
+      notwendig
     \item<5-> \color<5>{\clr} hierfür mit Oszillator Kipppelement
       periodisch durchwandern
     \item<6-> \color<6>{\clr} {\imply} Dreieckschwingung erzeugen für
       Durchlaufen der X-Achse
-    \item<7-> \color<7>{\clr} {\em Schmit-Trigger} als eigentliches Kippelement
-    \item<8-> \color<8>{\clr} Dreieck auf Eingang des Schmit-Triggers legen
-    \item<9-> \color<9>{\clr} Ausgang des Schmit-Triggers: Y-Achse
+    \item<7-> \color<7>{\clr} {\em Schmitt-Trigger} als eigentliches
+      Kippelement
+    \item<8-> \color<8>{\clr} Dreieck auf Eingang des Schmitt-Triggers
+      legen
+    \item<9-> \color<9>{\clr} Ausgang des Schmitt-Triggers: Y-Achse
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elektronisches Modell: Implementierung}
+  \vspace{5.0cm} \tikz[remember picture, overlay] {
+    {\includegraphics[width=0.9\paperwidth,center]
+      {../images/breadboard.jpg}} }\\
+  \begin{itemize}
+  \item<2-> \color<2>{\clr} Implementierung auf Breadboard
+  \item<3-> \color<3>{\clr} Oszillator mit Standardtimer
+    \texttt{NE555}
+  \item<4-> \color<4>{\clr} Integrator, Skalierung, Offset und
+    Schmitt-Trigger mit Standard-OPV \texttt{TL07x}
   \end{itemize}
 \end{frame}
 
@@ -565,6 +595,62 @@
   \item<9-> \color<9>{\clr} Kalibrierung der Linearität (Reduktion
     Klirrfaktor) ggf. auch akustisch möglich
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elektronisches Modell: Dreickschwingung für X-Achse}
+  \begin{figure}
+    \centering
+    \label{fig:charging_voltage}
+    {\includegraphics[width=0.5\paperwidth,center]
+      {../images/charging-voltage.jpg}}
+    \caption{Der Spannungsverlauf der Ladekurve am Kondensators des
+      Oszillators kommt nur unzureichend der gewünschten
+      Dreieckschwingung nahe.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elektronisches Modell: Dreickschwingung für X-Achse}
+  \begin{figure}
+    \centering
+    \label{fig:sawtooth}
+    {\includegraphics[width=0.5\paperwidth,center]
+      {../images/sawtooth.jpg}}
+    \caption{Der Spannungsverlauf der Ladekurve lässt sich per
+      Schwellwertschalter in eine Rechteckschwingung und mit
+      nachgeschaltetem Integrator in eine Dreieckschwingung hoher
+      Genauigkeit wandeln.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elektronisches Modell: Hysterese bei Volldurchlauf}
+  \begin{figure}
+    \centering
+    \label{fig:hysteresis}
+    {\includegraphics[width=0.5\paperwidth,center]
+      {../images/hysteresis.jpg}}
+    \caption{Für die Darstellung der Kennlinie wird die
+      Dreieckspannung im X-Y-Modus des Oszilloskops als X-Wert
+      verwendet und zugleich durch den Schmitt-Trigger geführt, dessen
+      Ausgangspannung als Y-Wert dient.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elektronisches Modell: Kehrtwende im Hysteresebereich}
+  \begin{figure}
+    \centering
+    \label{fig:aborted_hysteresis}
+    {\includegraphics[width=0.5\paperwidth,center]
+      {../images/aborted-hysteresis.jpg}}
+    \caption{Wird die Dreieckschwingung so verschoben, dass der
+      Hysteresebereich nicht mehr vollständig durchlaufen wird,
+      sondern vorzeitig die Umkehr erfolgt, dann beginnt das System
+      stark zu schwingen.  Die Hysterese kommt bereits bei Eintritt in
+      den Hysteresebereich weitgehend zum Tragen.}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
