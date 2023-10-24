@@ -78,15 +78,18 @@
 \begin{frame}[t]
   \frametitle{Motivation \& Ziele II}
   \begin{itemize}
-  \item<2-> \color<2>{\clr} Was ist eine {\em Rückkopplung?}
+  \item<2-> \color<2>{\clr} Was ist eine {\em Rückkopplung}
+    (engl. {\em feedback})?
   \item<3-> \color<3>{\clr} Was ist ein {\em Kipppunkt} (engl. {\em
     tipping point})?
-  \item<4-> \color<4>{\clr} Welche Beispiele gibt es?
-  \item<5-> \color<5>{\clr} Was sind die grundsätzlichen Eigenschaften?
-  \item<6-> \color<6>{\clr} Warum können die Auswirkungen {\em abrupt} sein?
-  \item<7-> \color<7>{\clr} Warum können die Auswirkungen {\em
+  \item<4-> \color<4>{\clr} Was ist ein {\em Kippelement} (engl. {\em
+    tipping element})?
+  \item<5-> \color<5>{\clr} Welche Beispiele gibt es?
+  \item<6-> \color<6>{\clr} Was sind die grundsätzlichen Eigenschaften?
+  \item<7-> \color<7>{\clr} Warum können die Auswirkungen {\em abrupt} sein?
+  \item<8-> \color<8>{\clr} Warum können die Auswirkungen {\em
     irreversibel} sein?
-  \item<8-> \color<8>{\clr} Welche weiteren Besonderheiten können
+  \item<9-> \color<9>{\clr} Welche weiteren Besonderheiten können
     auftreten?
   \end{itemize}
 \end{frame}
@@ -166,19 +169,23 @@
   }
   \vspace{-3.0cm}\\
   \begin{itemize}
-  \item<2-> \color<2>{\clr} {\em Gegenkopplung} oder {\em negative} Rückkopplung
+  \item<2-> \color<2>{\clr} {\em Gegenkopplung} oder {\em negative}
+    Rückkopplung
     \begin{itemize}
     \item<3-> \color<3>{\clr} Abschwächende, dämpfende Wirkung
     \item<4-> \color<4>{\clr} Beispiele:
       \begin{itemize}
-      \item<5-> \color<5>{\clr} Regelkreis / Thermostat:
-      \item<6->[] \color<6>{\clr} Temperaturregler (Kühlschrank, Heizung)
-      \item<7->[] \color<7>{\clr} Spannungsregler / Netzteil
+      \item<5-> \color<5>{\clr} Regelkreis:
+      \item<6->[] \color<6>{\clr} Temperaturregler / Thermostat
+        (Kühlschrank, Heizung)
+      \item<7->[] \color<7>{\clr} Spannungsregler / stabilisiertes
+        Netzteil
       \item<8->[] \color<8>{\clr} Fliehkraftregler
       \item<9-> \color<9>{\clr} Noise Cancelling
       \item<10-> \color<10>{\clr} Schilddrüsenfunktion
       \item<11-> \color<11>{\clr} Angebot und Nachfrage
-      \item<12-> \color<12>{\clr} Temperaturkompensation, Frequenzkompensation
+      \item<12-> \color<12>{\clr} Temperaturkompensation,
+        Frequenzkompensation
       \item<13-> \color<13>{\clr} Autofokus (Flankendiskriminator)
       \end{itemize}
     \end{itemize}
@@ -395,8 +402,8 @@
       2
     \item<5-> \color<5>{\clr} Wechsel{\em bereich} Zustand 2 {\imply}
       1
-    \item<6-> \color<6>{\clr} $\leadsto$ besser {\em Kippelement} mit
-      {\em Hysterese} statt {\em Kipppunkt}
+    \item<6-> \color<6>{\clr} $\leadsto$ statt {\em Kipppunkt} besser:
+      {\em Kippelement} mit {\em Hysterese}
   \end{itemize}
 \end{frame}
 
@@ -425,6 +432,120 @@
 %  \end{itemize}
 %\end{frame}
 
+\begin{frame}
+  \frametitle{\glqq{}Point of No Return\grqq (\glqq{}PNR\grqq)?}
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t1) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[step=0.5cm,gray!30!white,very thin] (0.1, 0.1) grid (10.4, 3.9);
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[thick,->](0.0, 0.5) -- (10.5, 0.5)
+        node[anchor=north west] {\hspace{-0.8cm}\scriptsize \COO};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t3) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[thick,->](0.5, 0.0) -- (0.5, 4.0)
+        node[anchor=south west] {\hspace{-0.3cm}\scriptsize Effekt};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->(1.0, 1.0) -- (6.0, 1.0)
+        node[anchor=north]{Zustand 1};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->(5.0, 3.5) -- (10.0, 3.5)
+        node[anchor=south]{Zustand 2};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[thick,->] (6.0, 1.0) -- (7.5, 3.5);
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t7) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[thick,<-](3.5, 1.0) -- (5.0, 3.5);
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t8) {
+      {\color<3>{red}
+        \begin{tikzpicture}[remember picture, overlay]
+          \draw<3->[thick,dashed] (7.5, 3.5) circle (0.2cm)
+          node[anchor=south east]{?};
+        \end{tikzpicture}
+      }
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t9) {
+      {\color<3>{red}
+        \begin{tikzpicture}[remember picture, overlay]
+          \draw<3->[thick,dashed] (3.5, 1.0) circle (0.2cm)
+          node[anchor=south east]{?};
+        \end{tikzpicture}
+      }
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t10) {
+      {\color<5>{red}
+        \begin{tikzpicture}[remember picture, overlay]
+          \draw<5->[thick,dashed] (6.75, 2.25) circle (0.2cm)
+          node[anchor=south east]{?};
+        \end{tikzpicture}
+      }
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t11) {
+      {\color<5>{red}
+        \begin{tikzpicture}[remember picture, overlay]
+          \draw<5->[thick,dashed] (4.25, 2.25) circle (0.2cm)
+          node[anchor=south east]{?};
+        \end{tikzpicture}
+      }
+    }
+  }
+  \vspace{-3.5cm}\\
+  Ab wann geht es realistischerweise nicht mehr zurück?
+  \begin{itemize}
+    \item<2-> \color<2>{\clr} Im Modell
+      \begin{itemize}
+        \item<3-> \color<3>{\clr} Am Zweigpunkt der Hysteresekurve
+      \end{itemize}
+    \item<4-> \color<4>{\clr} In Realität, Beispiel Wippe
+      \begin{itemize}
+        \item<5-> \color<5>{\clr} Deutlich früher
+        \item<6-> \color<6>{\clr} Zusatzherausforderung beschleunigte Kugel
+        \item<7-> \color<7>{\clr} Rollrichtung der Kugel umkehren
+        \item<8-> \color<8>{\clr} Ist-Geschwindigkeit der Kugel einrechnen\\
+        \item[]<9-> \color<9>{\clr} \imply{} Gleichgewicht reicht
+          nicht zum Stoppen
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[t]
   \frametitle{Beispiel Klimakipppunkte} (nach Schellnhuber, Stand 2008)
   \supercite{Wikipedia20a,Maeder08}
@@ -449,6 +570,63 @@
 \end{frame}
 
 % \section{Beispiele}
+
+\begin{frame}
+  \frametitle{Beispiel: Albedo von Schneeflächen}
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \fill<1->(0.5, 0.5) -- (10.5, 0.5) -- (0.5, 3.0) -- (0.5, 0.5);
+        \node[anchor=north west,shift={(+2cm,+0.5cm)}] {\scriptsize Boden};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->(0.5, 0.5) -- (10.5, 0.5) -- (10.5, 2.0) -- (0.5, 2.0) -- (0.5, 0.5);
+        \node[anchor=north west,shift={(+8cm,+0.5cm)}] {\scriptsize Schnee};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t3) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[thick,->](5.0, 2.0) -- (5.0, 3.0);
+        \draw<1->[thick,->](6.0, 2.0) -- (6.0, 3.0);
+        \draw<1->[thick,->](7.0, 2.0) -- (7.0, 3.0);
+        \draw<1->[thick,->](8.0, 2.0) -- (8.0, 3.0);
+        \draw<1->[thick,->](9.0, 2.0) -- (9.0, 3.0);
+        \draw<1->[thick,->](10.0, 2.0) -- (10.0, 3.0);
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t4) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<1->[thick,<-,white](1.0, 1.0) -- (1.0, 3.0);
+        \draw<1->[thick,<-,white](2.0, 1.0) -- (2.0, 3.0);
+        \draw<1->[thick,<-,white](3.0, 1.0) -- (3.0, 3.0);
+        \draw<1->[thick,<-,white](4.0, 1.0) -- (4.0, 3.0);
+      \end{tikzpicture}
+    }
+  }
+  \vspace{-3.0cm}\\
+  {\small Albedo: Rückstrahlvermögen diffus reflektierender Oberflächen}
+  \begin{itemize}
+    \item<2-> \color<2>{\clr} Zustand 1: Schneedecke vorhanden
+    \item<3->[] \color<3>{\clr} \imply{} Schnee reflektiert Licht
+    \item<4->[] \color<4>{\clr} \imply{} Kalter Boden
+    \item<5->[] \color<5>{\clr} \imply{} Neuschnee bleibt liegen
+      {\impliedBy} Mitkopplung!
+    \item<6-> \color<6>{\clr} Zustand 2: Schneedecke weggeschmolzen
+    \item<7->[] \color<7>{\clr} \imply{} Dunkler Boden absorbiert
+      Licht
+    \item<8->[] \color<8>{\clr} \imply{} Warmer Boden
+    \item<9->[] \color<9>{\clr} \imply{} Neuschnee schmilzt weg
+      {\impliedBy} Mitkopplung!
+  \end{itemize}
+\end{frame}
 
 \begin{frame}
   \frametitle{Beispiel mechanisches Modell: Wippe}
@@ -536,7 +714,7 @@
     \vspace{2.5cm} {\includegraphics[width=0.9\paperwidth,center]
       {../images/electronics-setup.jpg}} }\\
   \begin{itemize}
-  \item<2-> \color<2>{\clr} Oszilloskop zur Visualisierung
+  \item<2-> \color<2>{\clr} Oszilloskop für Visualisierung
   \item<3-> \color<3>{\clr} elektronisches Modell auf Breadboard
   \item<4-> \color<4>{\clr} Labornetzgerät, Spannunsversorgung 12V
   \end{itemize}
@@ -674,178 +852,6 @@
       Eintritt in Hysteresebereich voll durch
     \item<9-> \color<9>{\clr} Bei plötzlicher Kehrtwende im
       Hysteresebereich können ggf. starke Oszillationen auftreten
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{\glqq{}Point of No Return\grqq (\glqq{}PNR\grqq)?}
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t1) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[step=0.5cm,gray!30!white,very thin] (0.1, 0.1) grid (10.4, 3.9);
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[thick,->](0.0, 0.5) -- (10.5, 0.5)
-        node[anchor=north west] {\hspace{-0.8cm}\scriptsize \COO};
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t3) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[thick,->](0.5, 0.0) -- (0.5, 4.0)
-        node[anchor=south west] {\hspace{-0.3cm}\scriptsize Effekt};
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->(1.0, 1.0) -- (6.0, 1.0)
-        node[anchor=north]{Zustand 1};
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->(5.0, 3.5) -- (10.0, 3.5)
-        node[anchor=south]{Zustand 2};
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[thick,->] (6.0, 1.0) -- (7.5, 3.5);
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t7) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[thick,<-](3.5, 1.0) -- (5.0, 3.5);
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t8) {
-      {\color<3>{red}
-        \begin{tikzpicture}[remember picture, overlay]
-          \draw<3->[thick,dashed] (7.5, 3.5) circle (0.2cm)
-          node[anchor=south east]{?};
-        \end{tikzpicture}
-      }
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t9) {
-      {\color<3>{red}
-        \begin{tikzpicture}[remember picture, overlay]
-          \draw<3->[thick,dashed] (3.5, 1.0) circle (0.2cm)
-          node[anchor=south east]{?};
-        \end{tikzpicture}
-      }
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t10) {
-      {\color<5>{red}
-        \begin{tikzpicture}[remember picture, overlay]
-          \draw<5->[thick,dashed] (6.75, 2.25) circle (0.2cm)
-          node[anchor=south east]{?};
-        \end{tikzpicture}
-      }
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t11) {
-      {\color<5>{red}
-        \begin{tikzpicture}[remember picture, overlay]
-          \draw<5->[thick,dashed] (4.25, 2.25) circle (0.2cm)
-          node[anchor=south east]{?};
-        \end{tikzpicture}
-      }
-    }
-  }
-  \vspace{-3.5cm}\\
-  Ab wann geht es realistischerweise nicht mehr zurück?
-  \begin{itemize}
-    \item<2-> \color<2>{\clr} Im Modell
-      \begin{itemize}
-        \item<3-> \color<3>{\clr} Am Zweigpunkt der Hysteresekurve
-      \end{itemize}
-    \item<4-> \color<4>{\clr} In Realität, Beispiel Wippe
-      \begin{itemize}
-        \item<5-> \color<5>{\clr} Deutlich früher
-        \item<6-> \color<6>{\clr} Zusatzherausforderung beschleunigte Kugel
-        \item<7-> \color<7>{\clr} Rollrichtung der Kugel umkehren
-        \item<8-> \color<8>{\clr} Ist-Geschwindigkeit der Kugel einrechnen\\
-        \item[]<9-> \color<9>{\clr} \imply{} Gleichgewicht reicht
-          nicht zum Stoppen
-      \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Beispiel: Albedo von Schneeflächen}
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \fill<1->(0.5, 0.5) -- (10.5, 0.5) -- (0.5, 3.0) -- (0.5, 0.5);
-        \node[anchor=north west,shift={(+2cm,+0.5cm)}] {\scriptsize Boden};
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->(0.5, 0.5) -- (10.5, 0.5) -- (10.5, 2.0) -- (0.5, 2.0) -- (0.5, 0.5);
-        \node[anchor=north west,shift={(+8cm,+0.5cm)}] {\scriptsize Schnee};
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t3) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[thick,->](5.0, 2.0) -- (5.0, 3.0);
-        \draw<1->[thick,->](6.0, 2.0) -- (6.0, 3.0);
-        \draw<1->[thick,->](7.0, 2.0) -- (7.0, 3.0);
-        \draw<1->[thick,->](8.0, 2.0) -- (8.0, 3.0);
-        \draw<1->[thick,->](9.0, 2.0) -- (9.0, 3.0);
-        \draw<1->[thick,->](10.0, 2.0) -- (10.0, 3.0);
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t4) {
-      \begin{tikzpicture}[remember picture, overlay]
-        \draw<1->[thick,<-,white](1.0, 1.0) -- (1.0, 3.0);
-        \draw<1->[thick,<-,white](2.0, 1.0) -- (2.0, 3.0);
-        \draw<1->[thick,<-,white](3.0, 1.0) -- (3.0, 3.0);
-        \draw<1->[thick,<-,white](4.0, 1.0) -- (4.0, 3.0);
-      \end{tikzpicture}
-    }
-  }
-  \vspace{-3.0cm}\\
-  {\small Albedo: Rückstrahlvermögen diffus reflektierender Oberflächen}
-  \begin{itemize}
-    \item<2-> \color<2>{\clr} Zustand 1: Schneedecke alles bedeckend
-    \item<3->[] \color<3>{\clr} \imply{} Schnee reflektiert Licht
-    \item<4->[] \color<4>{\clr} \imply{} Geringe Erwärmung
-    \item<5->[] \color<5>{\clr} \imply{} Neuschnee bleibt liegen
-      {\impliedBy} Mitkopplung!
-    \item<6-> \color<6>{\clr} Zustand 2: Schneedecke komplett
-      geschmolzen
-    \item<7->[] \color<7>{\clr} \imply{} Dunkler Boden absorbiert
-      Licht
-    \item<8->[] \color<8>{\clr} \imply{} Starke Erwärmung
-    \item<9->[] \color<9>{\clr} \imply{} Neuschnee schmilzt weg
-      {\impliedBy} Mitkopplung!
   \end{itemize}
 \end{frame}
 
