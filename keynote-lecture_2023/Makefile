@@ -3,6 +3,7 @@ ROOT=.
 
 all:
 	cd images ; make all
+	cd schematics ; make all
 	cd slides ; make all
 
 objclean:
@@ -10,6 +11,7 @@ objclean:
 
 bkpclean:
 	cd images ; make bkpclean
+	cd schematics ; make bkpclean
 	cd slides ; make bkpclean
 	rm -f *~
 
@@ -28,6 +30,7 @@ tarball: distclean
 	tar cvf ./$$TGZ_PREFIX.tar.bz2 \
 		--exclude=untracked_files \
 		--exclude=images \
+		--exclude=schematics \
 		--transform=s/$$PROJECT_PATH/$$TGZ_PREFIX/ \
 		--bzip2 $$PROJECT_PATH
 
