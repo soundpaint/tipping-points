@@ -1,4 +1,5 @@
 \documentclass{beamer}
+%\documentclass[handout]{beamer}
 
 \usetheme{Madrid}
 \usecolortheme{spruce}
@@ -19,9 +20,8 @@
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\qmark}{\ding{51} / \ding{55}}%
 \newcommand{\xmark}{\ding{55}}%
-\newcommand{\COO}{$\mathrm{CO}_2$}%
+\newcommand{\COO}{\texorpdfstring{CO\textsubscript{2}}{CO 2}}%
 \newcommand{\imply}{$\Rightarrow$}
-\newcommand{\impliedBy}{$\Leftarrow$}
 \title[Kipppunkte]{
   Visualisierung der Hysterese\\
   von Kipppunkten}
@@ -31,8 +31,7 @@
 \date[LFF2023]{Letters for Future, 30. September 2023}
 
 \AtBeginSection[] {
-  \begin{frame}[t]
-    \frametitle{Überblick}
+  \begin{frame}[t]{Überblick}
     \tableofcontents[currentsection]
   \end{frame}
 }
@@ -50,15 +49,13 @@
   {\includegraphics[width=\paperwidth,height=\paperheight]
     {../images/title-image\_ultra-light.jpg}} \frame{\titlepage}}
 
-%\begin{frame}[t]
-%  \frametitle{Überblick}
+%\begin{frame}[t]{Überblick}
 %  \tableofcontents
 %\end{frame}
 
-% \section{Kipp{\em punkt} vs. Kipp{\em element}}
+%\section{Motivation \& Grundlagen}
 
-\begin{frame}
-  \frametitle{Motivation \& Ziele I}
+\begin{frame}{Motivation \& Ziele I}
   \setlength{\epigraphwidth}{0.9\textwidth}
   \begin{epigraphs}
     \qitem{The likelihood and impacts of abrupt and/or irreversible
@@ -75,8 +72,7 @@
   \end{epigraphs}
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Motivation \& Ziele II}
+\begin{frame}[t]{Motivation \& Ziele II}
   \begin{itemize}
   \item<2-> \color<2>{\clr} Was ist eine {\em Rückkopplung}
     (engl. {\em feedback})?
@@ -94,8 +90,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Rückkopplung I}
+\begin{frame}[fragile]{Rückkopplung I}
   \tikz[remember picture, overlay] {
     \node[shift={(4cm, 2.5cm)}] at (current page.south west) (t1) {
       \tikzset{
@@ -139,8 +134,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Rückkopplung II}
+\begin{frame}{Rückkopplung II}
   \tikz[remember picture, overlay] {
     \node[shift={(4cm, 2.5cm)}] at (current page.south west) (t1) {
       \tikzset{
@@ -192,13 +186,58 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Kipppunkt}
+\begin{frame}[t]{Kipppunkt}
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<2->[thick,->](0.0, 0.5) -- (10.5, 0.5);
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<2->[thick,->](0.5, 0.0) -- (0.5, 2.5);
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<6-8>[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north
+          west] {\hspace{-3.3cm}\scriptsize Temperatur};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<6-8>[thick,->](0.5, 0.0) -- (0.5, 2.5) node[anchor=south
+          west] {\hspace{-0.2cm}\scriptsize Schneebedeckung};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<9>[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north
+          west] {\hspace{-3.3cm}\scriptsize Lage des Schwerpunktes};
+      \end{tikzpicture}
+    }
+  }
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<9>[thick,->](0.5, 0.0) -- (0.5, 2.5) node[anchor=south
+          west] {\hspace{-0.2cm}\scriptsize Auslenkung};
+      \end{tikzpicture}
+    }
+  }
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
       {\color<4>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<4->(5.0, 1.0) -- (6.0, 2.5);
+          \draw<4->(5.25, 1.0) -- (5.75, 2.5);
         \end{tikzpicture}
       }
     }
@@ -207,7 +246,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
       {\color<7>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<7->(6.0, 2.5) -- (10.0, 2.5);
+          \draw<7->(5.75, 2.5) -- (10.0, 2.5);
         \end{tikzpicture}
       }
     }
@@ -216,7 +255,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
       {\color<8>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<8->(1.0, 1.0) -- (5.0, 1.0);
+          \draw<8->(1.0, 1.0) -- (5.25, 1.0);
         \end{tikzpicture}
       }
     }
@@ -230,23 +269,22 @@
     \end{itemize}
   \item<5-> \color<5>{\clr} Sättigung: Begrenzung der Ausgangsgröße
     \begin{itemize}
-    \item<6-> \color<6>{\clr} Beispiel: Reflexion (Albedo) von Schnee
-      auf dunklem Untergrund
+    \item<6-> \color<6>{\clr} Beispiel: Schneebedeckung in
+      niederschlagsreichem Gebiet
       \begin{itemize}
-      \item<7-> \color<7>{\clr} maximal bei 100\% Schneebedeckung
-      \item<8-> \color<8>{\clr} minimal bei 0\% Schneebedeckung
+      \item<7-> \color<7>{\clr} maximal 100\% Schneebedeckung
+      \item<8-> \color<8>{\clr} minimal 0\% Schneebedeckung
       \end{itemize}
-    \item<9-> \color<9>{\clr} Beispiel Wippe: Begrenzte Wegstrecke
+    \item<9-> \color<9>{\clr} Beispiel Wippe: Begrenzte Auslenkung
     \end{itemize}
     \item[]<10->{\color<10>{\clr} {\imply} Schwellwert in System mit
       zwei (oder mehr) Zuständen}
     \item[]<11->{\color<11>{\clr} {\imply} rascher Zustandswechsel bei
-      Überschreiten eines Schwellwerts ({\em Kipppunkt})}
+      Schwellwertüberschreitung ({\em Kipppunkt})}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Kipp{\em punkt}?}
+\begin{frame}{Kipp{\em punkt}?}
   \tikz[remember picture, overlay] {
     \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -278,7 +316,8 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
       {\color<4>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<4->(1.0, 1.0) -- (5.5, 1.0);
+          \draw<4->(1.0, 1.0) -- (5.5, 1.0)
+          node[anchor=north]{\hspace{-5.0cm}\scriptsize Zustand 1};
         \end{tikzpicture}
       }
     }
@@ -287,7 +326,8 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
       {\color<5>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<5->(5.5, 3.5) -- (10.0, 3.5);
+          \draw<5->(5.5, 3.5) -- (10.0, 3.5)
+          node[anchor=south]{\hspace{-5.0cm}\scriptsize Zustand 2};
         \end{tikzpicture}
       }
     }
@@ -317,8 +357,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Kipp{\em element}!}
+\begin{frame}{Kipp{\em element}!}
   \tikz[remember picture, overlay] {
     \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -398,17 +437,16 @@
       kälteres Klima)
     \item<3-> \color<3>{\clr} Zustand 2 (Neigung zur anderen Seite,
       wärmeres Klima)
-    \item<4-> \color<4>{\clr} Wechsel{\em bereich} Zustand 1 {\imply}
-      2
-    \item<5-> \color<5>{\clr} Wechsel{\em bereich} Zustand 2 {\imply}
-      1
-    \item<6-> \color<6>{\clr} $\leadsto$ statt {\em Kipppunkt} besser:
+    \item<4-> \color<4>{\clr} Wechsel{\em bereich} Zustandsübergang 1
+      {$\rightarrow$} 2
+    \item<5-> \color<5>{\clr} Wechsel{\em bereich} Zustandsübergang 2
+      {$\rightarrow$} 1
+    \item<6-> \color<6>{\clr} {\imply} statt {\em Kipppunkt} besser:
       {\em Kippelement} mit {\em Hysterese}
   \end{itemize}
 \end{frame}
 
-%\begin{frame}[t]
-%  \frametitle{Alternative Hystereseformen}
+%\begin{frame}[t]{Alternative Hystereseformen}
 %  \begin{itemize}
 %    \item<1-> \color<1>{\clr} Bisher: Form eines Parallelogramm
 %    \item<2-> \color<2>{\clr} Realität: Keine Ecken
@@ -417,8 +455,7 @@
 %  \end{itemize}
 %\end{frame}
 
-%\begin{frame}[t]
-%  \frametitle{Beispiele aus Physik, Technik und Natur, Wirtschaft}
+%\begin{frame}[t]{Beispiele aus Physik, Technik und Natur, Wirtschaft}
 %  Hysterese-Effekte gibt es sehr häufig:
 %  \begin{itemize}
 %    \item<2-> \color<2>{\clr} Wippe
@@ -432,8 +469,7 @@
 %  \end{itemize}
 %\end{frame}
 
-\begin{frame}
-  \frametitle{\glqq{}Point of No Return\grqq (\glqq{}PNR\grqq)?}
+\begin{frame}{\glqq{}Point of No Return\grqq (\glqq{}PNR\grqq)?}
   \tikz[remember picture, overlay] {
     \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -458,71 +494,71 @@
     }
   }
   \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t4) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->(1.0, 1.0) -- (6.0, 1.0)
-        node[anchor=north]{Zustand 1};
+        node[anchor=north]{\hspace{-5.0cm}\scriptsize Zustand 1};
       \end{tikzpicture}
     }
   }
   \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t5) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->(5.0, 3.5) -- (10.0, 3.5)
-        node[anchor=south]{Zustand 2};
+        node[anchor=south]{\hspace{-5.0cm}\scriptsize Zustand 2};
       \end{tikzpicture}
     }
   }
   \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t6) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->[thick,->] (6.0, 1.0) -- (7.5, 3.5);
       \end{tikzpicture}
     }
   }
   \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t7) {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t7) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<1->[thick,<-](3.5, 1.0) -- (5.0, 3.5);
       \end{tikzpicture}
     }
   }
   \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t8) {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t8) {
       {\color<3>{red}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<3->[thick,dashed] (7.5, 3.5) circle (0.2cm)
-          node[anchor=south east]{?};
+          \draw<3->[thick,dashed] (7.5, 3.4) circle (0.2cm)
+          node[anchor=north west]{\scriptsize ?};
         \end{tikzpicture}
       }
     }
   }
   \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t9) {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t9) {
       {\color<3>{red}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<3->[thick,dashed] (3.5, 1.0) circle (0.2cm)
-          node[anchor=south east]{?};
+          \draw<3->[thick,dashed] (3.65, 1.1) circle (0.2cm)
+          node[anchor=south west]{\scriptsize ?};
         \end{tikzpicture}
       }
     }
   }
   \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t10) {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t10) {
       {\color<5>{red}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<5->[thick,dashed] (6.75, 2.25) circle (0.2cm)
-          node[anchor=south east]{?};
+          \draw<5->[thick,dashed] (6.8, 2.25) circle (0.2cm)
+          node[anchor=south east]{\scriptsize ?};
         \end{tikzpicture}
       }
     }
   }
   \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t11) {
+    \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t11) {
       {\color<5>{red}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<5->[thick,dashed] (4.25, 2.25) circle (0.2cm)
-          node[anchor=south east]{?};
+          \draw<5->[thick,dashed] (4.3, 2.25) circle (0.2cm)
+          node[anchor=south east]{\scriptsize ?};
         \end{tikzpicture}
       }
     }
@@ -536,19 +572,20 @@
       \end{itemize}
     \item<4-> \color<4>{\clr} In Realität, Beispiel Wippe
       \begin{itemize}
-        \item<5-> \color<5>{\clr} Deutlich früher
+        \item<5-> \color<5>{\clr} Ggf. deutlich früher
         \item<6-> \color<6>{\clr} Zusatzherausforderung beschleunigte Kugel
         \item<7-> \color<7>{\clr} Rollrichtung der Kugel umkehren
-        \item<8-> \color<8>{\clr} Ist-Geschwindigkeit der Kugel einrechnen\\
+        \item<8-> \color<8>{\clr} Ist-Geschwindigkeit der Kugel einrechnen
         \item[]<9-> \color<9>{\clr} \imply{} Gleichgewicht reicht
           nicht zum Stoppen
       \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Beispiel Klimakipppunkte} (nach Schellnhuber, Stand 2008)
-  \supercite{Wikipedia20a,Maeder08}
+%\section{Fallbeispiele mit Analyse \& Bewertung}
+
+\begin{frame}[t]{Beispiel Klimakipppunkte}
+  nach Schellnhuber, Stand 2008\supercite{Wikipedia20a,Maeder08}
   \begin{itemize}
     \item<2-> \color<2>{\clr} Abschmelzen des sommerlichen arktischen
       Meereises
@@ -569,10 +606,7 @@
   \end{itemize}
 \end{frame}
 
-% \section{Beispiele}
-
-\begin{frame}
-  \frametitle{Beispiel: Albedo von Schneeflächen}
+\begin{frame}{Beispiel: Albedo von Schneeflächen}
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -611,25 +645,24 @@
       \end{tikzpicture}
     }
   }
-  \vspace{-3.0cm}\\
+  \vspace{-2.8cm}\\
   {\small Albedo: Rückstrahlvermögen diffus reflektierender Oberflächen}
   \begin{itemize}
     \item<2-> \color<2>{\clr} Zustand 1: Schneedecke vorhanden
     \item<3->[] \color<3>{\clr} \imply{} Schnee reflektiert Licht
     \item<4->[] \color<4>{\clr} \imply{} Kalter Boden
     \item<5->[] \color<5>{\clr} \imply{} Neuschnee bleibt liegen
-      {\impliedBy} Mitkopplung!
+      {$\leftarrow$} Mitkopplung!
     \item<6-> \color<6>{\clr} Zustand 2: Schneedecke weggeschmolzen
     \item<7->[] \color<7>{\clr} \imply{} Dunkler Boden absorbiert
       Licht
     \item<8->[] \color<8>{\clr} \imply{} Warmer Boden
     \item<9->[] \color<9>{\clr} \imply{} Neuschnee schmilzt weg
-      {\impliedBy} Mitkopplung!
+      {$\leftarrow$} Mitkopplung!
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Beispiel mechanisches Modell: Wippe}
+\begin{frame}{Beispiel mechanisches Modell: Wippe}
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -642,7 +675,7 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       {\color<3->{red}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<3->[->,very thick](85.0pt, 135.0pt) -- (65.0pt, 75.0pt);
+          \draw<3->[->,very thick](85.0pt, 135.0pt) -- (66.0pt, 80.0pt);
         \end{tikzpicture}
       }
     }
@@ -657,8 +690,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Computersimulation der Wippe}
+\begin{frame}{Computersimulation der Wippe}
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -695,8 +727,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Computersimulation der Wippe: Ergebnisse}
+\begin{frame}{Computersimulation der Wippe: Ergebnisse}
   \begin{itemize}
   \item<2-> \color<2>{\clr} Didaktisches, interaktives Spielzeug mit
     netter Grafik
@@ -708,11 +739,19 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell}
-  \vspace{1.5cm} \tikz[remember picture, overlay] {
-    \vspace{2.5cm} {\includegraphics[width=0.9\paperwidth,center]
-      {../images/electronics-setup.jpg}} }\\
+\begin{frame}{Elektronisches Modell}
+  \tikz[remember picture, overlay] {
+    \node[shift={(0.50cm, 0.00cm)}] at (current page.north west) (t1) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \node (device-setup) at (0.5\textwidth, -3.00cm)
+              {\includegraphics[width=0.9\textwidth]{../images/electronics-setup.jpg}};
+        \draw<2>[draw=red,thick] (0.6cm, -1.5cm) rectangle ++(3.8cm, -2.1cm);
+        \draw<3>[draw=red,thick] (5.9cm, -3.6cm) rectangle ++(2.4cm, -0.7cm);
+        \draw<4>[draw=red,thick] (9.8cm, -1.5cm) rectangle ++(1.6cm, -2.3cm);
+      \end{tikzpicture}
+    }
+  }
+  \vspace{1.5cm}\\
   \begin{itemize}
   \item<2-> \color<2>{\clr} Oszilloskop für Visualisierung
   \item<3-> \color<3>{\clr} elektronisches Modell auf Breadboard
@@ -720,18 +759,17 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell: Visualisierung}
+\begin{frame}{Elektronisches Modell: Visualisierung}
   \begin{itemize}
     \item<2-> \color<2>{\clr} Oszilloskop zur Darstellung
     \item<3-> \color<3>{\clr} Betrieb im X-Y-Modus als {\em
       Kennlinienschreiber}
     \item<4-> \color<4>{\clr} Bildwiederholung für stehendes Bild
       notwendig
-    \item<5-> \color<5>{\clr} hierfür mit Oszillator Kipppelement
+    \item<5->[] \color<5>{\clr} {\imply} Kipppelement mit Oszillator
       periodisch durchwandern
-    \item<6-> \color<6>{\clr} {\imply} Dreieckschwingung erzeugen für
-      Durchlaufen der X-Achse
+    \item<6->[] \color<6>{\clr} {\imply} Dreieckschwingung erzeugen
+      für Durchlaufen der X-Achse
     \item<7-> \color<7>{\clr} {\em Schmitt-Trigger} als eigentliches
       Kippelement
     \item<8-> \color<8>{\clr} Dreieck auf Eingang des Schmitt-Triggers
@@ -740,8 +778,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell: Implementierung}
+\begin{frame}{Elektronisches Modell: Implementierung}
   \vspace{5.0cm} \tikz[remember picture, overlay] {
     {\includegraphics[width=0.9\paperwidth,center]
       {../images/breadboard.jpg}} }\\
@@ -754,8 +791,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell: Erzeugung Dreieckschwingung}
+\begin{frame}{Elektronisches Modell: Erzeugung Dreieckschwingung}
   \begin{itemize}
   \item<2-> \color<2>{\clr} Standard-Oszillatorschaltung
   \item<3-> \color<3>{\clr} Frequenz ca. 1,7kHz
@@ -775,8 +811,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell: Dreickschwingung für X-Achse}
+\begin{frame}{Elektronisches Modell: Dreickschwingung für X-Achse}
   \begin{figure}
     \centering
     \label{fig:charging_voltage}
@@ -788,8 +823,7 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell: Dreickschwingung für X-Achse}
+\begin{frame}{Elektronisches Modell: Dreickschwingung für X-Achse}
   \begin{figure}
     \centering
     \label{fig:sawtooth}
@@ -802,8 +836,7 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell: Hysterese bei Volldurchlauf}
+\begin{frame}{Elektronisches Modell: Hysterese bei Volldurchlauf}
   \begin{figure}
     \centering
     \label{fig:hysteresis}
@@ -816,8 +849,7 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell: Kehrtwende im Hysteresebereich}
+\begin{frame}{Elektronisches Modell: Kehrtwende im Hysteresebereich}
   \begin{figure}
     \centering
     \label{fig:aborted_hysteresis}
@@ -831,12 +863,11 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Elektronisches Modell: Ergebnisse}
+\begin{frame}{Elektronisches Modell: Ergebnisse}
   \begin{itemize}
     \item<2-> \color<2>{\clr} Anders als die einfache
       Computersimulation „echtes“ Kippelement
-    \item<3-> \color<3>{\clr} Daher Potenzial, Effekte realer
+    \item<3->[] \color<3>{\clr} {\imply} Potenzial, Effekte realer
       Kipppunkte besser herauszuarbeiten und abzubilden
     \item<4-> \color<4>{\clr} Parallelogramm-förmige Hysterese sehr
       gut visualisierbar
@@ -855,8 +886,9 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Ergebnisse I}
+%\section{Ergebnisse \& Ausblick}
+
+\begin{frame}[t]{Ergebnisse I}
   \begin{itemize}
     \item<2-> \color<2>{\clr} (Kleine) Hysterese praktisch immer
       vorhanden
@@ -880,8 +912,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Ergebnisse II}
+\begin{frame}[t]{Ergebnisse II}
   \begin{itemize}
     \item<2-> \color<2>{\clr} Modelle stets Vereinfachung der Realität
     \item<3-> \color<3>{\clr} Verschiedene Modelle betonen
@@ -901,8 +932,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Hysterese: Offene Fragen I}
+\begin{frame}[t]{Hysterese: Offene Fragen I}
   Für konkretes reales Kippelement
   \begin{itemize}
     \item<2-> \color<2>{\clr} Wie groß ist die Hysterese (z.B. Schneeflächen)?
@@ -929,14 +959,21 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]
-  \frametitle{Hysterese: Offene Fragen II}
+\begin{frame}[t]{Hysterese: Offene Fragen II}
   Für konkretes reales Kippelement
   \begin{itemize}
   \item<2-> \color<2>{\clr} Welches Modell kommt Realität am nächsten?
   \item<3-> \color<3>{\clr} In welchen Eigenschaften ist es realistisch?
   \item<4-> \color<4>{\clr} Worin unterscheidet es sich von Realität?
   \end{itemize}
+\end{frame}
+
+% bibliography
+%\section{Literaturverweise}
+
+\begin{frame}[t,allowframebreaks]{Literaturverweise}
+  \nocite{Reuter20}
+  \printbibliography
 \end{frame}
 
 \begin{frame}[t]
@@ -948,12 +985,7 @@
 \end{frame}
 
 % backup slides
-
-\begin{frame}[t,allowframebreaks]
-  \frametitle{Literaturverweise}
-  \nocite{Reuter20}
-  \printbibliography
-\end{frame}
+%\section{Anhänge}
 
 \end{document}
 
