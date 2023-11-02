@@ -5,6 +5,8 @@
 \usecolortheme{spruce}
 \setbeamercolor*{normal text}{fg=green!30!black,bg=green!5!white}
 \usefonttheme{professionalfonts}
+% TODO: Blaue Bullets => Grün.  Blaue Unterschrift "Abbildung" =>
+% Grün.  Blautöne in Literaturverzeichnis => Grüntöne.
 
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
@@ -28,7 +30,7 @@
 \subtitle{Impulsvortrag mit anschließender Diskussion}
 \author{Jürgen Reuter}
 \institute[\tt{soundpaint.org}]{\tt{soundpaint.org}}
-\date[LFF2023]{Letters for Future, 30. September 2023}
+\date[LFF2023]{Letters for Future, 30.~September 2023}
 
 \AtBeginSection[] {
   \begin{frame}[t]{Überblick}
@@ -75,10 +77,10 @@
 \begin{frame}[t]{Motivation \& Ziele II}
   \begin{itemize}
   \item<2-> \color<2>{\clr} Was ist eine {\em Rückkopplung}
-    (engl. {\em feedback})?
-  \item<3-> \color<3>{\clr} Was ist ein {\em Kipppunkt} (engl. {\em
+    (engl.\ {\em feedback})?
+  \item<3-> \color<3>{\clr} Was ist ein {\em Kipppunkt} (engl.\ {\em
     tipping point})?
-  \item<4-> \color<4>{\clr} Was ist ein {\em Kippelement} (engl. {\em
+  \item<4-> \color<4>{\clr} Was ist ein {\em Kippelement} (engl.\ {\em
     tipping element})?
   \item<5-> \color<5>{\clr} Welche Beispiele gibt es?
   \item<6-> \color<6>{\clr} Was sind die grundsätzlichen Eigenschaften?
@@ -91,6 +93,10 @@
 \end{frame}
 
 \begin{frame}[fragile]{Rückkopplung I}
+  % TODO: Bildchen ist suboptimal, weil es ein verstärkendes Element
+  % im Signalweg darstellt, was ggf. an dieser Stelle so gar nicht
+  % gegeben ist (vgl. z.B. Albedo-Beispiel); ggf. Verstärkung auch nur
+  % im Rückkopplungszweig selbst.
   \tikz[remember picture, overlay] {
     \node[shift={(4cm, 2.5cm)}] at (current page.south west) (t1) {
       \tikzset{
@@ -121,7 +127,7 @@
   \begin{itemize}
   \item<2-> \color<2>{\clr} {\em Mitkopplung} oder {\em positive} Rückkopplung
     \begin{itemize}
-    \item<3-> \color<3>{\clr} Ggf. aufschaukelnd verstärkende Wirkung
+    \item<3-> \color<3>{\clr} Ggf.\ aufschaukelnd verstärkende Wirkung
     \item<4-> \color<4>{\clr} Beispiele:
       \begin{itemize}
       \item<5-> \color<5>{\clr} „Pfeifendes“ Mikro
@@ -135,6 +141,10 @@
 \end{frame}
 
 \begin{frame}{Rückkopplung II}
+  % TODO: Bildchen ist suboptimal, weil es ein verstärkendes Element
+  % im Signalweg darstellt, was ggf. an dieser Stelle so gar nicht
+  % gegeben ist (vgl. z.B. Albedo-Beispiel); ggf. Verstärkung auch nur
+  % im Rückkopplungszweig selbst.
   \tikz[remember picture, overlay] {
     \node[shift={(4cm, 2.5cm)}] at (current page.south west) (t1) {
       \tikzset{
@@ -169,7 +179,7 @@
     \item<3-> \color<3>{\clr} Abschwächende, dämpfende Wirkung
     \item<4-> \color<4>{\clr} Beispiele:
       \begin{itemize}
-      \item<5-> \color<5>{\clr} Regelkreis:
+      \item<5-> \color<5>{\clr} Technischer Regelkreis:
       \item<6->[] \color<6>{\clr} Temperaturregler / Thermostat
         (Kühlschrank, Heizung)
       \item<7->[] \color<7>{\clr} Spannungsregler / stabilisiertes
@@ -179,7 +189,7 @@
       \item<10-> \color<10>{\clr} Schilddrüsenfunktion
       \item<11-> \color<11>{\clr} Angebot und Nachfrage
       \item<12-> \color<12>{\clr} Temperaturkompensation,
-        Frequenzkompensation
+        Frequenzkompensation (Harrison H4)
       \item<13-> \color<13>{\clr} Autofokus (Flankendiskriminator)
       \end{itemize}
     \end{itemize}
@@ -191,71 +201,59 @@
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<2->[thick,->](0.0, 0.5) -- (10.5, 0.5);
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
-      \begin{tikzpicture}[remember picture, overlay]
         \draw<2->[thick,->](0.5, 0.0) -- (0.5, 2.5);
       \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
+    };
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
-        \draw<6-8>[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north
-          west] {\hspace{-3.3cm}\scriptsize Temperatur};
+        \draw<2-4>[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north
+          east] {\hspace{-0.2cm}\scriptsize Eingangswert};
+        \draw<2-4>[thick,->](0.5, 0.0) -- (0.5, 2.5) node[anchor=south
+          west] {\hspace{-0.2cm}\scriptsize Ausgangswert};
       \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
+    };
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
-        \draw<6-8>[thick,->](0.5, 0.0) -- (0.5, 2.5) node[anchor=south
+        \draw<5-7>[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north
+          east] {\hspace{-0.2cm}\scriptsize Temperatur};
+        \draw<5-7>[thick,->](0.5, 0.0) -- (0.5, 2.5) node[anchor=south
           west] {\hspace{-0.2cm}\scriptsize Schneebedeckung};
       \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
+    };
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      \begin{tikzpicture}[remember picture, overlay]
+        \draw<8>[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north
+          east] {\hspace{-0.2cm}\scriptsize Lage des Schwerpunktes};
+        \draw<8>[thick,->](0.5, 0.0) -- (0.5, 2.5) node[anchor=south
+          west] {\hspace{-0.2cm}\scriptsize Auslenkung};
+      \end{tikzpicture}
+    };
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       \begin{tikzpicture}[remember picture, overlay]
         \draw<9>[thick,->](0.0, 0.5) -- (10.5, 0.5) node[anchor=north
-          west] {\hspace{-3.3cm}\scriptsize Lage des Schwerpunktes};
-      \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t3) {
-      \begin{tikzpicture}[remember picture, overlay]
+          east] {\hspace{-0.2cm}\scriptsize Verstärker Eingangsspannung};
         \draw<9>[thick,->](0.5, 0.0) -- (0.5, 2.5) node[anchor=south
-          west] {\hspace{-0.2cm}\scriptsize Auslenkung};
+          west] {\hspace{-0.2cm}\scriptsize Verstärker Ausgangsspannung};
       \end{tikzpicture}
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t6) {
-      {\color<4>{\clr}
+    };
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      {\color<3>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<4->(5.25, 1.0) -- (5.75, 2.5);
+          \draw<3->(5.25, 1.0) -- (5.75, 2.5);
         \end{tikzpicture}
       }
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t5) {
+    };
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
+      {\color<6>{\clr}
+        \begin{tikzpicture}[remember picture, overlay]
+          \draw<6->(5.75, 2.5) -- (10.0, 2.5);
+        \end{tikzpicture}
+      }
+    };
+    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t2) {
       {\color<7>{\clr}
         \begin{tikzpicture}[remember picture, overlay]
-          \draw<7->(5.75, 2.5) -- (10.0, 2.5);
-        \end{tikzpicture}
-      }
-    }
-  }
-  \tikz[remember picture, overlay] {
-    \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t4) {
-      {\color<8>{\clr}
-        \begin{tikzpicture}[remember picture, overlay]
-          \draw<8->(1.0, 1.0) -- (5.25, 1.0);
+          \draw<7->(1.0, 1.0) -- (5.25, 1.0);
         \end{tikzpicture}
       }
     }
@@ -264,18 +262,21 @@
   \begin{itemize}
   \item<2-> \color<2>{\clr} Mitkopplung
     \begin{itemize}
-    \item[]<3-> \color<3>{\clr} {\imply} hohe Verstärkung
-    \item[]<4-> \color<4>{\clr} {\imply} steile Flanke
+    \item[]<3-> \color<3>{\clr} {\imply} hohe Verstärkung, steile
+      Flanke
     \end{itemize}
-  \item<5-> \color<5>{\clr} Sättigung: Begrenzung der Ausgangsgröße
+  \item<4-> \color<4>{\clr} Sättigung: Ausgangsgröße ggf.\ begrenzt
+    (physikal.\ Limit)
     \begin{itemize}
-    \item<6-> \color<6>{\clr} Beispiel: Schneebedeckung in
+    \item<5-> \color<5>{\clr} Beispiel: Schneebedeckung in
       niederschlagsreichem Gebiet
       \begin{itemize}
-      \item<7-> \color<7>{\clr} maximal 100\% Schneebedeckung
-      \item<8-> \color<8>{\clr} minimal 0\% Schneebedeckung
+      \item<6-> \color<6>{\clr} maximal 100\% Schneebedeckung
+      \item<7-> \color<7>{\clr} minimal 0\% Schneebedeckung
       \end{itemize}
-    \item<9-> \color<9>{\clr} Beispiel Wippe: Begrenzte Auslenkung
+    \item<8-> \color<8>{\clr} Beispiel Wippe: Begrenzte Auslenkung
+    \item<9-> \color<9>{\clr} Beispiel OpAmp: Ausgangsspannung
+      innerhalb Versorgungsspannung
     \end{itemize}
     \item[]<10->{\color<10>{\clr} {\imply} Schwellwert in System mit
       zwei (oder mehr) Zuständen}
@@ -344,7 +345,7 @@
   \vspace{-3.5cm}\\
   Erstes, naives Modell: Einzelne abrupte Schwelle
   \begin{itemize}
-    \item<2-> \color<2>{\clr} Eingehende Größe (z.B. Last auf Wippe,
+    \item<2-> \color<2>{\clr} Eingehende Größe (z.B.\ Last auf Wippe,
       \COO-Gehalt der Luft)
     \item<3-> \color<3>{\clr} Ausgehende Größe (Neigung der Wippe,
       Erderwärmung)
@@ -356,6 +357,21 @@
       Kipppunkt})
   \end{itemize}
 \end{frame}
+
+% TODO:
+
+% Gründe für eigentliche Hysterese: (1) Rückkopplung, (2) "Kosten" für
+% Zustandswechsel (Reibung / Widerstand im Kippbereich).
+
+% Gründe für verzögertes Erreichen des Hysterese-Bereichs durch Puffer
+% / Speicher: (1) Beispiel Albedo: Dicke der Schneeschicht,
+% d.h. Puffer bis Schnee geschmolzen ist.  (2) Beispiel
+% Sauerstoffkatastrophe: Zunächst die im Meerwasser gelösten Ionen
+% oxidiert; erst dann Anstieg O₂.
+
+% Beispiel präparierte Wippe: Versteckte Kugel als Gewicht mit
+% nicht-fixem Ort ist Kombi aus eigentlicher Hysterese (Rückkopplung)
+% plus Verzögerung (Ort der Kugel als Speicherung).
 
 \begin{frame}{Kipp{\em element}!}
   \tikz[remember picture, overlay] {
@@ -456,11 +472,11 @@
 %\end{frame}
 
 %\begin{frame}[t]{Beispiele aus Physik, Technik und Natur, Wirtschaft}
-%  Hysterese-Effekte gibt es sehr häufig:
+%  Hysterese-Effekte bzw. -Anwendungen gibt es sehr häufig:
 %  \begin{itemize}
-%    \item<2-> \color<2>{\clr} Wippe
+%    \item<2-> \color<2>{\clr} Thermostat/Kühlschrank (vermeidet "Flackern")
 %    \item<3-> \color<3>{\clr} Prellfreier Schwellwertschalter (Schmitt-Trigger)
-%    \item<4-> \color<4>{\clr} Bistabile Kippschaltungen (z.B. Flipflop)
+%    \item<4-> \color<4>{\clr} Bistabile Kippschaltungen (z.B.\ Flipflop)
 %    \item<5-> \color<5>{\clr} Ferromagnetische Magnetisierung
 %    \item<6-> \color<6>{\clr} KI / Neuronen: Sigmoid-Aktivierung + Rückkopplung
 %    \item<7-> \color<7>{\clr} Diverse ökonomische / soziale Prozesse
@@ -470,6 +486,10 @@
 %\end{frame}
 
 \begin{frame}{\glqq{}Point of No Return\grqq (\glqq{}PNR\grqq)?}
+  % TODO: Vorwärtsreferenz auf präparierte Wippe in dieser Folie
+  % eliminieren.  Zu diesem Zweck vielleicht eine Überblicksfolie über
+  % alle in diesem Vortrag behandelte Modelle (nur Titel + Bildchen)
+  % ziemlich zu Beginn des Vortrags einfügen?
   \tikz[remember picture, overlay] {
     \node[shift={(0.45cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -563,19 +583,21 @@
       }
     }
   }
-  \vspace{-3.5cm}\\
+  \vspace{-3.4cm}\\
   Ab wann geht es realistischerweise nicht mehr zurück?
   \begin{itemize}
     \item<2-> \color<2>{\clr} Im Modell
       \begin{itemize}
-        \item<3-> \color<3>{\clr} Am Zweigpunkt der Hysteresekurve
+        \item<3-> \color<3>{\clr} Bei Verlassen des Hysteresebereichs?
       \end{itemize}
-    \item<4-> \color<4>{\clr} In Realität, Beispiel Wippe
+    \item<4-> \color<4>{\clr} In Realität, Beispiel präparierte Wippe
+      mit Kugel
       \begin{itemize}
-        \item<5-> \color<5>{\clr} Ggf. deutlich früher
-        \item<6-> \color<6>{\clr} Zusatzherausforderung beschleunigte Kugel
-        \item<7-> \color<7>{\clr} Rollrichtung der Kugel umkehren
-        \item<8-> \color<8>{\clr} Ist-Geschwindigkeit der Kugel einrechnen
+        \item<5-> \color<5>{\clr} Ggf.\ deutlich früher?
+        \item<6-> \color<6>{\clr} Zusatzherausforderung der trägen Kugel
+        \item<7-> \color<7>{\clr} Umkehrung der Rollrichtung der Kugel
+        \item<8-> \color<8>{\clr} Ist-Geschwindigkeit der
+          beschleunigten Kugel einrechnen
         \item[]<9-> \color<9>{\clr} \imply{} Gleichgewicht reicht
           nicht zum Stoppen
       \end{itemize}
@@ -606,7 +628,14 @@
   \end{itemize}
 \end{frame}
 
+% TODO: Ggf. Erkenntnisse über zusätzliche, erst später entdeckte
+% Kippelemente auf neuer Folie ergänzen.
+
 \begin{frame}{Beispiel: Albedo von Schneeflächen}
+  % TODO: Pfeilspitzen in den Boden sollten gleiche Länge haben.
+  % Pfeile statt mit gerader Linien besser mit geschlängelten Linien.
+  % Ggf. Pufferaspekt der (dickeren) Schneedecke einzeichnen und
+  % ansprechen.
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.50cm)}] at (current page.south west) (t1) {
       \begin{tikzpicture}[remember picture, overlay]
@@ -739,6 +768,8 @@
   \end{itemize}
 \end{frame}
 
+% TODO: Blockdiagramm des elektronischen Modells
+
 \begin{frame}{Elektronisches Modell}
   \tikz[remember picture, overlay] {
     \node[shift={(0.50cm, 0.00cm)}] at (current page.north west) (t1) {
@@ -766,7 +797,7 @@
       Kennlinienschreiber}
     \item<4-> \color<4>{\clr} Bildwiederholung für stehendes Bild
       notwendig
-    \item<5->[] \color<5>{\clr} {\imply} Kipppelement mit Oszillator
+    \item<5->[] \color<5>{\clr} {\imply} Kippelement mit Oszillator
       periodisch durchwandern
     \item<6->[] \color<6>{\clr} {\imply} Dreieckschwingung erzeugen
       für Durchlaufen der X-Achse
@@ -779,6 +810,7 @@
 \end{frame}
 
 \begin{frame}{Elektronisches Modell: Implementierung}
+  % TODO: Bauteile in Abbildung mit rotem Rechteck einzeichnen
   \vspace{5.0cm} \tikz[remember picture, overlay] {
     {\includegraphics[width=0.9\paperwidth,center]
       {../images/breadboard.jpg}} }\\
@@ -794,7 +826,7 @@
 \begin{frame}{Elektronisches Modell: Erzeugung Dreieckschwingung}
   \begin{itemize}
   \item<2-> \color<2>{\clr} Standard-Oszillatorschaltung
-  \item<3-> \color<3>{\clr} Frequenz ca. 1,7kHz
+  \item<3-> \color<3>{\clr} Frequenz ca.\ 1,7kHz
   \item<4-> \color<4>{\clr} Signalaufbereitung
     \begin{itemize}
     \item<5-> \color<5>{\clr} Oszillation {\imply} nicht-lineare
@@ -806,24 +838,24 @@
     \end{itemize}
   \item<8-> \color<8>{\clr} Frequenz der Oszillation im hörbaren
     Bereich
-  \item<9-> \color<9>{\clr} Kalibrierung der Linearität (Reduktion
-    Klirrfaktor) ggf. auch akustisch möglich
+  \item<9-> \color<9>{\clr} Kalibrierung der Linearität (Klirrfaktor)
+    auch per Lautsprecher möglich
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Elektronisches Modell: Dreickschwingung für X-Achse}
+\begin{frame}{Elektronisches Modell: Dreieckschwingung für X-Achse}
   \begin{figure}
     \centering
     \label{fig:charging_voltage}
     {\includegraphics[width=0.5\paperwidth,center]
       {../images/charging-voltage.jpg}}
-    \caption{Der Spannungsverlauf der Ladekurve am Kondensators des
+    \caption{Der Spannungsverlauf der Ladekurve am Kondensator des
       Oszillators kommt nur unzureichend der gewünschten
       Dreieckschwingung nahe.}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Elektronisches Modell: Dreickschwingung für X-Achse}
+\begin{frame}{Elektronisches Modell: Dreieckschwingung für X-Achse}
   \begin{figure}
     \centering
     \label{fig:sawtooth}
@@ -863,6 +895,10 @@
   \end{figure}
 \end{frame}
 
+% TODO: Linearer Übergang von Hysterese zu linearem Verstärker bei
+% linearem Übergang von positiver zu negativer Rückkopplung.  Grafik /
+% Oszi-Screenshot + Erläuterung.
+
 \begin{frame}{Elektronisches Modell: Ergebnisse}
   \begin{itemize}
     \item<2-> \color<2>{\clr} Anders als die einfache
@@ -879,10 +915,10 @@
       \item<7-> \color<7>{\clr} Hohe Gegenkopplung: Lineare
         Verstärkung
       \end{itemize}
-    \item<8-> \color<8>{\clr} Hysterese schlägt ggf. bereits bei
+    \item<8-> \color<8>{\clr} Hysterese schlägt ggf.\ bereits bei
       Eintritt in Hysteresebereich voll durch
     \item<9-> \color<9>{\clr} Bei plötzlicher Kehrtwende im
-      Hysteresebereich können ggf. starke Oszillationen auftreten
+      Hysteresebereich können ggf.\ starke Oszillationen auftreten
   \end{itemize}
 \end{frame}
 
@@ -902,11 +938,11 @@
       Mitkopplung \& Gegenkopplung
       \begin{itemize}
       \item<6-> \color<6>{\clr} Entscheidend für Irreversibilität
-      \item<7-> \color<7>{\clr} Ggf. schwer zu bestimmen /
+      \item<7-> \color<7>{\clr} Ggf.\ schwer zu bestimmen /
         abzuschätzen
       \end{itemize}
-    \item<8-> \color<8>{\clr} Hysterese ggf. schon im Zustandsübergang
-      voll wirksam
+    \item<8-> \color<8>{\clr} Hysterese ggf.\ schon im
+      Zustandsübergang voll wirksam
     \item<9-> \color<9>{\clr} veschiedene Hystereseformen und
       -dynamiken möglich
   \end{itemize}
@@ -918,8 +954,8 @@
     \item<3-> \color<3>{\clr} Verschiedene Modelle betonen
       verschiedene Hysterese-Eigenschaften
       \begin{itemize}
-      \item<4-> \color<4>{\clr} Wippe: ggf. Reibung, Hebelgesetz
-      \item<5-> \color<5>{\clr} elektron. Modell: Oszillationen
+      \item<4-> \color<4>{\clr} Wippe: ggf.\ Reibung, Hebelgesetz
+      \item<5-> \color<5>{\clr} elektron.\ Modell: Oszillationen
       \end{itemize}
     \item<6-> \color<6>{\clr} Genauigkeit / Aussagekraft je Modell
       abhängig von Detaillierungsgrad
@@ -927,7 +963,7 @@
     \item<8-> \color<8>{\clr} Vielleicht nur „Problem“ des Modells
     \item<9-> \color<9>{\clr} Vielleicht aber Fingerzeig für bislang
       übersehene Eigenschaft
-    \item<10-> \color<10>{\clr} Ggf. zum Anlass nehmen für weitere
+    \item<10-> \color<10>{\clr} Ggf.\ Anlass für weitere
       Untersuchungen
   \end{itemize}
 \end{frame}
@@ -935,15 +971,16 @@
 \begin{frame}[t]{Hysterese: Offene Fragen I}
   Für konkretes reales Kippelement
   \begin{itemize}
-    \item<2-> \color<2>{\clr} Wie groß ist die Hysterese (z.B. Schneeflächen)?
+    \item<2-> \color<2>{\clr} Wie groß ist die Hysterese
+      (z.B.\ Schneeflächen)?
       \begin{itemize}
         \item<3-> \color<3>{\clr} Jahre?
         \item<4-> \color<4>{\clr} Jahrzehnte?
       \end{itemize}
     \item<5-> \color<5>{\clr} Form der Hysterese?
       \begin{itemize}
-        \item<6-> \color<6>{\clr} Z.B. Parallelogramm?
-        \item<7-> \color<7>{\clr} Z.B. Schleife?
+        \item<6-> \color<6>{\clr} Z.B.\ Parallelogramm?
+        \item<7-> \color<7>{\clr} Z.B.\ Schleife?
       \end{itemize}
     \item<8-> \color<8>{\clr} Wo ist der PNR?
     \item<9-> \color<9>{\clr} Gibt es weitere Einflüsse auf den PNR?
@@ -953,7 +990,7 @@
       \end{itemize}
     \item<12-> \color<12>{\clr} innere Variablen in Hysterese-Modell berücksichtigen
       \begin{itemize}
-        \item<13-> \color<13>{\clr} z.B. Kugelposition bei der Wippe
+        \item<13-> \color<13>{\clr} z.B.\ Kugelposition bei der Wippe
         \item<14-> \color<14>{\clr} und Kugelgeschwindigkeit
       \end{itemize}
   \end{itemize}
@@ -986,6 +1023,8 @@
 
 % backup slides
 %\section{Anhänge}
+
+% TODO: Kurzeinführung OpAmp / Differenzverstärker
 
 %\section*{Elektronisches Modell: Schaltpläne}
 
