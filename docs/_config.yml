@@ -4,3 +4,7 @@ iconurl: images/logo.png
 sass:
         sass_dir: _sass
         style: compressed
+jre_en: <a href="../../en"><span class="name">Jürgen Reuter</span></a>
+jre_de: <a href="../../de"><span class="name">Jürgen Reuter</span></a>
+rsw_en: <a href="http://www.renate-schweizer.net/"><span class="name">Renate Schweizer</span></a>
+rsw_de: <a href="http://www.renate-schweizer.net/"><span class="name">Renate Schweizer</span></a>
